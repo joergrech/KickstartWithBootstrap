@@ -1,0 +1,74 @@
+/** 
+ * CSS for the topbar/navbar section
+ */
+
+.navbar .nav img.logo	{ max-height: 25px; }
+.navbar .nav a.logo		{ padding: 7px 0 0; margin: 0px; border: 0px; }
+.navbar .brand			{ padding: 10px 20px; }
+
+/** 
+ * CSS for the Header section (blue background, etc.)
+ */
+
+#Header {
+	background-color: #049cd9;
+	background-repeat: no-repeat;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+	background-image: -webkit-linear-gradient(#004D9F, #049cd9);
+	background-image: -moz-linear-gradient(#004D9F, #049cd9);
+	background-image: -o-linear-gradient(top, #004D9F, #049cd9);
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); /* IE8 and down */
+	
+	margin: 40px 0 0 0;
+}
+
+#Header .inner {
+	background: transparent url(../img/grid-18px.png) top center;
+	padding: 80px 0;
+	-webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+	   -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#Header .pageTitle		{ font-size: 36px; font-weight: normal; text-decoration: none; color: #fff; }
+
+/* 
+ * Slight modification to Bootstrap in order to improve presentation 
+ */
+
+#Content {
+	padding-top: 1em;
+}
+
+section.first {
+	padding-top: 0px;
+}
+
+/*
+ * Alternating table row colors
+ */
+
+.odd {
+	background: #f0f0f0;
+}
+.even {
+	background: #ffffff;
+}
+
+/*
+ * Improve presentation of multiple alerts
+ */
+
+.alert ul {
+	margin-left: 0;
+	margin-bottom: 0;
+	padding-top:6px;
+	text-decoration: none;	
+	list-style-type: none;
+}
+.alert li {
+	margin-bottom: 6px;
+	text-decoration: none;	
+	list-style-type: none;
+}
