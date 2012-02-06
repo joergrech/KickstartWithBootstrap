@@ -7,23 +7,17 @@
 
 <body>
 
-	<content tag="header">
+<content tag="header">
 	<header id="Header" class="jumbotron masthead">
 		<div class="inner">
 			<div class="container">
-<%--				<span class="pageTitle"><g:layoutTitle default="${meta(name:'app.name')}" /></span>--%>
-				<h1 class="pageTitle">Info about the ${meta(name:'app.name')} system</h1>
-				<p>This page presents some information about the ${meta(name:'app.name')} system.</p>
+<%--			<span class="pageTitle"><g:layoutTitle default="${meta(name:'app.name')}" /></span>--%>
+				<h1 class="pageTitle">Technical Info about ${meta(name:'app.name')}</h1>
+				<p class="lead">This page presents some information about the ${meta(name:'app.name')} system.</p>
 			</div>
 		</div>
 	</header>
-	</content>
-
-<section id="intro">
-	<h1>Info about the ${meta(name:'app.name')} system</h1>
-	<p class="lead">This page presents some information about the ${meta(name:'app.name')} system.
-	</p>
-</section>
+</content>
 
 <section id="resources">
      <h1>Used Resources</h1>

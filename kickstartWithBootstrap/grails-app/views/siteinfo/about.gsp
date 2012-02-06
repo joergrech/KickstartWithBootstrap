@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>About</title>
+    <title>About ${meta(name:'app.name')}</title>
     <meta name="layout" content="kickstart" />
 </head>
 

@@ -32,6 +32,7 @@
 }
 
 #Header .pageTitle		{ font-size: 36px; font-weight: normal; text-decoration: none; color: #fff; }
+#Header .lead			{ color: #fff; }
 
 /* 
  * Slight modification to Bootstrap in order to improve presentation 

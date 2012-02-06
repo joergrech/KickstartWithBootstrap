@@ -46,7 +46,7 @@
 				<ul class="nav">
 					<li class="">
 						<a class="logo" href="${createLink(uri: '/')}">
-							<img class="logo" src="${resource(dir:'images',file:'grails.png')}" alt="${meta(name:'app.name')}" height="25" border="0" />
+							<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" height="25" border="0" />
 						</a>
 					</li>
 				</ul>

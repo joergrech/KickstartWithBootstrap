@@ -22,16 +22,17 @@ target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates") {
 	
 	// copy views incl. about.gsp, ...
 	println ( '\nAdding the Home controller ...' )
-	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/controllers"
-	targetDir = "${basedir}/grails-app/controllers"
-	copyDir(sourceDir, targetDir, "\nOverwrite existing Home controller\n  in ${targetDir}?", "overwrite.home")
+	sourceDir = "${kickstartWithBootstrapPluginDir}/src/"
+	targetDir = "${basedir}/grails-app/controllers/"
+//	copyDir(sourceDir, targetDir, "\nOverwrite existing Home controller\n  in ${targetDir}?", "overwrite.home")
+	copyFile(sourceDir+"HomeController.groovy",targetDir,		"\nOverwrite existing HomeController.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
 //	event "StatusUpdate", ["Kickstart layouts & views installed successfully"]
 	
 	// CHECK: Required or accessible via plugin?
-	println ( '\nInstalling taglib for Bootstrap ...' )
-	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/taglib/kickstart"
-	targetDir = "${basedir}/grails-app/taglib/kickstart"
-	copyDir(sourceDir, targetDir, "\nOverwrite existing kickstart taglib\n  in ${targetDir}?", "overwrite.taglibs")
+//	println ( '\nInstalling taglib for Bootstrap ...' )
+//	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/taglib/kickstart"
+//	targetDir = "${basedir}/grails-app/taglib/kickstart"
+//	copyDir(sourceDir, targetDir, "\nOverwrite existing kickstart taglib\n  in ${targetDir}?", "overwrite.taglibs")
 //	event "StatusUpdate", ["Kickstart taglib installed successfully"]
 	
 	// TODO: copy css, js, ...? Or available via plugin mechanism?
@@ -48,7 +49,8 @@ target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates") {
 	println ( '\nInstalling and changing conf files ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/"
 	targetDir = "${basedir}/grails-app/conf/"
-	copyDir(sourceDir+"kickstart",targetDir+"kickstart",	"\nOverwrite existing Kickstart conf files\n  in ${targetDir}?", "overwrite.conf.kickstart")
+//	copyDir(sourceDir+"kickstart/",targetDir+"kickstart",	"\nOverwrite existing Kickstart conf files\n  in ${targetDir}?", "overwrite.conf.kickstart")
+	copyFile("${kickstartWithBootstrapPluginDir}/src/KickstartFilters.groovy",targetDir+"kickstart/",		"\nOverwrite existing URLMappings.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
 	copyFile(sourceDir+"UrlMappings.groovy",targetDir,		"\nOverwrite existing URLMappings.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
 	event "StatusUpdate", ["Kickstart installed successfully"]
 }
