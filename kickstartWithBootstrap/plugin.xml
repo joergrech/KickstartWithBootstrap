@@ -35,7 +35,6 @@ now use the Bootstrap framework!
     <resource>Config</resource>
     <resource>DataSource</resource>
     <resource>UrlMappings</resource>
-    <resource>kickstart.KickstartFilters</resource>
     <resource>kickstart.BootstrapTagLib</resource>
   </resources>
   <dependencies />
