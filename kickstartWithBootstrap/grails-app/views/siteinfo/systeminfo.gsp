@@ -11,8 +11,8 @@
 	<header id="Header" class="jumbotron masthead">
 		<div class="inner">
 			<div class="container">
-<%--			<span class="pageTitle"><g:layoutTitle default="${meta(name:'app.name')}" /></span>--%>
-				<h1 class="pageTitle">Technical Info about ${meta(name:'app.name')}</h1>
+<%--			<span class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></span>--%>
+				<h1 class="title">Technical Info about ${meta(name:'app.name')}</h1>
 				<p class="lead">This page presents some information about the ${meta(name:'app.name')} system.</p>
 			</div>
 		</div>

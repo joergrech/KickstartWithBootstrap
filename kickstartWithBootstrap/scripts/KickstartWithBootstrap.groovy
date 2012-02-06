@@ -51,7 +51,7 @@ target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates") {
 	targetDir = "${basedir}/grails-app/conf/"
 //	copyDir(sourceDir+"kickstart/",targetDir+"kickstart",	"\nOverwrite existing Kickstart conf files\n  in ${targetDir}?", "overwrite.conf.kickstart")
 	copyFile("${kickstartWithBootstrapPluginDir}/src/KickstartFilters.groovy",targetDir+"kickstart/",		"\nOverwrite existing URLMappings.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
-	copyFile(sourceDir+"UrlMappings.groovy",targetDir,		"\nOverwrite existing URLMappings.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
+	copyFile("${kickstartWithBootstrapPluginDir}/src/UrlMappings.groovy",targetDir,		"\nOverwrite existing URLMappings.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
 	event "StatusUpdate", ["Kickstart installed successfully"]
 }
 setDefaultTarget kickstartWithBootstrap

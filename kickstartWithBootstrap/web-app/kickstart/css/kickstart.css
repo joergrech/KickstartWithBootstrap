@@ -31,8 +31,8 @@
 			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-#Header .pageTitle		{ font-size: 36px; font-weight: normal; text-decoration: none; color: #fff; }
-#Header .lead			{ color: #fff; }
+#Header .title		{ font-size: 72px; line-height: 72px; font-weight: normal; text-decoration: none; color: #fff; }
+#Header .lead		{ font-size: 18px; line-height: 18px; color: #fff; }
 
 /* 
  * Slight modification to Bootstrap in order to improve presentation 
