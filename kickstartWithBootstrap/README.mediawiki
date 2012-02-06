@@ -1,27 +1,32 @@
+__NOTOC__
 == Introduction ==
-Kickstart is an extension for Grails in order to start your project with a good looking frontend. 
-It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
+Kickstart is an extension for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as Startup Weekend or a prototyping session with a customer.
+This plugin provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter. Additionally, Kickstart includes some general GSPs pages (e.g., about.gsp), a minimal logging/orientation Filter, and a language switcher.
+
+Currently, Kickstart is intended to act more like an injection than an plugin - importent files are copied into your project and you can remove the plugin afterwards. 
 
 == Usage ==
-After installation you can call "grails kickstartWithBootstrap" which will copy several files into your project. 
-It will overwrite only few files (e.g., in conf, src, and views) - you should use it only on fresh new Grails projects. 
+After installation you can call the script "grails kickstartWithBootstrap" which will copy several files into your project. 
+It will overwrite only few files (e.g., in conf, src, and views) - '''you should use it only on fresh new Grails projects'''. 
 
 Afterwards create your domain classes (or copy them into the project) and generate contollers and views - they will
 now use the Bootstrap framework!
 
 
-== Notes: ==
+== Notes ==
 
-
-* Currently, only tested with Grails 1.3.7!
+* Only tested with Grails 1.3.7!
+* Uses Bootsratp 2.0 (with some graphics from 1.4)
 * Does only use plain Bootstrap (currently, without Less).
 * The plugin copies the files into your project - you can uninstall the plugin thereafter.
 * It does NOT use the Bootstrap plugin.
 
 
-== Terms of Use: ==
+== Terms of Use ==
 
-
-* Bootstrap (from Twitter): Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)
-* Kickstart Plugins: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. Copyright 2011 Jörg Rech (@JoergRech, http://joerg-rech.com)
+* Bootstrap (from Twitter): Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
+** see http://twitter.github.com/bootstrap/ and follow @TwBootstrap
+* Kickstart Plugins: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
+** Copyright 2011 Jörg Rech 
+** see http://joerg-rech.com and follow @JoergRech
 
