@@ -1,6 +1,6 @@
 class KickstartWithBootstrapGrailsPlugin {
     // the plugin version
-    def version = "0.4"
+    def version = "0.5"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.3.7 > *"
     // the other plugins this plugin depends on
@@ -9,8 +9,16 @@ class KickstartWithBootstrapGrailsPlugin {
     def pluginExcludes = [
             "grails-app/views/error.gsp"
     ]
+	
+	def license = "APACHE" // Apache License 2.0
+//	def organization = [ name: "SpringSource", url: "http://www.springsource.org/" ]
+//	def developers = [
+//			[ name: "Jörg Rech", email: "joerg.rech@gmail.com" ]
+//		]
+//	def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GRAILSPLUGINS" ]
+	def scm = [ url: "https://github.com/joergrech/KickstartWithBootstrap" ]
 
-    // TODO Fill in these fields
+	// TODO Fill in these fields
     def author = "Joerg Rech"
     def authorEmail = "joerg.rech@gmail.com"
     def title = "Good looking web project setup with Bootstrap!"

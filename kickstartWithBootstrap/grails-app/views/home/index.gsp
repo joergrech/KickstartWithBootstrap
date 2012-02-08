@@ -18,7 +18,7 @@
 <section id="intro2">
 	
 	<h2>Introduction</h2>
-	<p>Kickstart is an extension for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as Startup Weekend or a prototyping session with a customer.
+	<p>Kickstart is an extension for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
 This plugin provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter. Additionally, Kickstart includes some general GSPs pages (e.g., about.gsp), a minimal logging/orientation Filter, and a language switcher.
 </p><p>
 Currently, Kickstart is intended to act more like an injection than an plugin - importent files are copied into your project and you can remove the plugin afterwards. 

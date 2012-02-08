@@ -1,4 +1,4 @@
-<plugin name='kickstart-with-bootstrap' version='0.4' grailsVersion='1.3.7 &gt; *'>
+<plugin name='kickstart-with-bootstrap' version='0.5' grailsVersion='1.3.7 &gt; *'>
   <author>Joerg Rech</author>
   <authorEmail>joerg.rech@gmail.com</authorEmail>
   <title>Good looking web project setup with Bootstrap!</title>
@@ -30,13 +30,19 @@ now use the Bootstrap framework!
 
 </description>
   <documentation>http://grails.org/plugin/kickstartWithBootstrap</documentation>
+  <type>KickstartWithBootstrapGrailsPlugin</type>
   <resources>
-    <resource>BuildConfig</resource>
-    <resource>Config</resource>
-    <resource>DataSource</resource>
-    <resource>UrlMappings</resource>
     <resource>kickstart.BootstrapTagLib</resource>
   </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
   <dependencies />
+  <plugins />
+  <runtimePluginRequirements />
   <behavior />
 </plugin>
