@@ -10,7 +10,7 @@ class KickstartWithBootstrapGrailsPlugin {
             "grails-app/views/error.gsp"
     ]
 	
-	def license = "APACHE" // Apache License 2.0
+	def license = "APACHE"
 //	def organization = [ name: "SpringSource", url: "http://www.springsource.org/" ]
 //	def developers = [
 //			[ name: "Jörg Rech", email: "joerg.rech@gmail.com" ]
@@ -21,35 +21,38 @@ class KickstartWithBootstrapGrailsPlugin {
 	// TODO Fill in these fields
     def author = "Joerg Rech"
     def authorEmail = "joerg.rech@gmail.com"
-    def title = "Good looking web project setup with Bootstrap!"
-    def description = '''\\
-<h3>Introduction</h3>
-<p>Kickstart is an extension for Grails in order to start your project with a good looking frontend. 
-It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.</p>
-<h3>Usage</h3>
-<p>After installation you can call "grails kickstartWithBootstrap" which will copy several files into your project. 
-It will overwrite only few files (e.g., in conf, src, and views) - you should use it only on fresh new Grails projects. 
-</p>
-<p>Afterwards create your domain classes (or copy them into the project) and generate contollers and views - they will
-now use the Bootstrap framework!
-</p>
-<h3>Notes:</h3>
-<p></p>
-<ul>
-<li>Currently, only tested with Grails 1.3.7!</li>
-<li>Does only use plain Bootstrap (currently, without Less).</li>
-<li>The plugin copies the files into your project - you can uninstall the plugin thereafter.</li>
-<li>It does NOT use the Bootstrap plugin.</li>
-</ul>
-<h3>Terms of Use:</h3>
-<p></p>
-<ul>
-<li>Bootstrap (from Twitter): Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)</li>
-<li>Kickstart Plugins: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. Copyright 2011 JÃ¶rg Rech (@JoergRech, http://joerg-rech.com)</li>
-</ul>
-
+    def title = "Kickstart with Bootstrap - Good looking websites!"
+    def installation = '''\\
+{code}
+grails install-plugin KickstartWithBootstrap
+{code}
 '''
+    def description = '''\\
+\
+h2. Introduction
+Kickstart is an extension for Grails in order to start your project with a good looking frontend. 
+It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
+'''
+/*
+h2. Usage
 
+After installation you can call "grails kickstartWithBootstrap" which will copy several files into your project. 
+It will overwrite only few files (e.g., in conf, src, and views) - *you should use it only on fresh new Grails project*. 
+
+Afterwards create your domain classes (or copy them into the project) and generate contollers and views - they will now use the Bootstrap framework!
+
+h2. Notes
+
+* Currently, only tested with Grails 1.3.7 projects!
+* Does only use plain Bootstrap (currently, without Less).
+* The plugin copies the files into your project - you can uninstall the plugin thereafter.
+* It does NOT use the Bootstrap plugin.
+
+h2. Terms of Use
+* [Bootstrap|http://twitter.github.com/bootstrap/] (from Twitter): Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (Follow [@TwBootstrap|http://twitter.com/twbootstrap])
+* [Kickstart Plugins|https://github.com/joergrech/KickstartWithBootstrap]: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. Copyright 2011 [Joerg Rech|http://joerg-rech.com] (Follow [@JoergRech|http://twitter.com/joergrech])
+
+ */
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/kickstartWithBootstrap"
 

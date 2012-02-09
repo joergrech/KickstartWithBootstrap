@@ -18,7 +18,6 @@
 	<link rel="stylesheet" href="${resource(dir:'bootstrap/css',file:'bootstrap.css')}" />
 	<link rel="stylesheet" href="${resource(dir:'bootstrap/css',file:'bootstrap-responsive.css')}" />
 	<link rel="stylesheet" href="${resource(dir:'kickstart/css',file:'docs.css')}" />
-<%--	<link rel="stylesheet" href="${resource(dir:'bootstrap/js/google-code-prettify/',file:'prettify.css')}" />--%>
 	<link rel="stylesheet" href="${resource(dir:'kickstart/css',file:'kickstart.css')}" />
 
     <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
@@ -28,13 +27,9 @@
     <g:layoutHead />
 	
     <!-- Note: Place at the end of the document to load faster -->
-<%--    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>--%>
-<%--    <script src="assets/js/jquery.js"></script>--%>
-<%--    <script src="assets/js/google-code-prettify/prettify.js"></script>--%>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="${resource(dir:'bootstrap/js',file:'bootstrap.js')}"></script>
     <script src="${resource(dir:'bootstrap/js',file:'bootstrap-transition.js')}"></script>
-    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
     <script src="${resource(dir:'kickstart/js',file:'kickstart.js')}"></script>
 	<g:javascript library="application" />
 </head>
@@ -43,41 +38,35 @@
 	<div id="Navbar" class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<ul class="nav">
-					<li class="">
-						<a class="logo" href="${createLink(uri: '/')}">
-							<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" height="25" border="0" />
-						</a>
-					</li>
-				</ul>
+				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+	            	<span class="icon-bar"></span>
+	            	<span class="icon-bar"></span>
+				</a>
 
-				<h3 id="ProjectName">
 				<a class="brand" href="${createLink(uri: '/')}">
+					<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" height="25" border="0" />
 					${meta(name:'app.name')}
 					<small> v${meta(name:'app.version')}</small>
 				</a>
-				</h3>
 
-				<ul class="nav">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-		                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-		                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName.substring(c.fullName.lastIndexOf('.')+1)}</g:link></li>
-		                    </g:each>
-						</ul>
-					</li>
-				</ul>
+          		<div class="nav-collapse">
+          			<ul class="nav">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+			                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+			                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName.substring(c.fullName.lastIndexOf('.')+1)}</g:link></li>
+			                    </g:each>
+							</ul>
+						</li>
+					</ul>
 				
-				<div class="pull-right">
-<%--					<form class="navbar-search">--%>
-<%--						<input type="text" class="search-query" placeholder="Search">--%>
-<%--					</form>--%>
-					
-<%--					<g:render template="/menu/login"/>														--%>
-<%--					<g:render template="/menu/user"/>														--%>
-					<g:render template="/menu/language"/>														
-					<g:render template="/menu/info"/>														
+					<div class="pull-right">
+						<g:render template="/menu/language"/>														
+						<g:render template="/menu/info"/>														
+					</div>
 				</div>
 				
 			</div>
@@ -85,28 +74,26 @@
 	</div>
 
 	<g:if test="${ pageProperty(name:'page.header') }">
-   	<g:pageProperty name="page.header" />
+   		<g:pageProperty name="page.header" />
 	</g:if>
 	<g:else>
-	<header id="Header" class="jumbotron masthead">
-		<div class="inner">
-			<div class="container">
-				<h1 class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></h1>
+		<header id="Header" class="jumbotron masthead">
+			<div class="inner">
+				<div class="container">
+					<h1 class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></h1>
+				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 	</g:else>
 
 	<div id="Content" class="container">
-<%--		<div class="container">--%>
-			<g:if test="${	params.controller != null
-						&&	params.controller != ''
-						&&	params.controller != 'home'
-						&&	params.controller != 'login'
-			}">
+		<g:if test="${	params.controller != null
+					&&	params.controller != ''
+					&&	params.controller != 'home'
+		}"><%-- Only show the "Pills" navigation menu if a controller exists (but not for home) --%>
 			<ul id="Menu" class="nav nav-pills">
 		        <g:set var="entityName" value="${message(code: params.controller+'.label', default: params.controller.substring(0,1).toUpperCase() + params.controller.substring(1).toLowerCase())}" />
-<%--		        	<g:render template="menu"/>--%>
+		        <%-- Set which "pill" of the menu is active --%>
 				<li class="${ params.action == "list" ? 'active' : '' }">
 					<g:link action="list"><g:message code="default.list.label" args="[entityName]"/></g:link>
 				</li>
@@ -114,34 +101,22 @@
 					<g:link action="create"><g:message code="default.new.label"  args="[entityName]"/></g:link>
 				</li>
 			</ul>
-            </g:if>
-            
-<%--            <g:hasErrors bean="${propertyName}">--%>
-<%--            <div class="alert error">--%>
-<%--                <g:renderErrors bean="${propertyName}" as="list" />--%>
-<%--            </div>--%>
-<%--            </g:hasErrors>--%>
-<%--            <g:hasErrors bean="${bookInstance}">--%>
-<%--            <div class="alert error">--%>
-<%--                <g:renderErrors bean="${bookInstance}" as="list" />--%>
-<%--            </div>--%>
-<%--            </g:hasErrors>--%>
-            
-            <g:if test="${flash.message}">
+        </g:if>
+                        
+        <g:if test="${flash.message}">
             <div class="alert alert-info">${flash.message}</div>
-            </g:if>
+        </g:if>
             
-			<g:layoutBody />
-            <g:pageProperty name="page.body" />
-<%--		</div>--%>
+		<g:layoutBody />
+        <g:pageProperty name="page.body" />
 	</div>
 
 	<g:if test="${ pageProperty(name:'page.footer') }">
-    <g:pageProperty name="page.footer" />
+	    <g:pageProperty name="page.footer" />
 	</g:if>
 	<g:else>
-	<footer id="Footer">
-	</footer>
+		<footer id="Footer">
+		</footer>
 	</g:else>
 		
 </body>
