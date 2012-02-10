@@ -31,5 +31,7 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
-0.5.1	Minor bugfixes in Bootstrap and layout files 
-0.5		Initial shared version
+;0.5.1
+: Minor bugfixes in Bootstrap and layout files 
+;0.5
+: Initial shared version
