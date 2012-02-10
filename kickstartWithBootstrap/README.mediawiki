@@ -15,8 +15,7 @@ now use the Bootstrap framework!
 
 == Notes ==
 
-* Only tested with Grails 1.3.7!
-* Uses Bootsratp 2.0 (with some graphics from 1.4)
+* Uses a vertical responsive Bootstrap 2.0 template (with some graphics from 1.4)
 * Does only use plain Bootstrap (currently, without Less).
 * The plugin copies the files into your project - you can uninstall the plugin thereafter.
 * It does NOT use the Bootstrap plugin.
@@ -30,3 +29,7 @@ now use the Bootstrap framework!
 ** Copyright 2011 Jörg Rech 
 ** see http://joerg-rech.com and follow @JoergRech
 
+== Changelog ==
+
+0.5.1	Minor bugfixes in Bootstrap and layout files 
+0.5		Initial shared version

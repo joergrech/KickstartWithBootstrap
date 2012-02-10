@@ -29,9 +29,9 @@
     <!-- Note: Place at the end of the document to load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="${resource(dir:'bootstrap/js',file:'bootstrap.js')}"></script>
-    <script src="${resource(dir:'bootstrap/js',file:'bootstrap-transition.js')}"></script>
     <script src="${resource(dir:'kickstart/js',file:'kickstart.js')}"></script>
 	<g:javascript library="application" />
+	<r:layoutResources />
 </head>
 
 <body>
@@ -87,10 +87,11 @@
 	</g:else>
 
 	<div id="Content" class="container">
+		<%-- Only show the "Pills" navigation menu if a controller exists (but not for home) --%>
 		<g:if test="${	params.controller != null
 					&&	params.controller != ''
 					&&	params.controller != 'home'
-		}"><%-- Only show the "Pills" navigation menu if a controller exists (but not for home) --%>
+		}">
 			<ul id="Menu" class="nav nav-pills">
 		        <g:set var="entityName" value="${message(code: params.controller+'.label', default: params.controller.substring(0,1).toUpperCase() + params.controller.substring(1).toLowerCase())}" />
 		        <%-- Set which "pill" of the menu is active --%>
@@ -119,6 +120,7 @@
 		</footer>
 	</g:else>
 		
+    <r:layoutResources />
 </body>
 
 </html>
