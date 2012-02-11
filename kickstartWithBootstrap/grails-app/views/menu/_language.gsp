@@ -16,11 +16,5 @@
 				<li><a class="js-language-link" title="French" data-lang-code="fr" href="${createLink(uri: '/?lang=fr')}">Français</a></li>
 			
 		</ul>
-<%--		<div class="js-front-language">--%>
-<%--			<form method="POST" class="language" action="/sessions/change_locale">--%>
-<%--				<input type="hidden" name="lang">--%>
-<%--				<input type="hidden" name="redirect">--%>
-<%--			</form>--%>
-<%--		</div>--%>
 	</li>
 </ul>

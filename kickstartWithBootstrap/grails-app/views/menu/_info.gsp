@@ -11,7 +11,6 @@
 			<li class="divider"></li>
 			<li class=""><a href="${createLink(uri: '/systeminfo')}">System Info</a></li>
 			
-			
 <%--			<li class="divider"></li>--%>
 <%--			<li class=""><a href="${createLink(uri: '/imprint')}">Imprint</a></li>--%>
 <%--			<li class=""><a href="${createLink(uri: '/terms')}"><i>Terms of Use</i></a></li>--%>
