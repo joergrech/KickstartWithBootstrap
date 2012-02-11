@@ -31,6 +31,8 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
+;0.5.3
+: Improvement of error.gsp
 ;0.5.2
 : Cleanup of code and scripts. Improvement of I18N 
 ;0.5.1
