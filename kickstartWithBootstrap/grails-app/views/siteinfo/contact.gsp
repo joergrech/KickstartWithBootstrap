@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Contact</title>
+	<title><g:message code="default.contact.title"/></title>
 	<meta name="layout" content="kickstart" />
 </head>
 
@@ -17,7 +17,7 @@
 	</section>
 
 	<section id="address">
-		<h1>Address</h1>
+		<h1><g:message code="default.contact.address"/></h1>
 		<address>
 			<strong>${meta(name:'app.name')}, Inc.</strong><br>
 			 123 Future Ave<br>

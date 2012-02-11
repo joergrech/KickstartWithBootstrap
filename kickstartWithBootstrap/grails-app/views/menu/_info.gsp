@@ -1,15 +1,15 @@
 <ul class="nav">
 	<li class="dropdown">
-		<a class="dropdown-toggle" href="#">Info <b class="caret"></b></a>
+		<a class="dropdown-toggle" href="#"><g:message code="default.info.title"/> <b class="caret"></b></a>
 		<ul class="dropdown-menu">
 		
 			<%-- Note: Links to pages without controller are redirected in conf/UrlMappings.groovy --%>
-			<li class=""><a href="${createLink(uri: '/about')}">About</a></li>
-			<li class=""><a href="http://wordpress.com/signup/"><i>Blog</i></a></li>
-			<li class=""><a href="${createLink(uri: '/contact')}">Contact</a></li>
+			<li class=""><a href="${createLink(uri: '/about')}"><g:message code="default.about.button"/></a></li>
+			<li class=""><a href="http://wordpress.com/signup/"><i><g:message code="default.blog.button"/></i></a></li>
+			<li class=""><a href="${createLink(uri: '/contact')}"><g:message code="default.contact.button"/></a></li>
 			
 			<li class="divider"></li>
-			<li class=""><a href="${createLink(uri: '/systeminfo')}">System Info</a></li>
+			<li class=""><a href="${createLink(uri: '/systeminfo')}"><g:message code="default.systeminfo.button"/></a></li>
 			
 <%--			<li class="divider"></li>--%>
 <%--			<li class=""><a href="${createLink(uri: '/imprint')}">Imprint</a></li>--%>

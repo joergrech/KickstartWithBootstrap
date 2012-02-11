@@ -7,21 +7,21 @@ includeTargets << grailsScript("_GrailsInit")
 target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates") {
 	depends(checkVersion, parseArguments)
 	
-	println ( '\nInstalling scaffolding templates ...' )
+	println ( 'Installing scaffolding templates ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src/templates/scaffolding"
 	targetDir = "${basedir}/src/templates/scaffolding"
 	copyDir(sourceDir, targetDir, "\nOverwrite existing scaffolding templates\n  in ${targetDir}?", "overwrite.templates")
 //	event "StatusUpdate", ["Kickstart templates installed successfully"]
 	
 	// copy views incl. about.gsp, ...
-	println ( '\nReplacing exisiting views and installing new ones ...' )
+	println ( 'Replacing exisiting views and installing new ones ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/views"
 	targetDir = "${basedir}/grails-app/views"
 	copyDir(sourceDir, targetDir, "\nOverwrite existing layouts & base GSPs (e.g., index.gsp)\n  in ${targetDir}?", "overwrite.layouts")
 //	event "StatusUpdate", ["Kickstart layouts & views installed successfully"]
 	
 	// copy views incl. about.gsp, ...
-	println ( '\nAdding the Home controller ...' )
+	println ( 'Adding the Home controller ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src/"
 	targetDir = "${basedir}/grails-app/controllers/"
 //	copyDir(sourceDir, targetDir, "\nOverwrite existing Home controller\n  in ${targetDir}?", "overwrite.home")
@@ -36,7 +36,7 @@ target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates") {
 //	event "StatusUpdate", ["Kickstart taglib installed successfully"]
 	
 	// TODO: copy css, js, ...? Or available via plugin mechanism?
-	println ( '\nInstalling css, js, and images for Bootstrap ...' )
+	println ( 'Installing css, js, and images for Bootstrap ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/"
 	targetDir = "${basedir}/web-app/"
 	copyDir(sourceDir+"bootstrap", targetDir+"bootstrap",	"\nOverwrite existing bootstrap files\n  in ${targetDir}?", "overwrite.web-app.css")
@@ -46,7 +46,7 @@ target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates") {
 
 	// TODO: integrate (or) copy URLMappings.groovy, KickstartFilters.groovy
 	// TODO: copy css, js, ...? Or available via plugin mechanism?
-	println ( '\nInstalling and changing conf files ...' )
+	println ( 'Installing and changing conf files ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/"
 	targetDir = "${basedir}/grails-app/conf/"
 //	copyDir(sourceDir+"kickstart/",targetDir+"kickstart",	"\nOverwrite existing Kickstart conf files\n  in ${targetDir}?", "overwrite.conf.kickstart")
