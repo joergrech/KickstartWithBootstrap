@@ -31,6 +31,8 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
+;0.5.4
+: Added measurement of time to simple console logging in KickstartFilters
 ;0.5.3
 : Improvement of error.gsp
 ;0.5.2

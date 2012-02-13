@@ -1,14 +1,14 @@
 class KickstartWithBootstrapGrailsPlugin {
     // the plugin version
-    def version = "0.5.3"
+    def version = "0.5.4"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.3.7 > *"
     // the other plugins this plugin depends on
     def dependsOn = [:]
     // resources that are excluded from plugin packaging
-    def pluginExcludes = [
+//    def pluginExcludes = [
 //            "grails-app/views/error.gsp"
-    ]
+//    ]
 	
 	def license = "APACHE"
 //	def organization = [ name: "SpringSource", url: "http://www.springsource.org/" ]
@@ -28,31 +28,10 @@ grails install-plugin KickstartWithBootstrap
 {code}
 '''
     def description = '''\\
-\
 h2. Introduction
 Kickstart is an extension for Grails in order to start your project with a good looking frontend. 
 It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
 '''
-/*
-h2. Usage
-
-After installation you can call "grails kickstartWithBootstrap" which will copy several files into your project. 
-It will overwrite only few files (e.g., in conf, src, and views) - *you should use it only on fresh new Grails project*. 
-
-Afterwards create your domain classes (or copy them into the project) and generate contollers and views - they will now use the Bootstrap framework!
-
-h2. Notes
-
-* Currently, only tested with Grails 1.3.7 projects!
-* Does only use plain Bootstrap (currently, without Less).
-* The plugin copies the files into your project - you can uninstall the plugin thereafter.
-* It does NOT use the Bootstrap plugin.
-
-h2. Terms of Use
-* [Bootstrap|http://twitter.github.com/bootstrap/] (from Twitter): Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (Follow [@TwBootstrap|http://twitter.com/twbootstrap])
-* [Kickstart Plugins|https://github.com/joergrech/KickstartWithBootstrap]: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. Copyright 2011 [Joerg Rech|http://joerg-rech.com] (Follow [@JoergRech|http://twitter.com/joergrech])
-
- */
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/kickstartWithBootstrap"
 
