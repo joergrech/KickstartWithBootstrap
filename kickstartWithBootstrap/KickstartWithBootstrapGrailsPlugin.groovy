@@ -28,7 +28,7 @@ h2. Introduction
 Kickstart is an extension for Grails in order to start your project with a good looking frontend. 
 It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
 '''
-/*
+/* Docu for Grails Plugin "Wiki"
 h2. Usage
 
 After installation you can call "grails kickstartWithBootstrap" which will copy several files into your project. 
