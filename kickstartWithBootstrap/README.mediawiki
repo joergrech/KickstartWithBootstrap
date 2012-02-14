@@ -31,6 +31,8 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
+;0.5.5
+: Minor bugfix (missing import) and correction of KickstartWithBootstrapGrailsPlugin.groovy
 ;0.5.4
 : Added measurement of time to simple console logging in KickstartFilters
 ;0.5.3
