@@ -31,6 +31,8 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
+;0.5.6
+: Empty commit to test Grails plugin publish mechanism
 ;0.5.5
 : Minor bugfix (missing import) and correction of KickstartWithBootstrapGrailsPlugin.groovy
 ;0.5.4
@@ -42,4 +44,6 @@ now use the Bootstrap framework!
 ;0.5.1
 : Minor bugfixes in Bootstrap and layout files 
 ;0.5
-: Initial shared version
+: Initial shared version (February 11, 2012)
+;0.1
+: Initial version (September 21, 2011)
