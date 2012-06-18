@@ -32,7 +32,7 @@
 					props.each { p ->
 						if (hasHibernate) {
 							cp = domainClass.constrainedProperties[p.name]
-							display = (cp?.display ?: true)
+							display = (cp ? cp.display : true)
 						}
 						if (display) { %>
 						<div class="control-group \${hasErrors(bean: ${propertyName}, field: '${p.name}', 'error')}">
