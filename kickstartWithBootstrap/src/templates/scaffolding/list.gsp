@@ -1,4 +1,5 @@
 <% import grails.persistence.Event %>
+<% import org.codehaus.groovy.grails.plugins.PluginManagerHolder %>
 <%=packageName%>
 <html>
 <head>
@@ -9,7 +10,7 @@
 </head>
 
 <body>
-	
+
 <section id="list" class="first">
 
 	<table class="table table-bordered">
@@ -19,8 +20,17 @@
 				allowedNames = domainClass.persistentProperties*.name << 'id' << 'dateCreated' << 'lastUpdated'
 				props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) && !Collection.isAssignableFrom(it.type) }
 				Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
+				display = true
+				int addCol
+				addCol = 6
+				boolean hasHibernate = PluginManagerHolder.pluginManager.hasGrailsPlugin('hibernate')
 				props.eachWithIndex { p, i ->
-					if (i < 6) {
+					if (hasHibernate) {
+						cp = domainClass.constrainedProperties[p.name]
+						display = (cp ? cp.display : true)
+						if (!display) { addCol++ }
+					}
+					if (display && i < addCol ) {
 						if (p.isAssociation()) { %>
 				<th><g:message code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}" /></th>
 			<%	  } else { %>
@@ -34,14 +44,21 @@
 			<%  props.eachWithIndex { p, i ->
 					if (i == 0) { %>
 				<td><g:link action="show" id="\${${propertyName}.id}">\${fieldValue(bean: ${propertyName}, field: "${p.name}")}</g:link></td>
-			<%	  } else if (i < 6) {
+			<%	  } else else {
+					display = true
+					hasHibernate = PluginManagerHolder.pluginManager.hasGrailsPlugin('hibernate')
+					if (hasHibernate) {
+						cp = domainClass.constrainedProperties[p.name]
+						display = (cp ? cp.display : true)
+						}
+					if (display && i <  addCol ) {
 						if (p.type == Boolean.class || p.type == boolean.class) { %>
 				<td><g:formatBoolean boolean="\${${propertyName}.${p.name}}" /></td>
 			<%		  } else if (p.type == Date.class || p.type == java.sql.Date.class || p.type == java.sql.Time.class || p.type == Calendar.class) { %>
 				<td><g:formatDate date="\${${propertyName}.${p.name}}" /></td>
 			<%		  } else { %>
 				<td>\${fieldValue(bean: ${propertyName}, field: "${p.name}")}</td>
-			<%  }   }   } %>
+			<%  }   }   }  } %>
 			</tr>
 		</g:each>
 		</tbody>
