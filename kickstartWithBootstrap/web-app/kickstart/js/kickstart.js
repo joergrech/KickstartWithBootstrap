@@ -1,6 +1,10 @@
 if (typeof jQuery !== 'undefined') {
 	$(document).ready(function() {
 		/**
+		 * Activate Datepicker for Bootstrap
+		 */
+		$(".date").datepicker();
+		/**
 		 * Dropdown logic for topbar nav (bootstrap)
 		 */
 		$("body").bind("click", function (e) {

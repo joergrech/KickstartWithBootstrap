@@ -15,7 +15,7 @@ class UrlMappings {
 		
 		/* 
 		 * Pages with controller
-		 * WARN: No controller should be named "api" or "mobile" or "web"!
+		 * WARN: No domain/controller should be named "api" or "mobile" or "web"!
 		 */
         "/"	{
 			controller	= 'home'

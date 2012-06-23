@@ -37,6 +37,8 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
+;0.6.0
+: Integration of Bootstrap DatePicker. Uses Grails 2.0 files as base for scaffolding, etc. Cleanup of code and scripts. 
 ;0.5.7
 : Added script to calculate or retrieve build numbers.
 ;0.5.6

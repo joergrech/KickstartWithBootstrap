@@ -3,98 +3,70 @@ includeTargets << grailsScript("_GrailsInit")
 /*
  * Main scripts
  */
+def code = "confirm.kickstart"
+def confirmCount = 0
+def confirmed = false
+def hasChanged = false
 
-target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates") {
+target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates and other files") {
 	depends(checkVersion, parseArguments)
 	
-	println ( 'Installing scaffolding templates ...' )
-	sourceDir = "${kickstartWithBootstrapPluginDir}/src/templates/scaffolding"
-	targetDir = "${basedir}/src/templates/scaffolding"
-	copyDir(sourceDir, targetDir, "\nOverwrite existing scaffolding templates\n  in ${targetDir}?", "overwrite.templates")
-//	event "StatusUpdate", ["Kickstart templates installed successfully"]
+	// Note: The following files are accessible via the plugin:
+	// * Taglib for Bootstrap
+	// * Bootstrap files
+	// * Kickstart files
+	// * Datepicker files for Bootstrap
 	
-	// copy views incl. about.gsp, ...
-	println ( 'Replacing exisiting views and installing new ones ...' )
+	sourceDir = "${kickstartWithBootstrapPluginDir}/src/templates/"
+	targetDir = "${basedir}/src/templates/"
+	copy(sourceDir, targetDir, "scaffolding templates", code)
+
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/views"
 	targetDir = "${basedir}/grails-app/views"
-	copyDir(sourceDir, targetDir, "\nOverwrite existing layouts & base GSPs (e.g., index.gsp)\n  in ${targetDir}?", "overwrite.layouts")
-//	event "StatusUpdate", ["Kickstart layouts & views installed successfully"]
+	copy(sourceDir, targetDir, "layouts & base GSPs", code)
 	
-	// copy views incl. about.gsp, ...
-	println ( 'Adding the Home controller ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src/"
 	targetDir = "${basedir}/grails-app/controllers/"
-//	copyDir(sourceDir, targetDir, "\nOverwrite existing Home controller\n  in ${targetDir}?", "overwrite.home")
-	copyFile(sourceDir+"HomeController.groovy",targetDir,		"\nOverwrite existing HomeController.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
-//	event "StatusUpdate", ["Kickstart layouts & views installed successfully"]
-	
-	// CHECK: Required or accessible via plugin?
-//	println ( '\nInstalling taglib for Bootstrap ...' )
-//	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/taglib/kickstart"
-//	targetDir = "${basedir}/grails-app/taglib/kickstart"
-//	copyDir(sourceDir, targetDir, "\nOverwrite existing kickstart taglib\n  in ${targetDir}?", "overwrite.taglibs")
-//	event "StatusUpdate", ["Kickstart taglib installed successfully"]
-	
-	// TODO: copy css, js, ...? Or available via plugin mechanism?
-	println ( 'Installing css, js, and images for Bootstrap ...' )
+	copy(sourceDir+"HomeController.groovy",targetDir, "HomeController.groovy", code)
+
 	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/"
 	targetDir = "${basedir}/web-app/"
-	copyDir(sourceDir+"bootstrap", targetDir+"bootstrap",	"\nOverwrite existing bootstrap files\n  in ${targetDir}?", "overwrite.web-app.css")
-	copyDir(sourceDir+"kickstart", targetDir+"kickstart",	"\nOverwrite existing kickstart files\n  in ${targetDir}?", "overwrite.web-app.images")
-//	copyDir(sourceDir+"js",		targetDir+"js",		"\nOverwrite existing Javascript files?", "overwrite.web-app.js")
-//	event "StatusUpdate", ["Kickstart web-app files installed successfully"]
+//	copy(sourceDir+"bootstrap",  targetDir+"bootstrap",		"bootstrap files",  code)
+//	copy(sourceDir+"kickstart",  targetDir+"kickstart",		"kickstart files",  code)
+//	copy(sourceDir+"datepicker", targetDir+"datepicker",	"datepicker files", code)
 
-	// TODO: integrate (or) copy URLMappings.groovy, KickstartFilters.groovy
-	// TODO: copy css, js, ...? Or available via plugin mechanism?
-	println ( 'Installing and changing conf files ...' )
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/"
 	targetDir = "${basedir}/grails-app/conf/"
-//	copyDir(sourceDir+"kickstart/",targetDir+"kickstart",	"\nOverwrite existing Kickstart conf files\n  in ${targetDir}?", "overwrite.conf.kickstart")
-	copyFile("${kickstartWithBootstrapPluginDir}/src/KickstartFilters.groovy",targetDir+"kickstart/",		"\nOverwrite existing URLMappings.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
-	copyFile("${kickstartWithBootstrapPluginDir}/src/UrlMappings.groovy",targetDir,		"\nOverwrite existing URLMappings.groovy file\n  in ${targetDir}?", "overwrite.conf.urlmappings")
-	event "StatusUpdate", ["Kickstart installed successfully"]
+	copy("${kickstartWithBootstrapPluginDir}/src/UrlMappings.groovy",		targetDir,				"URLMappings.groovy",		code)
+	copy("${kickstartWithBootstrapPluginDir}/src/KickstartFilters.groovy",	targetDir+"kickstart/",	"KickstartFilters.groovy",	code)
+	copy("${kickstartWithBootstrapPluginDir}/src/resources.groovy",			targetDir+"spring/",	"resources.groovy", 		code)
+
+	event "StatusUpdate", ["Kickstart installed successfully!"]
+
 }
 setDefaultTarget kickstartWithBootstrap
-
 
 
 /*
  *  Helper methods to copy files, etc. 
  */
-
-
-private copyDir(String sourceDir, String targetDir, String confirmText, String confirmCode) {
-	overwrite = false
-
-	// only if layouts dir already exists in, ask to overwrite templates
-	if (new File(targetDir).exists()) {
-		if (!isInteractive || confirmInput(confirmText, confirmCode)) {
-			overwrite = true
-		}
+copy = {String source, String target, String confirmText, String confirmCode ->
+	def overwrite = confirmed ? true : false
+	def newCode = confirmCode + confirmCount++
+	def input = ""
+	
+	// only if dir already exists in, ask to overwrite it
+	if (new File(target).exists()) {
+		if (isInteractive && !overwrite) 						input = grailsConsole.userInput("Overwrite ${confirmText}?", ["y","n","a"] as String[])
+		if (!isInteractive || input == "y" || input == "a" )	overwrite = true
 	} else {
-		ant.mkdir(dir: targetDir)
+		ant.mkdir(dir: target)
+		overwrite = true	// nothing to overwrite but will be copied (state this in the event message)
 	}
-	ant.copy( todir: "$targetDir", overwrite: overwrite) {
-		fileset dir: "$sourceDir"
-	}
-}
+	if (input == "a") confirmed = true
+	
+	if (new File(source).isDirectory()) ant.copy(todir: "$target", overwrite: overwrite) { fileset dir:  "$source" }
+	else 								ant.copy(todir: "$target", overwrite: overwrite) { fileset file: "$source" }  
 
-private copyFile(String sourceFile, String targetDir, String confirmText, String confirmCode) {
-	overwrite = false
-
-	// only if layouts dir already exists in, ask to overwrite templates
-	if (new File(targetDir).exists()) {
-		if (!isInteractive || confirmInput(confirmText, confirmCode)) {
-			overwrite = true
-		}
-	} else {
-//		def targetDir = targetFile.substring(0, targetFile.lastIndexOf('/'))
-//		println targetDir
-		ant.mkdir(dir: targetDir)
-	}
-//	println "$sourceFile"
-//	println "$targetDir"
-	ant.copy(todir: "$targetDir", overwrite: overwrite) {
-		fileset(file: "$sourceFile")
-	}  
+	event "StatusUpdate", ["... ${confirmText} ${overwrite ? '' : 'not '}installed!"]
 }

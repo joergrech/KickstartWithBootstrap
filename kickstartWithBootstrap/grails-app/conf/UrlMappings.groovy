@@ -2,9 +2,7 @@ class UrlMappings {
 
 	static mappings = {
 		
-		/* 
-		 * Pages without controller 
-		 */
+		/* Pages without controller */
 //		"/"				(view:"/index")
 		"/about"		(view:"/siteinfo/about")
 		"/blog"			(view:"/siteinfo/blog")
@@ -28,9 +26,7 @@ class UrlMappings {
 		  	}
 		}
 		
-		/* 
-		 * System Pages without controller 
-		 */
+		/* System Pages without controller */
 		"500"	(view:'/error')
 	}
 }
