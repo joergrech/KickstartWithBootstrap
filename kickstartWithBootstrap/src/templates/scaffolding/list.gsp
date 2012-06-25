@@ -1,5 +1,6 @@
 <% import grails.persistence.Event %>
 <%=packageName%>
+<!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,13 +11,13 @@
 
 <body>
 	
-<section id="list" class="first">
+<section id="list-${domainClass.propertyName}" class="first">
 
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-			<%  excludedProps = Event.allEvents.toList() << 'version'
-				allowedNames = domainClass.persistentProperties*.name << 'id' << 'dateCreated' << 'lastUpdated'
+			<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
+				allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
 				props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) && !Collection.isAssignableFrom(it.type) }
 				Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
 				props.eachWithIndex { p, i ->

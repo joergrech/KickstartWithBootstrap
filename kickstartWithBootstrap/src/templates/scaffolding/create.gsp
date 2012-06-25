@@ -1,6 +1,5 @@
-<% import grails.persistence.Event %>
-<% import org.codehaus.groovy.grails.plugins.PluginManagerHolder %>
 <%=packageName%>
+<!doctype html>
 <html>
 
 <head>
@@ -12,7 +11,7 @@
 
 <body>
 
-<section id="create" class="first">
+<section id="create-${domainClass.propertyName}" class="first">
 
 	<g:hasErrors bean="\${${propertyName}}">
 	<div class="alert alert-error">
@@ -21,29 +20,11 @@
 	</g:hasErrors>
 	
 	<g:form action="save" class="form-horizontal" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
-				<%  excludedProps = Event.allEvents.toList() << 'version' << 'id' << 'dateCreated' << 'lastUpdated'
-					persistentPropNames = domainClass.persistentProperties*.name
-					props = domainClass.properties.findAll { persistentPropNames.contains(it.name) && !excludedProps.contains(it.name) }
-					Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
-					display = true
-					boolean hasHibernate = PluginManagerHolder.pluginManager.hasGrailsPlugin('hibernate')
-					props.each { p ->
-						if (!Collection.class.isAssignableFrom(p.type)) {
-							if (hasHibernate) {
-								cp = domainClass.constrainedProperties[p.name]
-								display = (cp ? cp.display : true)
-							}
-							if (display) { %>
-							<div class="control-group \${hasErrors(bean: ${propertyName}, field: '${p.name}', 'error')}">
-								<label for="${p.name}" class="control-label"><g:message code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}" /></label>
-				            	<div class="controls">
-									${renderEditor(p)}
-									<span class="help-inline">\${hasErrors(bean: ${propertyName}, field: '${p.name}', 'error')}</span>
-								</div>
-							</div>
-				<%  }   }   } %>
+		<fieldset class="form">
+			<g:render template="form"/>
+		</fieldset>
 		<div class="form-actions">
-			<g:submitButton name="create" class="save btn-primary" value="\${message(code: 'default.button.create.label', default: 'Create')}" />
+			<g:submitButton name="create" class="btn btn-primary" value="\${message(code: 'default.button.create.label', default: 'Create')}" />
             <button class="btn" type="reset">Cancel</button>
 		</div>
 	</g:form>
