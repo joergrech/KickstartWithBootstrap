@@ -1,7 +1,13 @@
 __NOTOC__
 == Introduction ==
-Kickstart is an extension for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
-This plugin provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter. Additionally, Kickstart includes some general GSPs pages (e.g., about.gsp), a minimal logging/orientation Filter, and a language switcher.
+Kickstart is a plugin for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
+This plugin provides the following feature:
+* Adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter. 
+* Initial set of webpages to describe the website (about.gsp, contact.gsp, and systeminfo.gsp)
+* A minimal console logging filter (KickstartFilter.groovy) to help understand which actions are called
+* A script to calculate a simple build number and extract versioning build numbers (in _Events.groovy)
+* A script to calculate simple code metrics (lines of code (LOC) and number of files) (in _Events.groovy)
+* and a language switcher (encoded in main layout file Kickstart.gsp and _languages.gsp).
 
 Currently, Kickstart is intended to act more like an injection than an plugin - importent files are copied into your project and you can remove the plugin afterwards. 
 
@@ -31,6 +37,12 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
+;0.6.0
+: Integration of Bootstrap DatePicker. Uses Grails 2.0 files as base for scaffolding, etc. Cleanup of code and scripts. 
+;0.5.7
+: Added script to calculate or retrieve build numbers.
+;0.5.6
+: Empty commit to test Grails plugin publish mechanism
 ;0.5.5
 : Minor bugfix (missing import) and correction of KickstartWithBootstrapGrailsPlugin.groovy
 ;0.5.4
@@ -42,4 +54,6 @@ now use the Bootstrap framework!
 ;0.5.1
 : Minor bugfixes in Bootstrap and layout files 
 ;0.5
-: Initial shared version
+: Initial shared version (February 11, 2012)
+;0.1
+: Initial version (September 21, 2011)

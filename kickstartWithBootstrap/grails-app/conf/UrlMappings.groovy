@@ -2,9 +2,7 @@ class UrlMappings {
 
 	static mappings = {
 		
-		/* 
-		 * Pages without controller 
-		 */
+		/* Pages without controller */
 //		"/"				(view:"/index")
 		"/about"		(view:"/siteinfo/about")
 		"/blog"			(view:"/siteinfo/blog")
@@ -19,8 +17,8 @@ class UrlMappings {
 		 */
         "/"	{
 			controller	= 'home'
-			action		= { 'index' }
-            view		= { 'index' }
+			action		= 'index'
+            view		= 'index'
         }
 		"/$controller/$action?/$id?"{
 			constraints {
@@ -28,9 +26,7 @@ class UrlMappings {
 		  	}
 		}
 		
-		/* 
-		 * System Pages without controller 
-		 */
+		/* System Pages without controller */
 		"500"	(view:'/error')
 	}
 }

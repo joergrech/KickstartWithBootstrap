@@ -9,6 +9,9 @@
 			<li class=""><a href="${createLink(uri: '/contact')}"><g:message code="default.contact.button"/></a></li>
 			
 			<li class="divider"></li>
+			<g:if env="development">
+			<li class=""><a href="${createLink(uri: '/dbconsole')}"><g:message code="default.dbconsole.button"/></a></li>
+			</g:if>
 			<li class=""><a href="${createLink(uri: '/systeminfo')}"><g:message code="default.systeminfo.button"/></a></li>
 			
 <%--			<li class="divider"></li>--%>

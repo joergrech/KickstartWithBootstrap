@@ -1,5 +1,6 @@
 <% import grails.persistence.Event %>
 <%=packageName%>
+<!doctype html>
 <html>
 
 <head>
@@ -11,12 +12,12 @@
 
 <body>
 
-<section id="show" class="first">
+<section id="show-${domainClass.propertyName}" class="first">
 
 	<table class="table">
 		<tbody>
-		<%  excludedProps = Event.allEvents.toList() << 'version'
-			allowedNames = domainClass.persistentProperties*.name << 'id' << 'dateCreated' << 'lastUpdated'
+		<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
+			allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
 			props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) }
 			Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
 			props.each { p -> %>
@@ -48,8 +49,8 @@
 	<div class="buttons">
 		<g:form>
 			<g:hiddenField name="id" value="\${${propertyName}?.id}" />
-			<span class="button"><g:actionSubmit class="edit btn-primary" action="edit" value="\${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-			<span class="button"><g:actionSubmit class="delete btn-danger" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+			<span class="button"><g:actionSubmit class="btn btn-primary" action="edit" value="\${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+			<span class="button"><g:actionSubmit class="btn btn-danger" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
 		</g:form>
 	</div>
 </section>
