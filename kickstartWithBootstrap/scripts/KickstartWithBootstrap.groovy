@@ -11,7 +11,7 @@ def hasChanged = false
 target(kickstartWithBootstrap: "Installs the Kickstart scaffolding templates and other files") {
 	depends(checkVersion, parseArguments)
 	
-	// Note: The following files are accessible via the plugin:
+	// Note: The following files are accessible via the plugin (and are not copied):
 	// * Taglib for Bootstrap
 	// * Bootstrap files
 	// * Kickstart files
