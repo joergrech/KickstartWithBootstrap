@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat
  * @ http://steveberczuk.blogspot.com/2011/05/displaying-build-numbers-in-grails-apps.html
  */
 eventCompileStart = { kind ->
-	// retrieve previous build number and increment or start with 1
+	// retrieve previous build number and increment or start with 1 (ultra-simple: will not survive versioning)
 	def buildNumber = metadata.'app.version.build'
 	if (!buildNumber)
 		buildNumber = 1
@@ -44,19 +44,30 @@ eventCompileStart = { kind ->
 //		proc = "git rev-parse --short HEAD".execute()
 //		proc.waitFor()
 //		metadata.'app.version.build.git' = proc.in.text.replace('\n', '').trim()
-	} catch (Exception e) {	println e}
+	} catch (Exception e) {	
+//		println e	// Printout will only confuse (novice) users
+//		println "Could not get build info from GIT! (probably not installed on system)"
+//		event "StatusUpdate", ["Could not get build info from GIT! (probably not installed on system)"]
+	}
 
 	try { // Mercurial build number
 		proc = "hg id -i -n -b -t".execute()
 		proc.waitFor()
 		revision = revision ?: proc.in.text.replace('\n', '').trim()
-	} catch (Exception e) {	}
+	} catch (Exception e) {	
+//		println e	// Printout will only confuse (novice) users
+//		println "Could not get build info from Mercurial! (probably not installed on system)"
+	}
 
 	try { // Subversion build number
 		proc = "svnversion".execute()
 		proc.waitFor()
 		revision = revision ?: proc.in.text.replace('\n', '').trim()
-	} catch (Exception e) {	}
+	} catch (Exception e) {
+//		println e	// Printout will only confuse (novice) users
+//		println "Could not get build info from Subversion (SVN)! (probably not installed on system)"
+	}
+	
 	metadata.'app.version.revision' = revision ?: "N/A"
 	
 	// Save / persist metadata
