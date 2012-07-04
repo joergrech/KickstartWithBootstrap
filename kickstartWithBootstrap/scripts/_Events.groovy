@@ -88,7 +88,11 @@ eventCompileStart = { kind ->
 eventCompileStart = { kind ->
 	// Calculate the loc / stats of the grails system using "grails stats"
 	def stats = []
-	def out = "cmd /c grails stats".execute().text
+  def cmd = "grails stats"
+  if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
+    cmd = "cmd /c $cmd"
+  }
+	def out = cmd.execute().text
 	out.split("\n").each { line ->
 		if (line =~ /^[\s]*\|[A-Za-z\s]*\|[0-9\s]*\|[0-9\s]*.*$/) {
 			def tokenSplit = line.split("\\|")
