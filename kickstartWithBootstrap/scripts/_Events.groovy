@@ -36,7 +36,7 @@ eventCompileStart = { kind ->
 
 	def revision = null
 	def proc
-	try { // Git build number
+	try { // get Git build number
 		proc = "git rev-parse --short HEAD".execute()
 //		proc = "git shortlog | grep -E \'^[ ]+\\w+\' | wc -l".execute()
 		proc.waitFor()
@@ -45,12 +45,12 @@ eventCompileStart = { kind ->
 //		proc.waitFor()
 //		metadata.'app.version.build.git' = proc.in.text.replace('\n', '').trim()
 	} catch (Exception e) {	
-//		println e	// Printout will only confuse (novice) users
+//		println e	// Printout of Exception will only confuse (novice) users
 //		println "Could not get build info from GIT! (probably not installed on system)"
 //		event "StatusUpdate", ["Could not get build info from GIT! (probably not installed on system)"]
 	}
 
-	try { // Mercurial build number
+	try { // get Mercurial build number
 		proc = "hg id -i -n -b -t".execute()
 		proc.waitFor()
 		revision = revision ?: proc.in.text.replace('\n', '').trim()
@@ -59,7 +59,7 @@ eventCompileStart = { kind ->
 //		println "Could not get build info from Mercurial! (probably not installed on system)"
 	}
 
-	try { // Subversion build number
+	try { // get Subversion build number
 		proc = "svnversion".execute()
 		proc.waitFor()
 		revision = revision ?: proc.in.text.replace('\n', '').trim()
@@ -88,18 +88,30 @@ eventCompileStart = { kind ->
 eventCompileStart = { kind ->
 	// Calculate the loc / stats of the grails system using "grails stats"
 	def stats = []
-  def cmd = "grails stats"
-  if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
-    cmd = "cmd /c $cmd"
-  }
+	def cmd = null // "grails stats"
+	def osName = System.getProperty("os.name").toLowerCase()
+	
+	// differentiate based on OS @see http://www.mkyong.com/java/how-to-detect-os-in-java-systemgetpropertyosname/
+	if		(osName.contains("win"))	cmd = "cmd /c grails stats"	// works
+	else if	(osName.contains("nix"))	cmd = "grails stats"		// works: checked by thomas bittermann 
+	else if	(osName.contains("nux"))	cmd = "grails stats"		// same as unix
+	else if	(osName.contains("sunos"))	cmd = "grails stats"		// same as unix
+	// TODO: check how to call command on MacOS 
+//	else if	(osName.contains("mac"))	cmd = "grails stats"		// unclear: does it work?
+	
+	if (!cmd) {
+		event "StatusUpdate", ["Could not get stats from Grails!"]
+		return	// Exit if OS is unknown
+	}
+	event "StatusUpdate", ["Retrieving stats about the application"]
+
 	def out = cmd.execute().text
 	out.split("\n").each { line ->
 		if (line =~ /^[\s]*\|[A-Za-z\s]*\|[0-9\s]*\|[0-9\s]*.*$/) {
 			def tokenSplit = line.split("\\|")
-//			println tokenSplit
-			def files = tokenSplit[2].trim()
-			def loc	= tokenSplit[3].trim()
-			def name  = tokenSplit[1].trim().replace(' ', '_')
+			def files	= tokenSplit[2].trim()
+			def loc		= tokenSplit[3].trim()
+			def name	= tokenSplit[1].trim().replace(' ', '_')
 			
 			def filesID = 'app.stats.'+name+'.files'
 			def locID	= 'app.stats.'+name+'.loc'
@@ -110,9 +122,7 @@ eventCompileStart = { kind ->
 		}
 	}
 	metadata.persist()
-//	println stats
 	
-	println "Compilation Started on Build #${buildNumber}"
 //	binding.variables.each { println it.key }
 }
 

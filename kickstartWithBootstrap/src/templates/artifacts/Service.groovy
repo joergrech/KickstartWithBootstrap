@@ -1,5 +1,4 @@
-@artifact.package@
-/**
+@artifact.package@/**
  * @artifact.name@
  * A service class encapsulates the core business logic of a Grails application
  */

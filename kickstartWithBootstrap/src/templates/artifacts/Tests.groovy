@@ -1,5 +1,4 @@
-@artifact.package@
-/**
+@artifact.package@/**
  * @artifact.name@
  * A unit test class is used to test individual methods or blocks of code without considering the surrounding infrastructure
  */

@@ -1,17 +1,16 @@
-@artifact.package@
-/**
+@artifact.package@/**
  * @artifact.name@
  * A domain class describes the data object and it's mapping to the database
  */
 class @artifact.name@ {
 
 	/* Default (injected) attributes of GORM */
-	//	Long	id
-	//	String	version
+//	Long	id
+//	String	version
 	
 	/* Automatic timestamping of GORM */
-	//	Date	dateCreated
-	//	Date	lastUpdated
+//	Date	dateCreated
+//	Date	lastUpdated
 	
 //	static belongsTo	= []	// tells GORM to delete this object if the "parent" is deleted.
 //	static hasOne		= []	// tells GORM to associate another domain object as an owner in a 1-1 mapping
