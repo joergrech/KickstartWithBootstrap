@@ -36,7 +36,7 @@
 </head>
 
 <body>
-	<div id="Navbar" class="navbar navbar-fixed-top">
+	<div id="Navbar" class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container">
 				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -47,7 +47,7 @@
 				</a>
 
 				<a class="brand" href="${createLink(uri: '/')}">
-					<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" height="25" border="0" />
+					<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" />
 					${meta(name:'app.name')}
 					<small> v${meta(name:'app.version')}</small>
 				</a>
@@ -64,10 +64,9 @@
 						</li>
 					</ul>
 				
-					<div class="pull-right">
-						<g:render template="/menu/language"/>														
-						<g:render template="/menu/info"/>														
-					</div>
+					<g:render template="/menu/language"/>														
+					<g:render template="/menu/info"/>														
+					<g:render template="/menu/admin"/>														
 				</div>
 				
 			</div>
@@ -79,11 +78,7 @@
 	</g:if>
 	<g:else>
 		<header id="Header" class="jumbotron masthead">
-			<div class="inner">
-				<div class="container">
-					<h1 class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></h1>
-				</div>
-			</div>
+			<g:render template="/layouts/header"	plugin="SPECTRAwebPlugin"/>														
 		</header>
 	</g:else>
 
@@ -117,7 +112,8 @@
 	    <g:pageProperty name="page.footer" />
 	</g:if>
 	<g:else>
-		<footer id="Footer">
+		<footer class="footer">
+			<g:render template="/layouts/footer"	plugin="SPECTRAwebPlugin"/>														
 		</footer>
 	</g:else>
 		

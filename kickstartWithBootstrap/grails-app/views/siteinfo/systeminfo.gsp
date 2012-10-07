@@ -19,13 +19,15 @@
 	</content>
 	
 	<section id="resources">
-	     <h1><g:message code="default.systeminfo.resources"/></h1>
-	     <ul>
-	         <li>Web Layout: <a href ="http://twitter.github.com/bootstrap/">Bootstrap</a>, from Twitter 
-	         Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
-	         (@TwBootstrap , http://twitter.github.com/bootstrap/)</li>
-	         <li>Datepicker: <a href ="https://github.com/eternicode/bootstrap-datepicker">Datepicker for Bootstrap</a>, 
-	         Copyright 2012 Stefan Petre, Improvements by Andrew Rowls, Licensed under the Apache License v2.0</li>
+	    <h1><g:message code="default.systeminfo.resources"/></h1>
+	    <ul>
+			<li>Web Layout: <a href ="http://twitter.github.com/bootstrap/">Bootstrap</a>, from Twitter 
+	        	Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
+	        	(@TwBootstrap , http://twitter.github.com/bootstrap/)</li>
+	        <li>Datepicker: <a href ="https://github.com/eternicode/bootstrap-datepicker">Datepicker for Bootstrap</a>, 
+	        	Copyright 2012 Stefan Petre, Improvements by Andrew Rowls, Licensed under the Apache License v2.0</li>
+			<li>Flag Icons: <a href="http://www.famfamfam.com/lab/icons/flags/">FamFamFam Flag Icons</a> by Mark James. They are 
+				<i>"available for free use for any purpose with no requirement for attribution"</i>.</li>
 	     </ul>
 	</section>
 	

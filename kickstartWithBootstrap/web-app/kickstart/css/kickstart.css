@@ -1,11 +1,10 @@
 /** 
- * CSS for the topbar/navbar section
+ * CSS fix for the logo & brand in the topbar/navbar section
  */
 
-.navbar img.logo		{ max-height: 25px; position: relative; top: 4px; }
-.navbar a.logo			{ padding: 7px 0 0; margin: 0px; border: 0px; }
-.navbar .brand			{ padding: 2px 20px 10px 20px; }
-.navbar .brand small	{ font-size: 14px; color: #999; }
+.navbar img.logo	{ max-height: 20px; margin-top: -3px;}
+.navbar .brand		{ padding: 10px 20px 10px 20px; }
+.navbar .version	{ font-size: 60%; line-height: 60%; }
 
 /** 
  * CSS for the Header section (blue background, etc.)
@@ -24,26 +23,28 @@
 	margin: 40px 0 0 0;
 }
 
+#Header .inner {
+	background: transparent url(../img/grid-18px.png) top center;
+	padding: 60px 0;
+	-webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+	   -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+#Header .title		{ font-size: 72px; line-height: 72px; font-weight: normal; text-decoration: none; color: #fff; }
+#Header .lead		{ font-size: 18px; line-height: 18px; color: #fff; }
+
 @media (max-width: 980px) {
 	#Header {
-		margin: 0px 0 0 0;
+		margin: 0px -20px 0px -20px;
+	}
+	#Header .inner {
+		padding: 40px 20px;
 	}
 	.navbar-fixed-top {
 		position: static;
     	margin-bottom: 0px;
 	}
 }
-
-#Header .inner {
-	background: transparent url(../img/grid-18px.png) top center;
-	padding: 80px 0;
-	-webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-	   -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-#Header .title		{ font-size: 72px; line-height: 72px; font-weight: normal; text-decoration: none; color: #fff; }
-#Header .lead		{ font-size: 18px; line-height: 18px; color: #fff; }
 
 /* 
  * Slight modification to Bootstrap in order to improve presentation 
@@ -84,3 +85,18 @@ section.first {
 	text-decoration: none;	
 	list-style-type: none;
 }
+
+/*
+ * Improve presentation of call to actions on frontpage
+ */
+
+.icon-image-huge:before {
+    font-size:		120px;
+    line-height:	120px;
+}
+
+.center {
+    text-align:		center;
+    margin: 0 auto;
+}
+
