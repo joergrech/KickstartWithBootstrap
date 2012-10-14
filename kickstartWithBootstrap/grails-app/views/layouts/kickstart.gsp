@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<%-- <html lang="${org.springframework.web.servlet.support.RequestContextUtils.getLocale(request).toString().replace('_', '-')}"> --%>
+<html lang="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}">
 
 <head>
     <meta charset="utf-8">
@@ -10,113 +11,75 @@
 	<title><g:layoutTitle default="${meta(name:'app.name')}" /></title>
 	<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 	
-	<link rel="stylesheet" href="${resource(dir:'bootstrap/css', file:'bootstrap.css')}" />
-	<link rel="stylesheet" href="${resource(dir:'bootstrap/css', file:'bootstrap-responsive.css')}" />
-	<link rel="stylesheet" href="${resource(dir:'kickstart/css', file:'docs.css')}" />
-	<link rel="stylesheet" href="${resource(dir:'kickstart/css', file:'kickstart.css')}" />
-	<link rel="stylesheet" href="${resource(dir:'datepicker/css',file:'datepicker.css')}" />
+	<g:set var="skin" value="${session.skin ? session.skin : 'bootstrap'}" />
+	
+<%--	<r:require modules="${skin}"/>--%>
+
+	<!-- Skin specific styles: main focus are Bootstrap variants (e.g., using Less) -->
+	<link rel="stylesheet" href="${resource(dir: skin+'/css',		file: skin+'.css')}" />
+	<link rel="stylesheet" href="${resource(dir: skin+'/css',		file: skin+'-responsive.css')}" />
+
+	<!-- Bootstrap extensions / adaptations -->
+<%-- 	<link rel="stylesheet" href="${resource(dir: 'FontAwesome/css',	file:'font-awesome.css')}"> --%>
+	<link rel="stylesheet" href="${resource(dir: 'datepicker/css',	file: 'datepicker.css')}" />
+	<link rel="stylesheet" href="${resource(dir: 'kickstart/css',	file: 'docs.css')}" />
+	<link rel="stylesheet" href="${resource(dir: 'kickstart/css',	file: 'kickstart.css')}" />
 
     <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon-72x72.png"	sizes="72x72">
+    <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon-114x114.png"	sizes="114x114">
     
+<%-- 	<r:layoutResources /> --%>
     <g:layoutHead />
 	
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 	<!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+    
+    <!-- Skin-specific functionality -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="${resource(dir:'bootstrap/js', file:'bootstrap.js')}"></script>
+    <script src="${resource(dir:skin+'/js',		file:skin+'.js')}"></script>
+    
+	<!-- Bootstrap-specific functionality -->
 	<script src="${resource(dir:'datepicker/js',file:'bootstrap-datepicker.js')}"></script>
     <script src="${resource(dir:'kickstart/js', file:'kickstart.js')}"></script>
+    
+	<!-- Application-specific functionality -->
 	<script src="${resource(dir:'js',			file:'application.js')}"></script>
 
-	<r:layoutResources />
 </head>
 
 <body>
-	<div id="Navbar" class="navbar navbar-fixed-top navbar-inverse">
-		<div class="navbar-inner">
-			<div class="container">
-				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-	            	<span class="icon-bar"></span>
-	            	<span class="icon-bar"></span>
-				</a>
+	<g:render template="/menu/navbar"/>														
 
-				<a class="brand" href="${createLink(uri: '/')}">
-					<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" />
-					${meta(name:'app.name')}
-					<small> v${meta(name:'app.version')}</small>
-				</a>
-
-          		<div class="nav-collapse">
-          			<ul class="nav">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-			                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-			                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName.substring(c.fullName.lastIndexOf('.')+1)}</g:link></li>
-			                    </g:each>
-							</ul>
-						</li>
-					</ul>
-				
-					<g:render template="/menu/language"/>														
-					<g:render template="/menu/info"/>														
-					<g:render template="/menu/admin"/>														
-				</div>
-				
-			</div>
-		</div>
-	</div>
-
+	<!-- Enable to overwrite Header by individual page -->
 	<g:if test="${ pageProperty(name:'page.header') }">
    		<g:pageProperty name="page.header" />
 	</g:if>
 	<g:else>
-		<header id="Header" class="jumbotron masthead">
-			<g:render template="/layouts/header"	plugin="SPECTRAwebPlugin"/>														
-		</header>
+		<g:render template="/layouts/header"/>														
 	</g:else>
 
-	<div id="Content" class="container">
-		<%-- Only show the "Pills" navigation menu if a controller exists (but not for home) --%>
-		<g:if test="${	params.controller != null
-					&&	params.controller != ''
-					&&	params.controller != 'home'
-		}">
-			<ul id="Menu" class="nav nav-pills">
-		        <g:set var="entityName" value="${message(code: params.controller+'.label', default: params.controller.substring(0,1).toUpperCase() + params.controller.substring(1).toLowerCase())}" />
-		        <%-- Set which "pill" of the menu is active --%>
-				<li class="${ params.action == "list" ? 'active' : '' }">
-					<g:link action="list"><g:message code="default.list.label" args="[entityName]"/></g:link>
-				</li>
-				<li class="${ params.action == "create" ? 'active' : '' }">
-					<g:link action="create"><g:message code="default.new.label"  args="[entityName]"/></g:link>
-				</li>
-			</ul>
-        </g:if>
-                        
-        <g:if test="${flash.message}">
-            <div class="alert alert-info">${flash.message}</div>
-        </g:if>
-            
-		<g:layoutBody />
-        <g:pageProperty name="page.body" />
-	</div>
+	<!-- use different templates for HTML structure based on layout (e.g., grid or fluid; Default is grid) -->
+	<g:if test="${session.layout == 'fluid'}">
+		<g:render template="/layouts/content_${session.layout}"	plugin="SPECTRAwebPlugin"/>														
+	</g:if>
+	<g:else>
+		<g:render template="/layouts/content_grid"/>														
+	</g:else>
 
+	<!-- Enable to overwrite Footer by individual page -->
 	<g:if test="${ pageProperty(name:'page.footer') }">
 	    <g:pageProperty name="page.footer" />
 	</g:if>
 	<g:else>
-		<footer class="footer">
-			<g:render template="/layouts/footer"	plugin="SPECTRAwebPlugin"/>														
-		</footer>
+		<g:render template="/layouts/footer"/>														
 	</g:else>
-		
+
+	<!-- Insert a modal dialog for registering -->
+	<g:render template="/_common/modals/registerDialog" model="[item: item]"/>
+	
     <r:layoutResources />
 </body>
 

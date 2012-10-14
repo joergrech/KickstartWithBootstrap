@@ -52,7 +52,7 @@
 	         <g:set var="pluginManager"
 	                value="${applicationContext.getBean('pluginManager')}"></g:set>
 	
-	         <g:each var="plugin" in="${pluginManager.allPlugins}">
+	         <g:each var="plugin" in="${pluginManager.allPlugins.sort { it.name }}">
 	             <li>${plugin.name} - ${plugin.version}</li>
 	         </g:each>
 	

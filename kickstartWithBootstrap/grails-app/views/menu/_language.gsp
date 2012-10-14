@@ -3,13 +3,27 @@
 <ul class="nav secondary-nav language-dropdown pull-right">
 	<li class="dropdown js-language-dropdown">
 		<a href="javascript:;" class="dropdown-toggle">
-			<span class="js-current-language">${lang ? lang.toString().toUpperCase() : "${message(code: 'default.language.button', default: 'Language')}"}</span>
+			<img class="" src="${resource(dir: 'images/flags',file: lang.toString()+'.png')}" />
 		</a>
 		<ul class="dropdown-menu dropdown-menu-dark">
-			<li><a class="js-language-link" title="English" data-lang-code="en" href="${createLink(uri: '/?lang=en')}">English</a></li>
-			<li><a class="js-language-link" title="German" data-lang-code="de" href="${createLink(uri: '/?lang=de')}">Deutsch</a></li>
-			<li><a class="js-language-link" title="Spanish" data-lang-code="es" href="${createLink(uri: '/?lang=es')}">Español</a></li>
-			<li><a class="js-language-link" title="French" data-lang-code="fr" href="${createLink(uri: '/?lang=fr')}">Français</a></li>
+		
+			<!-- assuming that the default locale is English -->
+			<li><a class="js-language-link" title="English" data-lang-code="en" href="${createLink(uri: '/?lang=en')}">
+				<img class="" src="${resource(dir: 'images/flags',file: 'en.png')}"/>
+				<g:message code="language.en" default="en"/>
+			</a></li>
+			
+			<li class="divider"></li>
+
+			<!-- get list of all locales available due to an existing property-file in /grails-app/i18n (set once in Bootstrap.groovy) -->
+			<g:set var="allLocales" value="${grailsApplication.config.grails.i18n.locales}"/>
+			<g:each status="i" var="locale" in="${allLocales}">
+				<li><a class="js-language-link" title="${message(code: 'language.'+locale, default: locale)}" data-lang-code="${locale}" href="${createLink(uri: '/?lang='+locale)}">
+					<img class="" src="${resource(dir: 'images/flags',file: locale+'.png')}"/>
+					<g:message code="language.${locale}" default="${locale}"/>
+				</a></li>
+			</g:each>
+			
 		</ul>
 	</li>
 </ul>

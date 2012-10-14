@@ -6,7 +6,7 @@ class @artifact.name@ {
 
 	/* Default (injected) attributes of GORM */
 //	Long	id
-//	String	version
+//	Long	version
 	
 	/* Automatic timestamping of GORM */
 //	Date	dateCreated

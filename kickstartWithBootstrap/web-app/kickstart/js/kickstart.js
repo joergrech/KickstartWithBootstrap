@@ -4,41 +4,32 @@ if (typeof jQuery !== 'undefined') {
 		 * Activate Datepicker for Bootstrap
 		 */
 		$(".date").datepicker();
+		
 		/**
-		 * Dropdown logic for topbar nav (bootstrap)
+		 * Close Dropdown menus when user clicks outside a menu (on the body)
 		 */
 		$("body").bind("click", function (e) {
 			$('.dropdown-toggle, .menu').parent("li").removeClass("open");
 		});
+		
+		/**
+		 * Toggle Dropdown menus when user clicks on the menu's "switch"
+		 */
 		$(".dropdown-toggle, .menu").click(function (e) {
 			var $li = $(this).parent("li").toggleClass('open');
 			return false;
-		}); 
-
+		});
+		
 		/**
-		 * Grails 2.0.0 Spinner
-		 */ 
-		(function($) {
-			$('#spinner').ajaxStart(function() {
-				$(this).fadeIn();
-			}).ajaxStop(function() {
-				$(this).fadeOut();
-			});
-		})(jQuery);
+		 * Close other Dropdown menus that are open when user opens a menu
+		 */
+	    $('.dropdown-toggle').each(function(){
+	        $(this).on("click", function () {
+	        	$(this).parent().parent().siblings().each(function(){
+	        		$(this).find('.dropdown').removeClass('open');
+	        	});
+	        });
+	    });
+
 	});
 }
-
-// Grails 1.3.7 Spinner
-//var Ajax;
-//if (Ajax && (Ajax != null)) {
-//	Ajax.Responders.register({
-//	  onCreate: function() {
-//        if($('spinner') && Ajax.activeRequestCount>0)
-//          Effect.Appear('spinner',{duration:0.5,queue:'end'});
-//	  },
-//	  onComplete: function() {
-//        if($('spinner') && Ajax.activeRequestCount==0)
-//          Effect.Fade('spinner',{duration:0.5,queue:'end'});
-//	  }
-//	});
-//}

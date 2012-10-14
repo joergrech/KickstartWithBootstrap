@@ -12,7 +12,7 @@ This plugin provides the following feature:
 Currently, Kickstart is intended to act more like an injection than an plugin - importent files are copied into your project and you can remove the plugin afterwards. 
 
 == Usage ==
-After installation you can call the script "grails kickstartWithBootstrap" which will copy several files into your project. 
+After installation you can call the script "grails kickstart" which will copy several files into your project. 
 It will overwrite only few files (e.g., in conf, src, and views) - '''you should use it only on fresh new Grails projects'''. 
 
 Afterwards create your domain classes (or copy them into the project) and generate contollers and views - they will

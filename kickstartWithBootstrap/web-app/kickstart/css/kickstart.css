@@ -5,6 +5,31 @@
 .navbar img.logo	{ max-height: 20px; margin-top: -3px;}
 .navbar .brand		{ padding: 10px 20px 10px 20px; }
 .navbar .version	{ font-size: 60%; line-height: 60%; }
+.navbar-inverse .navbar-inner {
+    background-image: -moz-linear-gradient(center top , #444444, #111111);
+}
+.dropdown-menu .form-container {
+	padding: 15px 15px 10px 15px; 
+}
+.dropdown-menu .button-container {
+	padding: 1px 15px 10px 15px; 
+}
+.dropdown-menu .form-container form {
+	padding: 0;
+	margin:  0; 
+}
+.modal form {
+	margin-bottom: 0;
+}
+form p:last-child {
+	margin-bottom: 0;
+}
+form p:last-child input {
+	margin-bottom: 0;
+}
+.modal form div:last-child{
+	margin-bottom: 0;
+}
 
 /** 
  * CSS for the Header section (blue background, etc.)
@@ -30,15 +55,15 @@
 	   -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
 			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
 }
-#Header .title		{ font-size: 72px; line-height: 72px; font-weight: normal; text-decoration: none; color: #fff; }
-#Header .lead		{ font-size: 18px; line-height: 18px; color: #fff; }
+#Header .title		{ font-size: 72px; line-height: 72px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
+#Header .lead		{ font-size: 18px; line-height: 18px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
 
 @media (max-width: 980px) {
 	#Header {
 		margin: 0px -20px 0px -20px;
 	}
 	#Header .inner {
-		padding: 40px 20px;
+		padding: 80px 20px;
 	}
 	.navbar-fixed-top {
 		position: static;
@@ -100,3 +125,38 @@ section.first {
     margin: 0 auto;
 }
 
+/*
+ * Big Messages (Errors, etc.)
+ */
+ section#Error {
+	padding-top:0;	
+}
+.big-message {
+    color: #5A5A5A;
+    margin: 8em 0;
+    text-align: center;
+}
+.big-message h1 {
+    font-size: 120px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    line-height: 1em;
+    margin: 0.0em 0 0.5em;
+}
+.big-message h2 {
+    font-size: 30px;
+	font-weight: 200;
+    margin: 1.0em 0 0.5em;
+}
+.big-message p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 1.0em 0 0.5em;
+}
+.big-message .actions {
+    margin: 2.0em 0;
+}
+.big-message .actions a {
+    margin: 0 1.0em;
+	text-decoration: none;
+}
