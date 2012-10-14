@@ -50,9 +50,9 @@ class KickstartWithBootstrapGrailsPlugin {
 				def matcher = it.name =~ /messages(.*)\.properties/
 				def result = matcher[0][1]					// @see http://groovy.codehaus.org/Regular+Expressions
 				if (result != null && result.size() == 3) {
-					locales << result.substring(1, 3).toLowerCase()		// should be empty ("") or starts with "_" (e.g., "_de")
+					locales << result.substring(1, 3).toLowerCase()		// should be empty ("") and starts with "_" (e.g., "_de")
 				} else if (result != null && result.size() == 6) {
-					locales << result.substring(4, 6).toLowerCase()		// should be empty ("") or starts with "_en_US" (e.g., "_de")
+					locales << result.substring(4, 6).toLowerCase()		// should be empty ("") and starts with country (e.g., "_en_US")
 				}
 			}
 		}

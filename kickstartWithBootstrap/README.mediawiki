@@ -38,7 +38,7 @@ now use the Bootstrap framework!
 == Changelog ==
 
 ;0.7.0
-: Updated to Bootstrap 2.1.1 and Grails 2.1. Included FamFamFam icons for flags in language selector. Introduced a footer. 
+: Updated to Bootstrap 2.1.1 and Grails 2.1. Included FamFamFam icons for flags in language selector. Reorganized file structure for views. 
 ;0.6.1
 : Minor bug fix in _Events.gsp script. 
 ;0.6.0
