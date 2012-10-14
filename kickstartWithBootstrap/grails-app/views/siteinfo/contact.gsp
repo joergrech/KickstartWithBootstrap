@@ -24,6 +24,9 @@
 					<strong>${meta(name:'app.name')}, Inc.</strong><br>
 					 123 Future Ave<br>
 					 San Francisco, CA 94107<br>
+					 <br>
+				</address>
+				<address>
 					<div class="row">
 						<span class="span1">
 							<strong><abbr title="Phone">Phone</abbr></strong>

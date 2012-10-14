@@ -78,10 +78,10 @@
 			</div>
 	    	<div class="span4">
 		    	<div class="center">
-					<img class="" src="${resource(dir: 'images',file: 'bs-docs-twitter-github.png')}" />
+					<img class="" src="${resource(dir: 'images',file: 'components.jpg')}" />
 					<h3>Other Feature</h3>
 				</div>
-				<p>Kickstart contains several pages as starting points for the average website such as an About page, Contact Page, 404, etc.</p>
+				<p>Kickstart contains several pages as starting points for the average website such as an About Page, Contact Page, 404, etc.</p>
 			</div>
 	    </div>
 	</section>

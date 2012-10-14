@@ -5,24 +5,24 @@
 				<h4>Product</h4>
 				<ul class="unstyled">
 					<li>
-						<a href="${createLink(uri: '/')}"><g:message code="default.home.button"/></a>
+						<a href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
 					</li>
 					<li>
-						<a href="${createLink(uri: '/')}"><g:message code="default.tour.button"/></a>
+						<a href="${createLink(uri: '/')}"><g:message code="default.tour.label"/></a>
 					</li>
 					<li>
-						<a href="${createLink(uri: '/')}"><g:message code="default.pricing.button"/></a>
+						<a href="${createLink(uri: '/')}"><g:message code="default.pricing.label"/></a>
 					</li>
 					<li>
-						<a href="${createLink(uri: '/')}"><g:message code="default.faq.button"/></a>
+						<a href="${createLink(uri: '/')}"><g:message code="default.faq.label"/></a>
 					</li>
 				</ul>
 			</div>
 			<div class="span2">
 				<h4>Company</h4>
 				<ul class="unstyled">
-					<li><a href="${createLink(uri: '/about')}"><g:message code="default.about.button"/></a></li>
-					<li><a href="${createLink(uri: '/contact')}"><g:message code="default.contact.button"/></a></li>
+					<li><a href="${createLink(uri: '/about')}"><g:message code="default.about.label"/></a></li>
+					<li><a href="${createLink(uri: '/contact')}"><g:message code="default.contact.label"/></a></li>
 				</ul>
 			</div>
 			<div class="span8">

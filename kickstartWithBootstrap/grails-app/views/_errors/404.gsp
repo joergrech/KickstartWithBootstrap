@@ -15,7 +15,7 @@
 				<h1>Oops!</h1>
 				<h2>404 Not Found</h2>
 				<p>
-					Sorry, an error has occured, Requested page not found!
+					Sorry, an error has occured, requested page not found!
 				</p>
 				
 				<div class="actions">

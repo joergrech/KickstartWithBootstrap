@@ -34,11 +34,11 @@
 	  			<div class="pull-right">
 					<%--Right-side entries--%>
 					<%--NOTE: the following menus are in reverse order due to "pull-right" alignment (i.e., right to left)--%>
-					<g:render template="/menu/language"/>														
-					<g:render template="/menu/config"/>
-					<g:render template="/menu/info"/>														
-					<g:render template="/menu/user"/><!-- NOTE: the renderDialog for the "Register" modal dialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
-					<g:render template="/menu/admin"/>														
+					<g:render template="/_menu/language"/>														
+					<g:render template="/_menu/config"/>
+					<g:render template="/_menu/info"/>														
+					<g:render template="/_menu/user"/><!-- NOTE: the renderDialog for the "Register" modal dialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
+					<g:render template="/_menu/admin"/>														
 <%-- 					<g:render template="/_menu/search"/> --%>
 	  			</div>
 

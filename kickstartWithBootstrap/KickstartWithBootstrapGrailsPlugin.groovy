@@ -49,14 +49,16 @@ class KickstartWithBootstrapGrailsPlugin {
 				// Extract locale from filename using RegEx
 				def matcher = it.name =~ /messages(.*)\.properties/
 				def result = matcher[0][1]					// @see http://groovy.codehaus.org/Regular+Expressions
-				if (result != null && result != "")
-					locales << result.replace('_', '')	// should be empty ("") or starts with "_" (e.g., "_de")
+				if (result != null && result.size() == 3) {
+					locales << result.substring(1, 3).toLowerCase()		// should be empty ("") or starts with "_" (e.g., "_de")
+				} else if (result != null && result.size() == 6) {
+					locales << result.substring(4, 6).toLowerCase()		// should be empty ("") or starts with "_en_US" (e.g., "_de")
+				}
 			}
 		}
 		System.setProperty('grails.i18n.locales', locales.toString())
 		// Note: The GrailsApplication instance is available in all of the lifecycle closures as the "application" variable.
 		application.config.grails.i18n.locales = locales
-	
     }
 //
 //    def onChange = { event ->

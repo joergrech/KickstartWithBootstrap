@@ -3,14 +3,14 @@
 	<!-- Main menu in one line (e.g., controller entry points -->
 	<div class="row">
 		<div class="span12">
-			<g:render template="/menu/menubar"/>
+			<g:render template="/_menu/menubar"/>
 		</div>
 	</div>
 	
 	<!-- Secondary menu in one line (e.g., actions for current controller) -->
 	<div class="row">
 		<div class="span12">
-			<g:render template="/menu/submenubar"/>														
+			<g:render template="/_menu/submenubar"/>														
 		</div>
 	</div>
 

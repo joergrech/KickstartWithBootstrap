@@ -51,7 +51,7 @@
 </head>
 
 <body>
-	<g:render template="/menu/navbar"/>														
+	<g:render template="/_menu/navbar"/>														
 
 	<!-- Enable to overwrite Header by individual page -->
 	<g:if test="${ pageProperty(name:'page.header') }">

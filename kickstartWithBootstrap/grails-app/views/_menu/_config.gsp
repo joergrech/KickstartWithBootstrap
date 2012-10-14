@@ -11,7 +11,7 @@
 			<li class="dropdown-submenu">
 				<a href="#" class="dropdown-toggle">
 					<i class="${params.layout == 'fluid' ? 'icon-resize-full' : 'icon-resize-vertical'}"></i>
-					<span class="js-current-language">${layout ? layout.toString().toUpperCase() : "${message(code: 'default.layout.button', default: 'Layout')}"}</span>
+					<span class="js-current-language">${layout ? layout.toString().toUpperCase() : "${message(code: 'default.layout.label', default: 'Layout')}"}</span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-dark">
 					<li><a class="js-language-link" title="Vertical" href="${createLink(uri: request.forwardURI+'?layout=grid')}">
@@ -27,7 +27,7 @@
 <%--			<li class="dropdown-submenu">--%>
 <%--				<a href="#" class="dropdown-toggle">--%>
 <%-- 					<i class="${params.skin != 'bootstrap_skinA' ? 'icon-check-empty' : 'icon-sign-blank'}"></i> --%>
-<%--					<span class="js-current-language">${message(code: 'default.skin.button', default: 'Skin')}</span>--%>
+<%--					<span class="js-current-language">${message(code: 'default.skin.label', default: 'Skin')}</span>--%>
 <%--				</a>--%>
 <%--				<ul class="dropdown-menu dropdown-menu-dark">--%>
 <%--					<li>--%>
@@ -51,7 +51,7 @@
 <noscript>
 <ul class="nav pull-right">
 	<li class="">
-		<g:link controller="user" action="config"><g:message code="user.config.button" default="Config"/></g:link>
+		<g:link controller="user" action="config"><g:message code="user.config.label" default="Config"/></g:link>
 	</li>
 </ul>
 </noscript>

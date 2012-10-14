@@ -3,7 +3,7 @@
 		<!-- TODO: integrate Springsource Security, show User's name ... -->
 <%--<sec:ifLoggedIn>--%>
 		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#" tabindex="-1">
-			<g:message code="security.signin.button"/><b class="caret"></b>
+			<g:message code="security.signin.label"/><b class="caret"></b>
 		</a>
 
 		<ul class="dropdown-menu" role="menu">
@@ -27,23 +27,23 @@
 
 <%--		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">--%>
 <%--			<i class="icon-user icon-large icon-white"></i>--%>
-<%--			<g:message code="default.user.unknown.button"/> <b class="caret"></b>--%>
+<%--			<g:message code="default.user.unknown.label"/> <b class="caret"></b>--%>
 <%--		</a>--%>
 <%--		<ul class="dropdown-menu" role="menu">--%>
 <%--			<!-- TODO: Only show menu items based on permissions (e.g., Guest has no account page) -->--%>
 <%--			<li class=""><a href="${createLink(uri: '/')}">--%>
 <%--				<i class="icon-user"></i>--%>
-<%--				<g:message code="user.show.button"/>--%>
+<%--				<g:message code="user.show.label"/>--%>
 <%--			</a></li>--%>
 <%--			<li class=""><a href="${createLink(uri: '/')}">--%>
 <%--				<i class="icon-cogs"></i>--%>
-<%--				<g:message code="user.settings.change.button"/>--%>
+<%--				<g:message code="user.settings.change.label"/>--%>
 <%--			</a></li>--%>
 <%--			--%>
 <%--			<li class="divider"></li>--%>
 <%--			<li class=""><a href="${createLink(uri: '/')}">--%>
 <%--				<i class="icon-off"></i>--%>
-<%--				<g:message code="security.signoff.button"/>--%>
+<%--				<g:message code="security.signoff.label"/>--%>
 <%--			</a></li>--%>
 <%--		</ul>--%>
 
@@ -54,7 +54,7 @@
 <noscript>
 <ul class="nav pull-right">
 	<li class="">
-		<g:link controller="user" action="show"><g:message code="default.user.unknown.button"/></g:link>
+		<g:link controller="user" action="show"><g:message code="default.user.unknown.label"/></g:link>
 	</li>
 </ul>
 </noscript>
