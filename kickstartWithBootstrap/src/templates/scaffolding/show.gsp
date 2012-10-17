@@ -1,4 +1,5 @@
 <% import grails.persistence.Event %>
+<% import org.codehaus.groovy.grails.plugins.PluginManagerHolder %>
 <%=packageName%>
 <!doctype html>
 <html>
@@ -20,7 +21,14 @@
 			allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
 			props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) }
 			Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
-			props.each { p -> %>
+				display = true
+					boolean hasHibernate = PluginManagerHolder.pluginManager.hasGrailsPlugin('hibernate')
+					props.each { p ->
+						if (hasHibernate) {
+							cp = domainClass.constrainedProperties[p.name]
+							display = (cp ? cp.display : true)
+						}
+						if (display) { %>
 			<tr class="prop">
 				<td valign="top" class="name"><g:message code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}" /></td>
 				<%  if (p.isEnum()) { %>
@@ -43,7 +51,7 @@
 				<td valign="top" class="value">\${fieldValue(bean: ${propertyName}, field: "${p.name}")}</td>
 				<%  } %>
 			</tr>
-		<%  } %>
+		<%  }  } %>
 		</tbody>
 	</table>
 </section>
