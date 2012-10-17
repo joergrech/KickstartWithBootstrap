@@ -206,7 +206,7 @@ class BootstrapTagLib {
 	
 		if (c != null) {
 			day = c.get(GregorianCalendar.DAY_OF_MONTH)
-			month = c.get(GregorianCalendar.MONTH)
+			month = c.get(GregorianCalendar.MONTH) +1 //add one as Java stores month from 0..11
 			year = c.get(GregorianCalendar.YEAR)
 			hour = c.get(GregorianCalendar.HOUR_OF_DAY)
 			minute = c.get(GregorianCalendar.MINUTE)

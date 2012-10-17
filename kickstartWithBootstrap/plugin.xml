@@ -6,14 +6,14 @@
   <documentation>http://grails.org/plugin/kickstart-with-bootstrap</documentation>
   <type>KickstartWithBootstrapGrailsPlugin</type>
   <resources>
+    <resource>kickstart.KickstartFilters</resource>
     <resource>spring.resources</resource>
+    <resource>HomeController</resource>
     <resource>kickstart.BootstrapTagLib</resource>
   </resources>
   <repositories>
-    <repository name='grailsCentral' url='http://plugins.grails.org' />
-    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
     <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
-    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
     <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
   </repositories>
   <dependencies />
