@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="${resource(dir: 'datepicker/css',	file: 'datepicker.css')}" />
 	<link rel="stylesheet" href="${resource(dir: 'kickstart/css',	file: 'docs.css')}" />
 	<link rel="stylesheet" href="${resource(dir: 'kickstart/css',	file: 'kickstart.css')}" />
-
+	
     <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
     <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon-72x72.png"	sizes="72x72">
     <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon-114x114.png"	sizes="114x114">
@@ -44,6 +44,7 @@
 	<!-- Bootstrap-specific functionality -->
 	<script src="${resource(dir:'datepicker/js',file:'bootstrap-datepicker.js')}"></script>
     <script src="${resource(dir:'kickstart/js', file:'kickstart.js')}"></script>
+    <script src="${resource(dir:'kickstart/js', file:'checkboxes.js')}"></script>
     
 	<!-- Application-specific functionality -->
 	<script src="${resource(dir:'js',			file:'application.js')}"></script>

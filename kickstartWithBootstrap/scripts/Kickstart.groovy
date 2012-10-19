@@ -13,6 +13,12 @@ def hasChanged = false
 target(kickstart: "Installs the Kickstart scaffolding templates and other files") {
 	depends(checkVersion, parseArguments)
 		
+	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf"
+	targetDir = "${basedir}/grails-app/conf/"
+	copy("${sourceDir}/UrlMappings.groovy",					targetDir,				"URLMappings.groovy",		code)
+//	copy("${sourceDir}/kickstart/KickstartFilters.groovy",	targetDir+"kickstart/",	"KickstartFilters.groovy",	code)
+//	copy("${sourceDir}/spring/resources.groovy",			targetDir+"spring/",	"resources.groovy", 		code)
+
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src/templates/"
 	targetDir = "${basedir}/src/templates/"
 	copy(sourceDir, targetDir, "scaffolding templates", code)
@@ -21,6 +27,7 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	targetDir = "${basedir}/grails-app/views"
 	copy(sourceDir, targetDir, "layouts & base GSPs", code)
 	ant.delete(file: targetDir+'/index.gsp')
+	ant.delete(file: targetDir+'/error.gsp')
 	
 //	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/controllers/"
 //	targetDir = "${basedir}/grails-app/controllers/"
@@ -31,12 +38,6 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 //	copy(sourceDir+"bootstrap",  targetDir+"bootstrap",		"bootstrap files",  code)
 //	copy(sourceDir+"kickstart",  targetDir+"kickstart",		"kickstart files",  code)
 //	copy(sourceDir+"datepicker", targetDir+"datepicker",	"datepicker files", code)
-
-	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf"
-	targetDir = "${basedir}/grails-app/conf/"
-	copy("${sourceDir}/UrlMappings.groovy",					targetDir,				"URLMappings.groovy",		code)
-//	copy("${sourceDir}/kickstart/KickstartFilters.groovy",	targetDir+"kickstart/",	"KickstartFilters.groovy",	code)
-//	copy("${sourceDir}/spring/resources.groovy",			targetDir+"spring/",	"resources.groovy", 		code)
 
 	event "StatusUpdate", ["Kickstart installed successfully!"]
 

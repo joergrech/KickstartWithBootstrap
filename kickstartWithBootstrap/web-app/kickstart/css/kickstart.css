@@ -160,3 +160,13 @@ section.first {
     margin: 0 1.0em;
 	text-decoration: none;
 }
+
+/**
+ * Small correction for the radio-button like checkbox switch
+ */
+.radiocheckbox {
+	width: 206px;
+	display: inline-block;
+	margin-top: 2px;
+	margin-right: 14px;
+}

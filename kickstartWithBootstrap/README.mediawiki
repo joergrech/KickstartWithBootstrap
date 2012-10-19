@@ -37,6 +37,8 @@ now use the Bootstrap framework!
 
 == Changelog ==
 
+;0.7.2
+: Integrated a Bootstrap-based checkbox in the taglib and scaffolding templates. 
 ;0.7.1
 : Corrected datepicker problem with Java representation with month. Corrected missing ID in links to edit-actions. 
 ;0.7.0

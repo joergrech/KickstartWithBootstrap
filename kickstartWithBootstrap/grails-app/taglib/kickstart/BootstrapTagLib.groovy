@@ -6,6 +6,8 @@ import java.text.DateFormatSymbols
 class BootstrapTagLib {
 	static namespace = "bs"
 
+	def requestDataValueProcessor = null;
+	
 	def paginate = {
 		attrs ->
 		def writer = out
@@ -121,7 +123,7 @@ class BootstrapTagLib {
 	/**
 	* A simple date picker that renders a date as selects.<br/>
 	* This is just an initial hack - can be widely improved!
-	* e.g. &lt;g:datePicker name="myDate" value="${new Date()}" /&gt;
+	* e.g. &lt;bs:datePicker name="myDate" value="${new Date()}" /&gt;
 	*
 	* @emptyTag
 	*
@@ -246,6 +248,132 @@ class BootstrapTagLib {
 	}
 	
 	/**
+	* A helper tag for creating checkboxes.
+	 * example: 	<bs:checkBox name="sendEmail" value="${false}" onLabel="On" offLabel="Off"/>
+	 * @emptyTag
+	 *
+	 * @attr name REQUIRED the name of the checkbox
+	 * @attr value the value of the checkbox
+	 * @attr checked if evaluates to true sets to checkbox to checked
+	 * @attr onLabel the I18N code (or the text itself if not defined) to label the On/Yes/True button 
+	 * @attr offLabel the I18N code (or the text itself if not defined) to label the Off/No/False button
+	 * @attr disabled if evaluates to true sets to checkbox to disabled
+	 * @attr readonly if evaluates to true, sets to checkbox to read only
+	 * @attr id DOM element id; defaults to name
+	 */
+	 Closure checkBox = { attrs ->
+		def messageSource	= grailsAttributes.messageSource
+		def locale			= RCU.getLocale(request)
+ 
+		def value		= attrs.remove('value')
+		def name		= attrs.remove('name')
+		def onLabel		= attrs.remove('onLabel')  ?: "checkbox.on.label"
+		def offLabel	= attrs.remove('offLabel') ?: "checkbox.off.label"
+		booleanToAttribute(attrs, 'disabled')
+		booleanToAttribute(attrs, 'readonly')
+ 
+		// Deal with the "checked" attribute. If it doesn't exist, we
+		// default to a value of "true", otherwise we use Groovy Truth
+		// to determine whether the HTML attribute should be displayed or not.
+		def checked = true
+		def checkedAttributeWasSpecified = false
+		if (attrs.containsKey('checked')) {
+			checkedAttributeWasSpecified = true
+			checked = attrs.remove('checked')
+		}
+ 
+		if (checked instanceof String) checked = Boolean.valueOf(checked)
+ 
+		if (value == null) value = false
+		def hiddenValue = "";
+		
+		value = processFormFieldValueIfNecessary(name, value,"checkbox")
+		hiddenValue = processFormFieldValueIfNecessary("_${name}", hiddenValue, "hidden")
+		
+//		out << """
+//		<div>
+//			<label for=\"_${name}\" class="control-label">
+//				${messageSource.getMessage(name + '.label', null, '', locale)}
+//			</label>
+//
+//			<div class="">
+//"""
+
+		out << "				<input type=\"hidden\" name=\"_${name}\"";
+		if(hiddenValue != "") {
+			out << " value=\"${hiddenValue}\"";
+		}
+		out << " />\n				<input class='hide pull-right' type=\"checkbox\" name=\"${name}\" "
+		if (checkedAttributeWasSpecified) {
+			if (checked) {
+				out << 'checked="checked" '
+			}
+		}
+		else if (value && value != "") {
+			out << 'checked="checked" '
+			checked = true
+		}
+ 
+		def outputValue = !(value instanceof Boolean || value?.class == boolean.class)
+		if (outputValue) {
+			out << "value=\"${value}\" "
+		}
+		// process remaining attributes
+		outputAttributes(attrs, out)
+ 
+		if (!attrs.containsKey('id')) {
+			out << """id="${name}" """
+		}
+	
+		// close the tag, with no body
+		out << ' />'
+		
+		out << """
+				<div id="btngroup" class="btn-group radiocheckbox" data-toggle="buttons-radio">
+					<div class="btn btn-small on   ${value ? 'active btn-primary' : ''}">${messageSource.getMessage('language.cn', null, onLabel, locale)}</div>
+					<div class="btn btn-small off ${!value ? 'active btn-primary' : ''}">${messageSource.getMessage(offLabel, null, offLabel, locale)}</div>
+				</div>
+		"""
+	}
+	
+	 /**
+	  * Dump out attributes in HTML compliant fashion.
+	  */
+	void outputAttributes(attrs, writer, boolean useNameAsIdIfIdDoesNotExist = false) {
+		attrs.remove('tagName') // Just in case one is left
+		attrs.each { k, v ->
+			if(v != null) {
+				writer << k
+				writer << '="'
+				writer << v.encodeAsHTML()
+				writer << '" '
+			}
+		}
+		if (useNameAsIdIfIdDoesNotExist) {
+			outputNameAsIdIfIdDoesNotExist(attrs, writer)
+		}
+	}
+		  
+	/**
+	 * getter to obtain RequestDataValueProcessor from
+	 */
+    private getRequestDataValueProcessor() {
+        if (requestDataValueProcessor == null && grailsAttributes.getApplicationContext().containsBean("requestDataValueProcessor")){
+            requestDataValueProcessor = grailsAttributes.getApplicationContext().getBean("requestDataValueProcessor")
+        }
+        return requestDataValueProcessor;
+    }
+	
+	 private processFormFieldValueIfNecessary(name, value, type) {
+		 def requestDataValueProcessor = getRequestDataValueProcessor();
+		 def processedValue = value;
+		 if(requestDataValueProcessor != null) {
+			 processedValue = requestDataValueProcessor.processFormFieldValue(request, name, "${value}", type);
+		 }
+		 return processedValue;
+	 }
+
+	/**
 	* Some attributes can be defined as Boolean values, but the html specification
 	* mandates the attribute must have the same value as its name. For example,
 	* disabled, readonly and checked.
@@ -255,7 +383,7 @@ class BootstrapTagLib {
 		// If the value is the same as the name or if it is a boolean value,
 		// reintroduce the attribute to the map according to the w3c rules, so it is output later
 		if (Boolean.valueOf(attrValue) ||
-		   (attrValue instanceof String && attrValue?.equalsIgnoreCase(attrName))) {
+		  (attrValue instanceof String && attrValue?.equalsIgnoreCase(attrName))) {
 			attrs.put(attrName, attrName)
 		} else if (attrValue instanceof String && !attrValue?.equalsIgnoreCase('false')) {
 			// If the value is not the string 'false', then we should just pass it on to
