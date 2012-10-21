@@ -5,7 +5,7 @@ This plugin provides the following feature:
 * Adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
 * Initial set of webpages to describe the website (e.g., about.gsp, contact.gsp, and systeminfo.gsp)
 * A language picker that adapts to the available property files in the i18n directory. Using the FamFamFam flag icons.
-* A layout (non-/responsive) and skin selector (switches between two different bootstrap versions)
+* A layout (non-/responsive) and less-based skin selector (switches between two different bootstrap versions in less format)
 ** The skin selector can change the design between the original (bright) Bootstrap and the free (dark) variant called [http://bootswatch.com/cyborg/ "Cyborg"] 
 * A minimal console logging filter (KickstartFilter.groovy) to help understand which actions are called and params are transmitted
 * A script to calculate a simple build number and extract versioning build numbers (in _Events.groovy)

@@ -1,6 +1,7 @@
 <ul class="nav pull-right">
 	<li class="dropdown dropdown-btn">
 <%--<sec:ifNotLoggedIn>--%>
+
 		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#" tabindex="-1">
 			<!-- TODO: integrate Springsource Security etc. and show User's name ... -->
 			<g:message code="security.signin.label"/><b class="caret"></b>
@@ -21,7 +22,8 @@
 				<!-- NOTE: the renderDialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
 				<g:render template="/_common/modals/registerTextLink" plugin="SPECTRAwebPlugin"/>
 			</li>
-		</ul>		
+		</ul>
+
 <%--</sec:ifNotLoggedIn>--%>
 <%--<sec:ifLoggedIn>--%>
 
