@@ -5,3 +5,5 @@
 /grails-kickstart-with-bootstrap-0.6.0.zip
 /grails-kickstart-with-bootstrap-0.6.1.zip
 /target-eclipse
+*.zip
+*/.svn/*
