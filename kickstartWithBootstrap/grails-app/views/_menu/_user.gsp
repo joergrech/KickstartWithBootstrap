@@ -1,8 +1,8 @@
 <ul class="nav pull-right">
 	<li class="dropdown dropdown-btn">
-		<!-- TODO: integrate Springsource Security, show User's name ... -->
-<%--<sec:ifLoggedIn>--%>
+<%--<sec:ifNotLoggedIn>--%>
 		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#" tabindex="-1">
+			<!-- TODO: integrate Springsource Security etc. and show User's name ... -->
 			<g:message code="security.signin.label"/><b class="caret"></b>
 		</a>
 
@@ -22,15 +22,17 @@
 				<g:render template="/_common/modals/registerTextLink" plugin="SPECTRAwebPlugin"/>
 			</li>
 		</ul>		
-<%--</sec:ifLoggedIn>--%>
-<%--<sec:ifNotLoggedIn>--%>
+<%--</sec:ifNotLoggedIn>--%>
+<%--<sec:ifLoggedIn>--%>
 
 <%--		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">--%>
+<%--			<!-- TODO: Only show menu items based on permissions (e.g., Guest has no account page) -->--%>
 <%--			<i class="icon-user icon-large icon-white"></i>--%>
-<%--			<g:message code="default.user.unknown.label"/> <b class="caret"></b>--%>
+<%--			${user.name}--%>
+<%--			<g:message code="default.user.unknown.label" default="Guest"/> <b class="caret"></b>--%>
 <%--		</a>--%>
 <%--		<ul class="dropdown-menu" role="menu">--%>
-<%--			<!-- TODO: Only show menu items based on permissions (e.g., Guest has no account page) -->--%>
+<%--			<!-- TODO: Only show menu items based on permissions -->--%>
 <%--			<li class=""><a href="${createLink(uri: '/')}">--%>
 <%--				<i class="icon-user"></i>--%>
 <%--				<g:message code="user.show.label"/>--%>
@@ -47,7 +49,7 @@
 <%--			</a></li>--%>
 <%--		</ul>--%>
 
-<%--</sec:ifNotLoggedIn>--%>
+<%--</sec:ifLoggedIn>--%>
 	</li>
 </ul>
 

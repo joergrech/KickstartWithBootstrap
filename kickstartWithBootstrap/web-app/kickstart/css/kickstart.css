@@ -18,6 +18,9 @@
 	padding: 0;
 	margin:  0; 
 }
+.dropdown-menu .form-container form label {
+	color: #999;
+}
 .modal form {
 	margin-bottom: 0;
 }
