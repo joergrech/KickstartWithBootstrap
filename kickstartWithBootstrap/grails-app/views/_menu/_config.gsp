@@ -14,36 +14,33 @@
 					<span class="js-current-language">${layout ? layout.toString().toUpperCase() : "${message(code: 'default.layout.label', default: 'Layout')}"}</span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-dark">
-					<li><a class="js-language-link" title="Vertical" href="${createLink(uri: request.forwardURI+'?layout=grid')}">
+					<li><a class="" title="Vertical" href="${request.forwardURI+'?layout=grid'}">
 						<i class="icon-resize-vertical"></i>
 						Grid 940px (Menu Top)
 					</a></li>
-					<li><a class="js-language-link" title="Horizontal" href="${createLink(uri: request.forwardURI+'?layout=fluid')}">
+					<li><a class="" title="Horizontal" href="${request.forwardURI+'?layout=fluid'}">
 						<i class="icon-resize-full"></i>
 						Fluid (Menu Left)
 					</a></li>
 				</ul>
 			</li>
-<%--			<li class="dropdown-submenu">--%>
-<%--				<a href="#" class="dropdown-toggle">--%>
-<%-- 					<i class="${params.skin != 'bootstrap_skinA' ? 'icon-check-empty' : 'icon-sign-blank'}"></i> --%>
-<%--					<span class="js-current-language">${message(code: 'default.skin.label', default: 'Skin')}</span>--%>
-<%--				</a>--%>
-<%--				<ul class="dropdown-menu dropdown-menu-dark">--%>
-<%--					<li>--%>
-<%--						<a title="Original" href="${createLink(uri: request.forwardURI+'?skin=bootstrap')}">--%>
-<%-- 							<i class="icon-check-empty"></i> -->
-<%--							<g:message code="default.skin.original.label" default="Bright (Original)"/>--%>
-<%--						</a>--%>
-<%--					</li>--%>
-<%--					<li>--%>
-<%--						<a title="Skin1"    href="${createLink(uri: request.forwardURI+'?skin=bootstrap_skinA')}">--%>
-<%-- 							<i class="icon-sign-blank"></i> -->
-<%--							<g:message code="default.skin.skinA.label"    default="Dark (Skin A)"/>--%>
-<%--						</a>--%>
-<%--					</li>--%>
-<%--				</ul>--%>
-<%--			</li>--%>
+			<li class="dropdown-submenu">
+				<a href="#" class="dropdown-toggle">
+					<span class="js-current-language">${message(code: 'default.skin.label', default: 'Skin')}</span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-dark">
+					<li>
+						<a title="Original" href="${request.forwardURI+'?skin=bootstrap'}">
+							<g:message code="default.skin.original.label" default="Bright (Original)"/>
+						</a>
+					</li>
+					<li>
+						<a title="Skin A"    href="${request.forwardURI+'?skin=bootstrap_skinA'}">
+							<g:message code="default.skin.skinA.label"    default="Dark (Skin A)"/>
+						</a>
+					</li>
+				</ul>
+			</li>
 		</ul>
 	</li>
 </ul>

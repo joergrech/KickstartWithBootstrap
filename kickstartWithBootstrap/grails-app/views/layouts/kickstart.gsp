@@ -3,52 +3,29 @@
 <html lang="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}">
 
 <head>
+	<title><g:layoutTitle default="${meta(name:'app.name')}" /></title>
+	
     <meta charset="utf-8">
     <meta name="viewport"		content="width=device-width, initial-scale=1.0">
     <meta name="description"	content="">
     <meta name="author"			content="">
     
-	<title><g:layoutTitle default="${meta(name:'app.name')}" /></title>
-	<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+	<link rel="shortcut icon"		href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 	
-	<g:set var="skin" value="${session.skin ? session.skin : 'bootstrap'}" />
+	<link rel="apple-touch-icon"	href="assets/ico/apple-touch-icon.png">
+    <link rel="apple-touch-icon"	href="assets/ico/apple-touch-icon-72x72.png"	sizes="72x72">
+    <link rel="apple-touch-icon"	href="assets/ico/apple-touch-icon-114x114.png"	sizes="114x114">
 	
-<%--	<r:require modules="${skin}"/>--%>
-
-	<!-- Skin specific styles: main focus are Bootstrap variants (e.g., using Less) -->
-	<link rel="stylesheet" href="${resource(dir: skin+'/css',		file: skin+'.css')}" />
-	<link rel="stylesheet" href="${resource(dir: skin+'/css',		file: skin+'-responsive.css')}" />
-
-	<!-- Bootstrap extensions / adaptations -->
-<%-- 	<link rel="stylesheet" href="${resource(dir: 'FontAwesome/css',	file:'font-awesome.css')}"> --%>
-	<link rel="stylesheet" href="${resource(dir: 'datepicker/css',	file: 'datepicker.css')}" />
-	<link rel="stylesheet" href="${resource(dir: 'kickstart/css',	file: 'docs.css')}" />
-	<link rel="stylesheet" href="${resource(dir: 'kickstart/css',	file: 'kickstart.css')}" />
-	
-    <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
-    <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon-72x72.png"	sizes="72x72">
-    <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon-114x114.png"	sizes="114x114">
-    
-<%-- 	<r:layoutResources /> --%>
-    <g:layoutHead />
+	<r:require modules="jquery, ${session.skin ? session.skin : 'bootstrap'}, bootstrap_utils"/>
+	<r:layoutResources />
+	<g:layoutHead />
 	
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
     
-    <!-- Skin-specific functionality -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="${resource(dir:skin+'/js',		file:skin+'.js')}"></script>
-    
-	<!-- Bootstrap-specific functionality -->
-	<script src="${resource(dir:'datepicker/js',file:'bootstrap-datepicker.js')}"></script>
-    <script src="${resource(dir:'kickstart/js', file:'kickstart.js')}"></script>
-    <script src="${resource(dir:'kickstart/js', file:'checkboxes.js')}"></script>
-    
-	<!-- Application-specific functionality -->
-	<script src="${resource(dir:'js',			file:'application.js')}"></script>
-
+	<%-- For Javascript see end of body --%>
 </head>
 
 <body>
@@ -81,7 +58,11 @@
 	<!-- Insert a modal dialog for registering -->
 	<g:render template="/_common/modals/registerDialog" model="[item: item]"/>
 	
-    <r:layoutResources />
+<!-- Included Javascript files -->
+<r:layoutResources />
+<!-- Application-specific functionality -->
+<script src="${resource(dir:'js',			file:'application.js')}"></script>
+
 </body>
 
 </html>

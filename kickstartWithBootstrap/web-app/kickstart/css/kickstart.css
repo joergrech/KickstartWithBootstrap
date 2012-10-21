@@ -30,7 +30,9 @@ form p:last-child input {
 .modal form div:last-child{
 	margin-bottom: 0;
 }
-
+.modal-header h3 {
+	color: #555555;
+}
 /** 
  * CSS for the Header section (blue background, etc.)
  */

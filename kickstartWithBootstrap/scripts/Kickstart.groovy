@@ -1,4 +1,5 @@
 includeTargets << grailsScript("_GrailsInit")
+//includeTool << gant.tools.Execute
 
 def code = "confirm.kickstart"
 def confirmCount = 0
@@ -12,13 +13,23 @@ def hasChanged = false
  */
 target(kickstart: "Installs the Kickstart scaffolding templates and other files") {
 	depends(checkVersion, parseArguments)
-		
+
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf"
 	targetDir = "${basedir}/grails-app/conf/"
 	copy("${sourceDir}/UrlMappings.groovy",					targetDir,				"URLMappings.groovy",		code)
 //	copy("${sourceDir}/kickstart/KickstartFilters.groovy",	targetDir+"kickstart/",	"KickstartFilters.groovy",	code)
 //	copy("${sourceDir}/spring/resources.groovy",			targetDir+"spring/",	"resources.groovy", 		code)
 
+	// copy less files into project
+	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/less"
+	targetDir = "${basedir}/web-app/less"
+	copy(sourceDir, targetDir, "less files into /web-app", "copy-less")
+
+	// inject plugin specific configs into Config.groovy
+	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
+	configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
+	event "StatusUpdate", ["... appended include line at the end of Config.groovy!"]
+	
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src/templates/"
 	targetDir = "${basedir}/src/templates/"
 	copy(sourceDir, targetDir, "scaffolding templates", code)
@@ -39,6 +50,11 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 //	copy(sourceDir+"kickstart",  targetDir+"kickstart",		"kickstart files",  code)
 //	copy(sourceDir+"datepicker", targetDir+"datepicker",	"datepicker files", code)
 
+	// Install the lesscss-resource plugin: It needs to be installed in the project and not the plugin!
+//	"grails install-plugin lesscss-resources".execute()
+//	"grails install-plugin lesscss-resources".execute([], "your grails app path" as File)
+//	execute.shell ( 'grails install-plugin lesscss-resources' )
+	
 	event "StatusUpdate", ["Kickstart installed successfully!"]
 
 }

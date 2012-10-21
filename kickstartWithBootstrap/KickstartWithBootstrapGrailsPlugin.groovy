@@ -1,6 +1,6 @@
 class KickstartWithBootstrapGrailsPlugin {
     // the plugin version
-    def version = "0.7.2"
+    def version = "0.8.0"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0.0 > *"
     // the other plugins this plugin depends on
@@ -42,8 +42,9 @@ class KickstartWithBootstrapGrailsPlugin {
 
     def doWithApplicationContext = { applicationContext ->
         // TODO Implement post initialization spring config (optional)
+
+		// Collect all *.properties files in the I18N directory and build list of "available" locales 
 		def locales = []
-	
 		new File("./grails-app/i18n").eachFileRecurse {
 			if (it.file && it =~ /messages.*\.properties/) {
 				// Extract locale from filename using RegEx

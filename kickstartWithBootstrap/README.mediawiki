@@ -2,41 +2,62 @@ __NOTOC__
 == Introduction ==
 Kickstart is a plugin for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
 This plugin provides the following feature:
-* Adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter. 
-* Initial set of webpages to describe the website (about.gsp, contact.gsp, and systeminfo.gsp)
-* A minimal console logging filter (KickstartFilter.groovy) to help understand which actions are called
+* Adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
+* Initial set of webpages to describe the website (e.g., about.gsp, contact.gsp, and systeminfo.gsp)
+* A language picker that adapts to the available property files in the i18n directory. Using the FamFamFam flag icons.
+* A layout (non-/responsive) and skin selector (switches between two different bootstrap versions)
+** The skin selector can change the design between the original (bright) Bootstrap and the free (dark) variant called [http://bootswatch.com/cyborg/ "Cyborg"] 
+* A minimal console logging filter (KickstartFilter.groovy) to help understand which actions are called and params are transmitted
 * A script to calculate a simple build number and extract versioning build numbers (in _Events.groovy)
 * A script to calculate simple code metrics (lines of code (LOC) and number of files) (in _Events.groovy)
-* and a language switcher (encoded in main layout file Kickstart.gsp and _languages.gsp).
-
-Currently, Kickstart is intended to act more like an injection than an plugin - importent files are copied into your project and you can remove the plugin afterwards. 
 
 == Usage ==
-After installation you can call the script '''"grails kickstart"''' which will copy several files into your project. 
-It will overwrite only few files (e.g., in conf, src, and views) - '''you should use it only on fresh new Grails projects'''. 
+After installation you must call the kickstart script '''"grails kickstart"''', which will copy several files into your project. 
 
-Afterwards create your domain classes (or copy them into the project) and generate contollers and views - they will
+<pre style="border: 1px solid #ccc; border-radius: 3px; background-color: #F8F8F8;">
+
+  grails kickstart
+
+</pre>
+
+Afterwards create your domain classes (or copy them into the project) and generate controllers and views - they will
 now use the Bootstrap framework!
 
+== Consequences! ==
+The Kickstart script will (after asking you) overwrite a few files in the conf, src, and views directories of your project - '''you should use it only on fresh new Grails projects'''. 
 
-== Notes ==
+Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy for current procedure):
+* conf/UrlMappings.groovy
+* conf/Config.groovy (will only get one line appended)
+* src/templates
+* /views/_common (contains common GSP entries such as buttons or modals)
+* /views/_errors (contains error GSP for 404, 500, etc.)
+* /views/_menu   (contains menus or submenus)
+* /views/home    (contains the index.gsp)
+* /views/layouts (contains layout files)
+* /views/siteinfo (contains separated or static pages such as about.gsp)
+* /views/index.gsp will be '''deleted'''!
+* /views/error.gsp will be '''deleted'''!
 
-* Uses a vertical responsive Bootstrap 2.0 template (with some graphics from 1.4)
-* Does only use plain Bootstrap (currently, without Less).
-* The plugin copies the files into your project - you can uninstall the plugin thereafter.
-* It does NOT use the Bootstrap plugin.
+== Rare Problems ==
+During development and testing several strange error have emerged (they might be problems caused by the G&G Tool Suite - a restart of the GGTS helped me):
 
+* Sometimes the conf/URLmappings.groovy file is not copied by the Kickstart script into the conf directory of your project. If you run-app your project and get a 404 regarding the page "/WEB-INF/grails-app/views/index.jsp" you have to copy it yourself manually.
+* Sometimes the I18N files from the Kickstart plugin are not used. If you see I18N-codes such as "default.welcome.title" you have to copy the content of the I18N files into the property files in your project.
 
 == Terms of Use ==
 
-* Bootstrap (from Twitter): Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
-** see http://twitter.github.com/bootstrap/ and follow @TwBootstrap
+* Web Layout: [http://twitter.github.com/bootstrap/ Bootstrap 2.1], from Twitter Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)
+* Datepicker: [https://github.com/eternicode/bootstrap-datepicker Datepicker for Bootstrap], Copyright 2012 Stefan Petre, Improvements by Andrew Rowls, Licensed under the Apache License v2.0
+* Flag Icons: [http://www.famfamfam.com/lab/icons/flags/ FamFamFam Flag Icons] by Mark James. They are <i>"available for free use for any purpose with no requirement for attribution"</i>.
 * Kickstart Plugins: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
-** Copyright 2011 Jörg Rech 
+** Copyright 2011 Joerg Rech 
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Changelog ==
 
+;0.8.0
+: Integrated less templates of two Bootstrap based designs. Corrected links in language selector and config menus. 
 ;0.7.2
 : Integrated a Bootstrap-based checkbox in the taglib and scaffolding templates. 
 ;0.7.1
