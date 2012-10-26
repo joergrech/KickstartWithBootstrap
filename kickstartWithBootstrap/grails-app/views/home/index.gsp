@@ -30,7 +30,7 @@
 		<div class="row-fluid">
 	    	<div class="span4">
 		    	<div class="center">
-					<img class="" src="${resource(dir: 'images',file: 'bs-docs-twitter-github.png')}" height="52" />
+					<img class="frontpageImage" src="${resource(dir: 'images/frontpage',file: 'bs-docs-twitter-github.png')}" />
 					<h3>Bootstrap 2.1.1</h3>
 				</div>
 				<p>Kickstart uses <a href ="http://twitter.github.com/bootstrap/">Bootstrap</a> to render the web pages. 
@@ -40,17 +40,17 @@
 			</div>
 	    	<div class="span4">
 		    	<div class="center">
-					<img class="" src="${resource(dir: 'images',file: 'browser_logos.png')}" />
+					<img class="frontpageImage" src="${resource(dir: 'images/frontpage',file: 'browser_logos.png')}" />
 					<h3>Browser support</h3>
 				</div>
 				<p>Bootstrap is tested and supported in major modern browsers like Chrome 14, Safari 5+, Opera 11, Internet Explorer 7, and Firefox 5.</p>
 			</div>
 	    	<div class="span4">
 		    	<div class="center">
-					<img class="" src="${resource(dir: 'images',file: 'html5css3.png')}" height="52"/>
+					<img class="frontpageImage" src="${resource(dir: 'images/frontpage',file: 'html5css3js8.png')}"/>
 					<h3>Tech Foundation</h3>
 				</div>
-				<p>Bootstrap is based on elements of HTML 5, CSS 3, jQuery 1.7, and Javascript 1.8 with progressively enhanced 
+				<p>Bootstrap is based on elements of HTML 5, CSS 3, Javascript 1.8, and jQuery 1.7 with progressively enhanced 
 				components to enable a responsive design of the website.
 				Kickstart is built using Groovy 2.0 and Java 7 integrated into the Grails 2.1 framework. 
 				</p>
@@ -63,14 +63,14 @@
 		<div class="row-fluid">
 	    	<div class="span4">
 		    	<div class="center">
-					<img class="" src="${resource(dir: 'images',file: 'Datepicker.png')}" />
+					<img class="" src="${resource(dir: 'images/frontpage',file: 'Datepicker.png')}" />
 					<h3>Datepicker</h3>
 				</div>
 				<p>Kickstart uses the <a href ="https://github.com/eternicode/bootstrap-datepicker">Datepicker for Bootstrap</a> by Stefan Petre and Andrew Rowls</p>
 			</div>
 	    	<div class="span4">
 		    	<div class="center">
-					<img class="" src="${resource(dir: 'images',file: 'flags_preview_large.png')}" height="145"/>
+					<img class="" src="${resource(dir: 'images/frontpage',file: 'flags_preview_large.png')}" height="145"/>
 					<h3>Language Selector</h3>
 				</div>
 				<p>Kickstart contains a language selector that uses the <a href="http://www.famfamfam.com/lab/icons/flags/">FamFamFam flag icons</a> by Mark James.
@@ -78,7 +78,7 @@
 			</div>
 	    	<div class="span4">
 		    	<div class="center">
-					<img class="" src="${resource(dir: 'images',file: 'components.jpg')}" />
+					<img class="" src="${resource(dir: 'images/frontpage',file: 'components.jpg')}" />
 					<h3>Other Feature</h3>
 				</div>
 				<p>Kickstart contains several pages as starting points for the average website such as an About Page, Contact Page, 404, etc.</p>

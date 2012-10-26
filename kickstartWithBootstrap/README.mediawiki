@@ -56,6 +56,8 @@ During development and testing several strange error have emerged (they might be
 
 == Changelog ==
 
+;0.8.1
+: Fixed error when copying UrlMappings.groovy, which was not packaged into the plugin. 
 ;0.8.0
 : Integrated less templates of two Bootstrap based designs. Corrected links in language selector and config menus. 
 ;0.7.2
