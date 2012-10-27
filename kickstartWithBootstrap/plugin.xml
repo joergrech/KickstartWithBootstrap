@@ -1,4 +1,4 @@
-<plugin name='kickstart-with-bootstrap' version='0.8.0' grailsVersion='2.0.0 &gt; *'>
+<plugin name='kickstart-with-bootstrap' version='0.8.3' grailsVersion='2.0.0 &gt; *'>
   <author>Joerg Rech</author>
   <authorEmail>joerg.rech@gmail.com</authorEmail>
   <title>Kickstart with Bootstrap - Good looking websites!</title>
@@ -10,8 +10,8 @@
     <resource>kickstart.KickstartFilters</resource>
     <resource>spring.resources</resource>
     <resource>HomeController</resource>
-    <resource>kickstartwithbootstrapgrailsplugin.TestController</resource>
-    <resource>kickstartwithbootstrapgrailsplugin.Test</resource>
+    <resource>kickstartwithbootstrapgrailsplugin._DemoPageController</resource>
+    <resource>kickstartwithbootstrapgrailsplugin._DemoPage</resource>
     <resource>kickstart.BootstrapTagLib</resource>
   </resources>
   <repositories>

@@ -14,12 +14,13 @@ def deleteAll = false
 target(kickstart: "Installs the Kickstart scaffolding templates and other files") {
 	depends(checkVersion, parseArguments)
 
-	event "StatusUpdate", ['\nNOTE: execution in eclipse (STS, GGTS) might result in the erroneous messages "Invalid input. Must be one of"! Just ignore them!\n']
+	event "StatusUpdate", ['\nNOTE: execution in eclipse (STS, GGTS) might result in the erroneous messages "Invalid input. Must be one of" --> Just ignore them!\n']
 	
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src"
 	targetDir = "${basedir}/grails-app/conf/"
-	copy("${sourceDir}/UrlMappings.groovy", targetDir, "URLMappings.groovy", code)
-
+	copy("${sourceDir}/UrlMappings.groovy",	targetDir,			"URLMappings.groovy",	code)
+	copy("${sourceDir}/resources.groovy",	targetDir+"spring/","resources.groovy",		code)
+	
 	// copy less files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/less"
 	targetDir = "${basedir}/web-app/less"

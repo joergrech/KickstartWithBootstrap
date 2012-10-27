@@ -1,27 +1,27 @@
-<%@ page import="kickstartwithbootstrapgrailsplugin.Test" %>
+<%@ page import="kickstartwithbootstrapgrailsplugin._DemoPage" %>
 <!doctype html>
 <html>
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="layout" content="kickstart" />
-	<g:set var="entityName" value="${message(code: 'test.label', default: 'Test')}" />
+	<g:set var="entityName" value="${message(code: '_DemoPage.label', default: '_DemoPage')}" />
 	<title><g:message code="default.edit.label" args="[entityName]" /></title>
 </head>
 
 <body>
 
-<section id="edit-test" class="first">
+<section id="edit-_DemoPage" class="first">
 
-	<g:hasErrors bean="${testInstance}">
+	<g:hasErrors bean="${_DemoPageInstance}">
 	<div class="alert alert-error">
-		<g:renderErrors bean="${testInstance}" as="list" />
+		<g:renderErrors bean="${_DemoPageInstance}" as="list" />
 	</div>
 	</g:hasErrors>
 
-	<g:form method="post" class="form-horizontal" >
-		<g:hiddenField name="id" value="${testInstance?.id}" />
-		<g:hiddenField name="version" value="${testInstance?.version}" />
+	<g:form method="post" class="form-horizontal"  enctype="multipart/form-data">
+		<g:hiddenField name="id" value="${_DemoPageInstance?.id}" />
+		<g:hiddenField name="version" value="${_DemoPageInstance?.version}" />
 		<fieldset class="form">
 			<g:render template="form"/>
 		</fieldset>

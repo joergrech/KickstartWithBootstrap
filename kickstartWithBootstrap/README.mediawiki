@@ -39,12 +39,6 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 * /views/index.gsp will be '''deleted'''!
 * /views/error.gsp will be '''deleted'''!
 
-== Rare Problems ==
-During development and testing several strange error have emerged (they might be problems caused by the G&G Tool Suite - a restart of the GGTS helped me):
-
-* Sometimes the conf/URLmappings.groovy file is not copied by the Kickstart script into the conf directory of your project. If you run-app your project and get a 404 regarding the page "/WEB-INF/grails-app/views/index.jsp" you have to copy it yourself manually.
-* Sometimes the I18N files from the Kickstart plugin are not used. If you see I18N-codes such as "default.welcome.title" you have to copy the content of the I18N files into the property files in your project.
-
 == Terms of Use ==
 
 * Web Layout: [http://twitter.github.com/bootstrap/ Bootstrap 2.1], from Twitter Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)
@@ -56,6 +50,10 @@ During development and testing several strange error have emerged (they might be
 
 == Changelog ==
 
+;0.8.3
+: Introduced a demo page with all fields used in the scaffolding process. 
+;0.8.2
+: Corrected missing copy of resources.groovy. 
 ;0.8.1
 : Fixed error when copying UrlMappings.groovy, which was not packaged into the plugin. 
 ;0.8.0
