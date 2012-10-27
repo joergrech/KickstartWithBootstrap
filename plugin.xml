@@ -1,0 +1,32 @@
+<plugin name='kickstart-with-bootstrap' version='0.8.3' grailsVersion='2.0.0 &gt; *'>
+  <author>Joerg Rech</author>
+  <authorEmail>joerg.rech@gmail.com</authorEmail>
+  <title>Kickstart with Bootstrap - Good looking websites!</title>
+  <description>Kickstart is a plugin for Grails to start your project with a good looking frontend. It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.</description>
+  <documentation>http://grails.org/plugin/kickstart-with-bootstrap</documentation>
+  <type>KickstartWithBootstrapGrailsPlugin</type>
+  <resources>
+    <resource>KickstartResources</resource>
+    <resource>kickstart.KickstartFilters</resource>
+    <resource>spring.resources</resource>
+    <resource>HomeController</resource>
+    <resource>kickstartwithbootstrapgrailsplugin._DemoPageController</resource>
+    <resource>kickstartwithbootstrapgrailsplugin._DemoPage</resource>
+    <resource>kickstart.BootstrapTagLib</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+    <repository name='http://grails.org/plugins' url='http://grails.org/plugins' />
+  </repositories>
+  <dependencies />
+  <plugins>
+    <runtime>
+      <plugin group='org.grails.plugins' name='lesscss-resources' version='1.3.0.3' />
+      <plugin group='org.grails.plugins' name='jquery' version='1.8.0' />
+    </runtime>
+  </plugins>
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>
