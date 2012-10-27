@@ -51,7 +51,7 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 == Changelog ==
 
 ;0.8.3
-: Introduced a demo page with all fields used in the scaffolding process. 
+: Introduced a demo page with all fields used by the scaffolding mechanism. 
 ;0.8.2
 : Corrected missing copy of resources.groovy. 
 ;0.8.1
