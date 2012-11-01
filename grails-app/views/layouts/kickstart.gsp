@@ -16,15 +16,37 @@
     <link rel="apple-touch-icon"	href="assets/ico/apple-touch-icon-72x72.png"	sizes="72x72">
     <link rel="apple-touch-icon"	href="assets/ico/apple-touch-icon-114x114.png"	sizes="114x114">
 	
-	<r:require modules="jquery, ${session.skin ? session.skin : 'bootstrap'}, bootstrap_utils"/>
+	<g:if env="production">
+    	<!-- Markup to include ONLY when in production: This is necessary for deploying to a PAAS 
+    		 such as CloudFoundry (the Less compilation step needs too much time and the system will not start)
+    		 see also Config.groovy and KickstartResources.groovy
+    		 Option: copy the last /static/bundle-bundle_bootstrap_utils_head.css and /static/bundle-bundle_bootstrap_head.css
+    		 from a running dev version and reference them here
+    	-->
+		<g:set var="skin" value="${session.skin ? session.skin : 'bootstrap'}" />
+	
+		<!-- Skin specific styles: main focus are Bootstrap variants (e.g., using Less) -->
+		<link rel="stylesheet" href="${resource(dir: skin+'/css', file: skin+'.css')}" />
+		<link rel="stylesheet" href="${resource(dir: skin+'/css', file: skin+'-responsive.css')}" />
+
+		<!-- Bootstrap extensions / adaptations -->
+		<%-- <link rel="stylesheet" href="${resource(dir: 'FontAwesome/css', file:'font-awesome.css')}"> --%>
+		<link rel="stylesheet" href="${resource(dir: 'datepicker/css', file: 'datepicker.css')}" />
+		<link rel="stylesheet" href="${resource(dir: 'kickstart/css', file: 'docs.css')}" />
+		<link rel="stylesheet" href="${resource(dir: 'kickstart/css', file: 'kickstart.css')}" />
+	</g:if>
+	<g:else>
+		<r:require modules="jquery, ${session.skin ? session.skin : 'bootstrap'}, bootstrap_utils"/>
+	</g:else>
+
 	<r:layoutResources />
 	<g:layoutHead />
-	
+
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-    
+
 	<%-- For Javascript see end of body --%>
 </head>
 
@@ -59,9 +81,23 @@
 	<g:render template="/_common/modals/registerDialog" model="[item: item]"/>
 	
 <!-- Included Javascript files -->
-<r:layoutResources />
-<!-- Application-specific functionality -->
-<script src="${resource(dir:'js',			file:'application.js')}"></script>
+<g:if env="production">
+   	<!-- Markup to include ONLY when in production: This might be necessary for deploying to a PAAS 
+   		 such as CloudFoundry (Less compilation needs too much time) -->
+	<g:set var="skin2" value="${session.skin ? session.skin : 'bootstrap'}" />
+
+	<!-- Bootstrap-specific functionality -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="${resource(dir:skin2+'/js', file:skin2+'.js')}"></script>
+	<script src="${resource(dir:'datepicker/js',file:'bootstrap-datepicker.js')}"></script>
+    <script src="${resource(dir:'kickstart/js', file:'checkboxes.js')}"></script>
+    <script src="${resource(dir:'kickstart/js', file:'kickstart.js')}"></script>
+</g:if>
+<g:else>
+	<r:layoutResources />
+</g:else>
+	<!-- Application-specific functionality -->
+	<script src="${resource(dir:'js',			file:'application.js')}"></script>
 
 </body>
 

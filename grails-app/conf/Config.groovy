@@ -27,4 +27,14 @@ log4j = {
 grails.views.default.codec="none" // none, html, base64
 grails.views.gsp.encoding="UTF-8"
 
-grails.config.defaults.locations = [KickstartResources]
+environments {
+	development {
+		grails.config.defaults.locations = [KickstartResources]
+	}
+	test {
+		grails.config.defaults.locations = [KickstartResources]
+	}
+	production {
+		// Do not less resources in production as some PAAS like CloudFoundry will not work
+	}
+}

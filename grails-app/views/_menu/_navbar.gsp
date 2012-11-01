@@ -10,7 +10,7 @@
 
 			<a class="brand" href="${createLink(uri: '/')}">
 				<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" />
-				Kickstart
+				${meta(name:'app.name')}
 				<small> v${meta(name:'app.version')}</small>
 			</a>
 
