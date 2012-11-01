@@ -1,6 +1,4 @@
 __NOTOC__
-[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Testimage1]]
-[[File:/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Testimage2]]
 
 == Introduction ==
 Kickstart is a plugin for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
@@ -13,6 +11,21 @@ This plugin provides the following feature:
 * A minimal console logging filter (KickstartFilter.groovy) to help understand which actions are called and params are transmitted
 * A script to calculate a simple build number and extract versioning build numbers (in _Events.groovy)
 * A script to calculate simple code metrics (lines of code (LOC) and number of files) (in _Events.groovy)
+
+== Technologies ==
+{|
+|[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/bs-docs-twitter-github.png?raw=true|Bootstrap]]
+|[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Browser Support]]
+|[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/html5css3js8.png?raw=true|Technologies Used]]
+|-
+|===Bootstrap===
+|===Browser Support===
+|===Tech Foundation===
+|-
+|Kickstart uses Bootstrap to render the web pages. Bootstrap is made by Mark Otto (@mdo) and Billy Gates (@fat). Bootstrap is designed to help people of all skill levels as a complete kit or to start something more complex.
+|Bootstrap is tested and supported in major modern browsers like Chrome 14, Safari 5+, Opera 11, Internet Explorer 7, and Firefox 5.
+|Bootstrap is based on elements of HTML 5, CSS 3, Javascript 1.8, and jQuery 1.7 with progressively enhanced components to enable a responsive design of the website. Kickstart is built using Groovy 2.0 and Java 7 integrated into the Grails 2.1 framework. 
+|}
 
 == Usage ==
 After installation you must call the kickstart script '''"grails kickstart"''', which will copy several files into your project. 
