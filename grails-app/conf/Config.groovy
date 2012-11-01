@@ -35,6 +35,6 @@ environments {
 		grails.config.defaults.locations = [KickstartResources]
 	}
 	production {
-		// Do not less resources in production as some PAAS like CloudFoundry will not work
+		// Do not compile less resources in production as some PAAS like CloudFoundry will not work
 	}
 }

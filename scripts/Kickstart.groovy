@@ -38,7 +38,20 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 
 	// inject plugin specific configs into Config.groovy
 	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
-	configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
+	configFile.append("""
+environments {
+	development {
+		grails.config.defaults.locations = [KickstartResources]
+	}
+	test {
+		grails.config.defaults.locations = [KickstartResources]
+	}
+	production {
+		// Do not compile less resources in production as some PAAS like CloudFoundry will not work
+	}
+}
+""")
+//	configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
 	event "StatusUpdate", ["... appended include line at the end of Config.groovy!"]
 		
 	event "StatusUpdate", ["Kickstart install ended!"]

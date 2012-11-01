@@ -1,4 +1,4 @@
-<plugin name='kickstart-with-bootstrap' version='0.8.4' grailsVersion='2.0.0 &gt; *'>
+<plugin name='kickstart-with-bootstrap' version='0.8.5' grailsVersion='2.0.0 &gt; *'>
   <author>Joerg Rech</author>
   <authorEmail>joerg.rech@gmail.com</authorEmail>
   <title>Kickstart with Bootstrap - Good looking websites!</title>

@@ -66,7 +66,7 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 
 == Changelog ==
 
-;0.8.4 Fixed a problem with CloudFoundry & Less: running in production will not compile less anymore but switch to files directly. 
+;0.8.5 Fixed a problem with CloudFoundry & Less: running in production will not compile less anymore but switch to files directly. 
 ;0.8.3 Introduced a demo page with all fields used by the scaffolding mechanism. 
 ;0.8.2 Corrected missing copy of resources.groovy. 
 ;0.8.1 Fixed error when copying UrlMappings.groovy, which was not packaged into the plugin. 
