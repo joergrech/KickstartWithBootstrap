@@ -13,10 +13,10 @@ This plugin provides the following feature:
 * A script to calculate simple code metrics (lines of code (LOC) and number of files) (in _Events.groovy)
 
 == Technologies ==
-{|style="border-width: 0px; text-align: center;" 
-|[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/bs-docs-twitter-github.png?raw=true|Bootstrap]]
-|[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Browser Support]]
-|[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/html5css3js8.png?raw=true|Technologies Used]]
+{| style="border-width: 0px; text-align: center;" 
+|style="width: 33%;" |[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/bs-docs-twitter-github.png?raw=true|Bootstrap]]
+|style="width: 33%;" |[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Browser Support]]
+|style="width: 33%;" |[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/html5css3js8.png?raw=true|Technologies Used]]
 |-
 |style="width: 33%;" |===Bootstrap===
 |style="width: 33%;" |===Browser Support===
