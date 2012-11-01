@@ -1,9 +1,42 @@
 /target
-/grails-kickstart-with-bootstrap-0.5.5.zip
-/grails-kickstart-with-bootstrap-0.5.6.zip
-/.link_to_grails_plugins
-/grails-kickstart-with-bootstrap-0.6.0.zip
-/grails-kickstart-with-bootstrap-0.6.1.zip
 /target-eclipse
 *.zip
 */.svn/*
+
+#
+# Grails specific
+#
+
+/.link_to_grails_plugins
+prodDb*
+
+#
+# from https://github.com/github/gitignore/blob/master/Global/Eclipse.gitignore:
+#
+
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
