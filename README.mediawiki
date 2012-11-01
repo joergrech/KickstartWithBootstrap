@@ -13,14 +13,14 @@ This plugin provides the following feature:
 * A script to calculate simple code metrics (lines of code (LOC) and number of files) (in _Events.groovy)
 
 == Technologies ==
-{|
+{|style="border-width: 0px; text-align: center;" 
 |[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/bs-docs-twitter-github.png?raw=true|Bootstrap]]
 |[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Browser Support]]
 |[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/html5css3js8.png?raw=true|Technologies Used]]
 |-
-|===Bootstrap===
-|===Browser Support===
-|===Tech Foundation===
+|style="width: 33%;" |===Bootstrap===
+|style="width: 33%;" |===Browser Support===
+|style="width: 33%;" |===Tech Foundation===
 |-
 |Kickstart uses Bootstrap to render the web pages. Bootstrap is made by Mark Otto (@mdo) and Billy Gates (@fat). Bootstrap is designed to help people of all skill levels as a complete kit or to start something more complex.
 |Bootstrap is tested and supported in major modern browsers like Chrome 14, Safari 5+, Opera 11, Internet Explorer 7, and Firefox 5.
