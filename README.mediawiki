@@ -1,4 +1,7 @@
 __NOTOC__
+[[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Testimage1]]
+[[File:/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|Testimage2]]
+
 == Introduction ==
 Kickstart is a plugin for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
 This plugin provides the following feature:
