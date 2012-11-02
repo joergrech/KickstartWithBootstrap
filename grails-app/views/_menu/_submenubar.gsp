@@ -24,7 +24,7 @@ This menu is used to show function that can be triggered on the content (an obje
 				<g:link action="edit" id="${params.id}"><i class="icon-pencil"></i> <g:message code="default.edit.label"  args="[entityName]"/></g:link>
 			</li>
 			<li class="">
-				<g:render template="/_common/modals/deleteTextLink" plugin="SPECTRAwebPlugin"/>
+				<g:render template="/_common/modals/deleteTextLink"/>
 			</li>
 		</g:if>
 		

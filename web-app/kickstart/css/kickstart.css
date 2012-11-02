@@ -72,7 +72,7 @@ form p:last-child input {
 	}
 	.navbar-fixed-top {
 		position: static;
-    	margin-bottom: 0px;
+    	margin-bottom: 0px !important;
 	}
 }
 

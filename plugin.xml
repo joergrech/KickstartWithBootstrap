@@ -1,4 +1,4 @@
-<plugin name='kickstart-with-bootstrap' version='0.8.5' grailsVersion='2.0.0 &gt; *'>
+<plugin name='kickstart-with-bootstrap' version='0.8.6' grailsVersion='2.0.0 &gt; *'>
   <author>Joerg Rech</author>
   <authorEmail>joerg.rech@gmail.com</authorEmail>
   <title>Kickstart with Bootstrap - Good looking websites!</title>
@@ -23,8 +23,8 @@
   <dependencies />
   <plugins>
     <runtime>
-      <plugin group='org.grails.plugins' name='jquery' version='1.8.0' />
       <plugin group='org.grails.plugins' name='lesscss-resources' version='1.3.0.3' />
+      <plugin group='org.grails.plugins' name='jquery' version='1.8.0' />
     </runtime>
   </plugins>
   <runtimePluginRequirements />

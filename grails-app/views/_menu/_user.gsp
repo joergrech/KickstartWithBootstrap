@@ -20,7 +20,7 @@
 			<li class="divider"></li>
 			<li class="button-container">
 				<!-- NOTE: the renderDialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
-				<g:render template="/_common/modals/registerTextLink" plugin="SPECTRAwebPlugin"/>
+				<g:render template="/_common/modals/registerTextLink"/>
 			</li>
 		</ul>
 

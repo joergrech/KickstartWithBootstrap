@@ -7,4 +7,4 @@ This modal is used to show a button that initiates the delete action.
 		<i class="icon-trash icon-large"></i>
 	</a>
 
-	<g:render template="/_common/modals/deleteDialog" model="[item: item]" plugin="SPECTRAwebPlugin"/>
+	<g:render template="/_common/modals/deleteDialog" model="[item: item]"/>

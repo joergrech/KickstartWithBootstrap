@@ -9,4 +9,4 @@ This modal is used to show a button that initiates the registration action.
     </button>
 
 	<!-- NOTE: the renderDialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
-<%--	<g:render template="/_common/modals/registerDialog" model="[item: item]" plugin="SPECTRAwebPlugin"/>--%>
+<%--	<g:render template="/_common/modals/registerDialog" model="[item: item]"/>--%>
