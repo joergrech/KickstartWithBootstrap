@@ -17,7 +17,15 @@
 					<span class="help-inline">${hasErrors(bean: _DemoPageInstance, field: 'myDate', 'error')}</span>
 				</div>
 			</div>
-
+			
+			<div class="control-group fieldcontain ${hasErrors(bean: _DemoPageInstance, field: 'myDate', 'error')} ">
+				<label for="myDate2" class="control-label"><g:message code="_DemoPage.myDate2.label" default="My Date2" /></label>
+				<div class="controls">
+					<g:datePicker name="myDate2" value="${_DemoPageInstance?.myDate2}" noSelection="['':'-Choose-']"/>
+					<span class="help-inline">${hasErrors(bean: _DemoPageInstance, field: 'myDate2', 'error')}</span>
+				</div>
+			</div>
+			
 			<div class="control-group fieldcontain ${hasErrors(bean: _DemoPageInstance, field: 'myBoolean', 'error')} ">
 				<label for="myBoolean" class="control-label"><g:message code="_DemoPage.myBoolean.label" default="My Boolean" /></label>
 				<div class="controls">

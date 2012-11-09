@@ -2,6 +2,8 @@ package kickstart
 
 import org.springframework.web.servlet.support.RequestContextUtils as RCU;
 import java.text.DateFormatSymbols
+import org.codehaus.groovy.grails.commons.ApplicationHolder
+import org.springframework.context.i18n.LocaleContextHolder
 
 class BootstrapTagLib {
 	static namespace = "bs"
@@ -208,7 +210,7 @@ class BootstrapTagLib {
 	
 		if (c != null) {
 			day = c.get(GregorianCalendar.DAY_OF_MONTH)
-			month = c.get(GregorianCalendar.MONTH) +1 //add one as Java stores month from 0..11
+			month = c.get(GregorianCalendar.MONTH) + 1		// add one, as Java stores month from 0..11
 			year = c.get(GregorianCalendar.YEAR)
 			hour = c.get(GregorianCalendar.HOUR_OF_DAY)
 			minute = c.get(GregorianCalendar.MINUTE)
@@ -239,12 +241,23 @@ class BootstrapTagLib {
 		booleanToAttribute(attrs, 'disabled')
 		booleanToAttribute(attrs, 'readonly')
 		
-		out.println "	<input id=\"${id}\" name=\"${name}\" class=\"date\" size=\"16\" type=\"text\" value=\"${month ? month + '/': ''}${day ? day + '/': ''}${year ? year + '' : ''}\" data-date-format=\"mm/dd/yyyy\"/>"
-//		out.println "<div class=\"input-append date\">"
-//		out.println "	<input id=\"${id}\" name=\"${name}\" class=\"\" size=\"16\" type=\"text\" value=\"${day ? day + '-': ''}${month ? month + '-': ''}${year ? year + '-': ''}\" data-date-format=\"dd-mm-yyyy\"/>"
-//		out.println "	<span class=\"add-on\"><i class=\"icon-th\"></i></span>"
-//		out.println "</div>"
-		
+		// get the localized format for dates. NOTE: datepicker only uses Lowercase syntax and does not understand hours, seconds, etc. (it uses: dd, d, mm, m, yyyy, yy)
+		def messageSource = ApplicationHolder.application.mainContext.getBean('messageSource')
+		String dateFormat = messageSource.getMessage("default.date.datepicker.format",null,null,LocaleContextHolder.locale )
+		if (!dateFormat) { // if date.datepicker.format is not used use date.format but remove characters not used by datepicker
+			dateFormat = messageSource.getMessage("default.date.format",null,'mm/dd/yyyy',LocaleContextHolder.locale )\
+				.replace('z', '').replace('Z', '')\
+				.replace('h', '').replace('H', '')\
+				.replace('k', '').replace('K', '')\
+				.replace('w', '').replace('W', '')\
+				.replace('s', '').replace('S', '')\
+				.replace('m', '').replace('a', '').replace('D', '').replace('E', '').replace('F', '').replace('G', '').replace(':', '')\
+				.replace('MMM', 'MM').replace('ddd', 'dd')\
+				.trim()\
+				.toLowerCase()
+		}
+		String formattedDate = g.formatDate(format: dateFormat.replace('m', 'M'), date: c?.getTime())
+		out.println "	<input id=\"${id}\" name=\"${name}\" class=\"date\" size=\"16\" type=\"text\" value=\"${formattedDate}\" data-date-format=\"${dateFormat}\"/>"
 	}
 	
 	/**

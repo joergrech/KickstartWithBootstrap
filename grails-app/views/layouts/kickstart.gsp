@@ -18,7 +18,7 @@
 	
 	<%-- Manual switch for the skin can be found in /view/_menu/_config.gsp --%>
 	<r:require modules="jquery"/>
-	<r:require modules="${session.skin ? session.skin : 'bootstrap'}"/>
+	<r:require modules="${session.skin ? session.skin            : 'bootstrap'}"/>
 	<r:require modules="${session.skin ? session.skin + '_utils' : 'bootstrap_utils'}"/>
 
 	<r:layoutResources />

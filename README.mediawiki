@@ -66,6 +66,7 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 
 == Changelog ==
 
+;0.8.7 Improved the date binding to use default.date.datepicker.format or default.date.format (removing non-Date items).
 ;0.8.6 Changed solution for Less compilation problem (Switch is now in KickstartResources.groovy only). Fixed problem of SkinA alternative in responsive mode. In production mode only one skin is used.
 ;0.8.5 Fixed a problem with CloudFoundry & Less: running in production will not compile less anymore but switch to files directly. 
 ;0.8.3 Introduced a demo page with all fields used by the scaffolding mechanism. 

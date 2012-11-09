@@ -10,10 +10,11 @@ class _DemoPage {
 //	Long	id
 //	String	version
 	
-	String	name		= "The Demo Page"
+	String	name		= "A Demo Page"
 	
 	// fields with special use (e.g., datepicker, new visual representation, etc.)
 	Date	myDate
+	Date	myDate2		// for testing standard grails datepicker (g:datepicker)
 	boolean	myBoolean
 	
 	// other fields used in the scaffolding process:

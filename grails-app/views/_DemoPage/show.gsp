@@ -32,6 +32,13 @@
 			</tr>
 		
 			<tr class="prop">
+				<td valign="top" class="name"><g:message code="_DemoPage.myDate2.label" default="My Date 2" /></td>
+				
+				<td valign="top" class="value"><g:formatDate date="${_DemoPageInstance?.myDate2}" /></td>
+				
+			</tr>
+		
+			<tr class="prop">
 				<td valign="top" class="name"><g:message code="_DemoPage.myBoolean.label" default="My Boolean" /></td>
 				
 				<td valign="top" class="value"><g:formatBoolean boolean="${_DemoPageInstance?.myBoolean}" /></td>
