@@ -1,3 +1,5 @@
+import org.codehaus.groovy.grails.web.context.ServletContextHolder
+
 class KickstartWithBootstrapGrailsPlugin {
     // the plugin version
     def version = "0.8.7"
@@ -45,7 +47,13 @@ class KickstartWithBootstrapGrailsPlugin {
 
 		// Collect all *.properties files in the I18N directory and build list of "available" locales 
 		def locales = []
-		new File("./grails-app/i18n").eachFileRecurse {
+
+		// Gonzalo Garcia Jaubert. 20121113. Path to i18n in Tomcat and your IDE.
+		def path = ServletContextHolder.servletContext.getRealPath('/WEB-INF/grails-app/i18n').toString()
+		if (!new File(path).exists()) {
+			path = ServletContextHolder.servletContext.getRealPath('../grails-app/i18n').toString()
+		}
+		new File(path).eachFileRecurse {
 			if (it.file && it =~ /messages.*\.properties/) {
 				// Extract locale from filename using RegEx
 				def matcher = it.name =~ /messages(.*)\.properties/
