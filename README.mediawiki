@@ -65,25 +65,25 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Changelog ==
-
-;0.8.7 Improved the date binding to use default.date.datepicker.format or default.date.format (removing non-Date items).
-;0.8.6 Changed solution for Less compilation problem (Switch is now in KickstartResources.groovy only). Fixed problem of SkinA alternative in responsive mode. In production mode only one skin is used.
-;0.8.5 Fixed a problem with CloudFoundry & Less: running in production will not compile less anymore but switch to files directly. 
-;0.8.3 Introduced a demo page with all fields used by the scaffolding mechanism. 
-;0.8.2 Corrected missing copy of resources.groovy. 
-;0.8.1 Fixed error when copying UrlMappings.groovy, which was not packaged into the plugin. 
-;0.8.0 Integrated less templates of two Bootstrap based designs. Corrected links in language selector and config menus. 
-;0.7.2 Integrated a Bootstrap-based checkbox in the taglib and scaffolding templates. 
-;0.7.1 Corrected datepicker problem with Java representation with month. Corrected missing ID in links to edit-actions. 
-;0.7.0 Updated to Bootstrap 2.1.1 and Grails 2.1. Included FamFamFam icons for flags in language selector. Reorganized file structure for views. 
-;0.6.1 Minor bug fix in _Events.gsp script. 
-;0.6.0 Integration of Bootstrap DatePicker. Uses Grails 2.0 files as base for scaffolding, etc. Cleanup of code and scripts. 
-;0.5.7 Added script to calculate or retrieve build numbers.
-;0.5.6 Empty commit to test Grails plugin publish mechanism
-;0.5.5 Minor bugfix (missing import) and correction of KickstartWithBootstrapGrailsPlugin.groovy
-;0.5.4 Added measurement of time to simple console logging in KickstartFilters
-;0.5.3 Improvement of error.gsp
-;0.5.2 Cleanup of code and scripts. Improvement of I18N 
-;0.5.1 Minor bugfixes in Bootstrap and layout files 
-;0.5.0 Initial shared version (February 11, 2012)
-;0.1.0 Initial version (September 21, 2011)
+'''0.8.8''' Fixed Bug with i18n directory when deploying. Removed domain Object for demo page.<br/>
+'''0.8.7''' Improved the date binding to use default.date.datepicker.format or default.date.format (removing non-Date items).<br/>
+'''0.8.6''' Changed solution for Less compilation problem (Switch is now in KickstartResources.groovy only). Fixed problem of SkinA alternative in responsive mode. In production mode only one skin is used.<br/>
+'''0.8.5''' Fixed a problem with CloudFoundry & Less: running in production will not compile less anymore but switch to files directly. <br/>
+'''0.8.3''' Introduced a demo page with all fields used by the scaffolding mechanism. <br/>
+'''0.8.2''' Corrected missing copy of resources.groovy. <br/>
+'''0.8.1''' Fixed error when copying UrlMappings.groovy, which was not packaged into the plugin. <br/>
+'''0.8.0''' Integrated less templates of two Bootstrap based designs. Corrected links in language selector and config menus. <br/>
+'''0.7.2''' Integrated a Bootstrap-based checkbox in the taglib and scaffolding templates. <br/>
+'''0.7.1''' Corrected datepicker problem with Java representation with month. Corrected missing ID in links to edit-actions. <br/>
+'''0.7.0''' Updated to Bootstrap 2.1.1 and Grails 2.1. Included FamFamFam icons for flags in language selector. Reorganized file structure for views. <br/>
+'''0.6.1''' Minor bug fix in _Events.gsp script. <br/>
+'''0.6.0''' Integration of Bootstrap DatePicker. Uses Grails 2.0 files as base for scaffolding, etc. Cleanup of code and scripts. <br/>
+'''0.5.7''' Added script to calculate or retrieve build numbers.<br/>
+'''0.5.6''' Empty commit to test Grails plugin publish mechanism<br/>
+'''0.5.5''' Minor bugfix (missing import) and correction of KickstartWithBootstrapGrailsPlugin.groovy<br/>
+'''0.5.4''' Added measurement of time to simple console logging in KickstartFilters<br/>
+'''0.5.3''' Improvement of error.gsp<br/>
+'''0.5.2''' Cleanup of code and scripts. Improvement of I18N <br/>
+'''0.5.1''' Minor bugfixes in Bootstrap and layout files <br/>
+'''0.5.0''' Initial shared version (February 11, 2012)<br/>
+'''0.1.0''' Initial version (September 21, 2011)<br/>

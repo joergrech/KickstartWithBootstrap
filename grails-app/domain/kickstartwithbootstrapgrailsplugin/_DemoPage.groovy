@@ -50,6 +50,8 @@ class _DemoPage {
     static mapping = {
     }
     
+	static mapWith = "none"
+
 	static constraints = {
 		// make all fields nullable to speed up demo usage (e.g., saves)
 		name			nullable: true
@@ -81,5 +83,15 @@ class _DemoPage {
 	@Override	// Override toString for a nicer / more descriptive UI 
 	public String toString() {
 		return "${name}";
+	}
+	
+	def list () {
+		return []
+	}
+	def count () {
+		return 0
+	}
+	def save () {
+		return true
 	}
 }

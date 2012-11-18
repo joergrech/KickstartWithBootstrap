@@ -8,7 +8,7 @@
   
 	<section id="overview" class="">
     	<div class="alert alert-error">
-			${request.'javax.servlet.error.message'.indexOf(':') == null ? request.'javax.servlet.error.message'.encodeAsHTML()	: request.'javax.servlet.error.message'.substring(0, request.'javax.servlet.error.message'.indexOf(':')).encodeAsHTML()}
+			${request.'javax.servlet.error.message'?.indexOf(':') == null ? request.'javax.servlet.error.message'?.encodeAsHTML()	: request.'javax.servlet.error.message'?.substring(0, request.'javax.servlet.error.message'?.indexOf(':')).encodeAsHTML()}
 			<g:if test="${exception}">
 				${exception.className}
 				at line ${exception.lineNumber}
