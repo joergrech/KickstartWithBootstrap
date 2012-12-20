@@ -65,6 +65,7 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Changelog ==
+'''0.8.9''' Fixed Bug with CloudFoundry and Tomcat which (now) need references to the plugin containing resources (e.g., images)<br/>
 '''0.8.8''' Fixed Bug with i18n directory when deploying. Removed domain Object for demo page.<br/>
 '''0.8.7''' Improved the date binding to use default.date.datepicker.format or default.date.format (removing non-Date items).<br/>
 '''0.8.6''' Changed solution for Less compilation problem (Switch is now in KickstartResources.groovy only). Fixed problem of SkinA alternative in responsive mode. In production mode only one skin is used.<br/>

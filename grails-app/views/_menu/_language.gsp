@@ -4,13 +4,13 @@
 <ul class="nav secondary-nav language-dropdown pull-right">
 	<li class="dropdown js-language-dropdown">
 		<a href="javascript:;" class="dropdown-toggle">
-			<img class="" src="${resource(dir: 'images/flags',file: lang.toString()+'.png')}" />
+			<img class="" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/flags',file: lang.toString()+'.png')}" />
 		</a>
 		<ul class="dropdown-menu dropdown-menu-dark">
 
 			<!-- assuming that the default locale is English -->
 			<li><a class="js-language-link" title="English" data-lang-code="en" href="${currentURL+'?lang=en'}">
-				<img class="" src="${resource(dir: 'images/flags',file: 'en.png')}"/>
+				<img class="" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/flags',file: 'en.png')}"/>
 				<g:message code="language.en" default="en"/> ${currentlURL }
 			</a></li>
 
