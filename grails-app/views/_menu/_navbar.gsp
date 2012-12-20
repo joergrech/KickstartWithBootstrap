@@ -9,7 +9,7 @@
 			</a>
 
 			<a class="brand" href="${createLink(uri: '/')}">
-				<img class="logo" src="${resource(dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" />
+				<img class="logo" src="${resource(plugin: 'kickstart-with-bootstrap', dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" />
 				${meta(name:'app.name')}
 				<small> v${meta(name:'app.version')}</small>
 			</a>
