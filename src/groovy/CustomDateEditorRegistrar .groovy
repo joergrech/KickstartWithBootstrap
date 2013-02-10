@@ -24,6 +24,13 @@ public class CustomDateEditorRegistrar implements PropertyEditorRegistrar {
 				.trim()
 				// do not convert to lowercase
 		}
-		registry.registerCustomEditor(Date, new StructuredDateEditor(new SimpleDateFormat(dateFormat), true))
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat)
+		StructuredDateEditor sde = new StructuredDateEditor(simpleDateFormat, true)
+		// NOTE: to catch problems with invalid dates (e.g., too long "01/02/20135" or short "01/02/600"
+		// use the following two lines instead [SEE issue #31 on github])
+//		simpleDateFormat.setLenient(false)
+//		StructuredDateEditor sde = new StructuredDateEditor(simpleDateFormat, true, dateFormat.length())
+		
+		registry.registerCustomEditor(Date, sde)
 	}
 }

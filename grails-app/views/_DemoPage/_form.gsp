@@ -13,7 +13,7 @@
 			<div class="control-group fieldcontain ${hasErrors(bean: _DemoPageInstance, field: 'myDate', 'error')} ">
 				<label for="myDate" class="control-label"><g:message code="_DemoPage.myDate.label" default="My Date" /></label>
 				<div class="controls">
-					<bs:datePicker name="myDate" precision="day"  value="${_DemoPageInstance?.myDate}" default="none" noSelection="['': '']" />
+					<bs:datePicker name="myDate" precision="day"  value="${_DemoPageInstance?.myDate}" noSelection="['': '']" />
 					<span class="help-inline">${hasErrors(bean: _DemoPageInstance, field: 'myDate', 'error')}</span>
 				</div>
 			</div>

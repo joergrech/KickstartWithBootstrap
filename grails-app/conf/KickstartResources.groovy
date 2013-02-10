@@ -3,7 +3,7 @@
 grails.resources.modules = {
 
 	if (grails.util.Environment.current == grails.util.Environment.PRODUCTION) {
-		/* Skin Definitions without less (only necessary for PAAS deployment, eg., in for CloudFoundry) */
+		/* Skin Definitions without less (only necessary for PAAS deployment, eg., for CloudFoundry) */
 		'bootstrap' {
 			dependsOn 'jquery'
 			resource url: [dir: 'bootstrap/js',			file: 'bootstrap.min.js']

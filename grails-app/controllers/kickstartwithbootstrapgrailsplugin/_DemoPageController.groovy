@@ -25,6 +25,8 @@ class _DemoPageController {
 
     def save() {
         def _DemoPageInstance = new _DemoPage(params)
+		_DemoPageInstance.clearErrors()
+		_DemoPageInstance.validate()
 		// store demopage in session (instead of in the database)
 		session.demopage = _DemoPageInstance
 		flash.message = message(code: 'default.created.message', args: [message(code: '_DemoPage.label', default: '_DemoPage'), _DemoPageInstance.id])
@@ -33,13 +35,13 @@ class _DemoPageController {
 
     def show() {
         def _DemoPageInstance = session.demopage
-		
         [_DemoPageInstance: _DemoPageInstance]
     }
 
     def edit() {
         def _DemoPageInstance = session.demopage
-
+		_DemoPageInstance.clearErrors()
+		_DemoPageInstance.validate()
         [_DemoPageInstance: _DemoPageInstance]
     }
 

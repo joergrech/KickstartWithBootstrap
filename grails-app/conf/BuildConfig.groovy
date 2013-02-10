@@ -33,13 +33,15 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.13'
     }
 	plugins {
-		runtime ":jquery:1.8.0"
-		runtime ":lesscss-resources:1.3.0.3"
+        runtime	":hibernate:$grailsVersion"
+        build	":tomcat:$grailsVersion"
 		
-		// Uncomment these (or add new ones) to enable additional resources capabilities
-		//runtime ":zipped-resources:1.0"
-		//runtime ":cached-resources:1.0"
-		//runtime ":yui-minify-resources:0.1.4"
+        runtime	":resources:1.1.6"
+		compile	":lesscss-resources:1.3.0.3"
+		
+		build	":release:2.2.0"
+		
+		runtime	":jquery:1.8.3"
   	}
 
 }

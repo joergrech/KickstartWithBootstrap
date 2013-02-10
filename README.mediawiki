@@ -55,6 +55,14 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 * /views/index.gsp will be '''deleted'''!
 * /views/error.gsp will be '''deleted'''!
 
+== Configuration ==
+Since version 0.9 two config variables are available and can be set in Config.groovy:
+* '''kickstart.build.calculate''' can be used to disable the calculation of build numbers and defaults to '''true''' 	
+* '''kickstart.metrics.calculate''' can be used to disable the calculation of metrics and defaults to '''true''' 
+
+== Developer Notes ==
+Please note that the '''datepicker''' can handle dates after the year 9999 while most databases (e.g., mysql) handle dates with 4-number years. This might result in date that cannot be stored (such as "01/02/20135") and in Exceptions such as "MysqlDataTruncation: Data truncation: Incorrect datetime value: '20135-02-01 00:00:00'" (@see issue #31). If you want to change this behaviour please have a look in the file "src/groovy/CustomDateEditorRegistrar.groovy" and set lenient to false (However, this will also invalidate years before 1000) 
+
 == Terms of Use ==
 
 * Web Layout: [http://twitter.github.com/bootstrap/ Bootstrap 2.1], from Twitter Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)
@@ -65,6 +73,7 @@ Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Changelog ==
+'''0.9.0''' Added config switches to calculate build numbers and metrics. Updated to Bootstrap 2.2.2 (2.3 has currently compilation errors with lesscss).<br/>
 '''0.8.9''' Fixed Bug with CloudFoundry and Tomcat which (now) need references to the plugin containing resources (e.g., images)<br/>
 '''0.8.8''' Fixed Bug with i18n directory when deploying. Removed domain Object for demo page.<br/>
 '''0.8.7''' Improved the date binding to use default.date.datepicker.format or default.date.format (removing non-Date items).<br/>

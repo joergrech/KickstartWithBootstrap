@@ -1,3 +1,8 @@
+// Settings for Kickstart plugin (if the plugin is run as an App)
+// NOTE: this Config file needs to be compiled before the changes are recognized in the compileStart event!
+kickstart.build.calculate = true	
+kickstart.metrics.calculate = true	// NOTE: this Config file needs to be compiled before changes are recognized!
+
 // configuration for plugin testing - will not be included in the plugin zip
 grails.app.context	="/"
 //grails.serverURL	="http://localhost:8080"

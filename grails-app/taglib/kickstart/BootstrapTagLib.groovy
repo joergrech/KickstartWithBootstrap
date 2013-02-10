@@ -174,8 +174,7 @@ class BootstrapTagLib {
 		def value = attrs.value
 		if (value.toString() == 'none') {
 			value = null
-		}
-		else if (!value) {
+		} else if (!value) {
 			value = xdefault
 		}
 		def name = attrs.name

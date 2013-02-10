@@ -1,3 +1,4 @@
+includeTargets << grailsScript('_GrailsPackage')	// get Access to our settings from Config.groovy, etc.
 import java.text.SimpleDateFormat
 
 /** 
@@ -14,7 +15,14 @@ import java.text.SimpleDateFormat
  * and Steve Berczuk
  * @ http://steveberczuk.blogspot.com/2011/05/displaying-build-numbers-in-grails-apps.html
  */
-eventCompileStart = { kind ->
+eventCompileEnd = { kind ->
+    if (!binding.hasProperty('config')) {
+        createConfig() // target defined in _GrailsPackage
+    }
+	// NOTE: this Config file needs to be compiled before the changes are recognized in the compileStart event!
+	if (config.kickstart.build.calculate == false) return
+	event "StatusUpdate", ["Updating build numbers"]
+	
 	// retrieve previous build number and increment or start with 1 (ultra-simple: will not survive versioning)
 	def buildNumber = metadata.'app.version.build'
 	if (!buildNumber)
@@ -85,7 +93,14 @@ eventCompileStart = { kind ->
 *
 * @author: Joerg Rech
 */
-eventCompileStart = { kind ->
+eventCompileEnd = { kind ->
+	if (!binding.hasProperty('config')) {
+		createConfig() // target defined in _GrailsPackage
+	}
+	// NOTE: this Config file needs to be compiled before the changes are recognized in the compileStart event!
+	if (config.kickstart.metrics.calculate == false) return
+	event "StatusUpdate", ["Updating the app's metrics"]
+	
 	// Calculate the loc / stats of the grails system using "grails stats"
 	def stats = []
 	def cmd = null // "grails stats"
@@ -100,33 +115,37 @@ eventCompileStart = { kind ->
 //	else if	(osName.contains("mac"))	cmd = "grails stats"		// unclear: does it work?
 	
 	if (!cmd) {
-		event "StatusUpdate", ["Could not get stats from Grails!"]
+		event "StatusUpdate", ["... but could not get stats from Grails!"]
 		return	// Exit if OS is unknown
 	}
-	event "StatusUpdate", ["Retrieving stats about the application"]
 
-	def out = cmd.execute().text
-	out.split("\n").each { line ->
-		if (line =~ /^[\s]*\|[A-Za-z\s]*\|[0-9\s]*\|[0-9\s]*.*$/) {
-			def tokenSplit = line.split("\\|")
-			def files	= tokenSplit[2].trim()
-			def loc		= tokenSplit[3].trim()
-			def name	= tokenSplit[1].trim().replace(' ', '_')
-			
-			def filesID = 'app.stats.'+name+'.files'
-			def locID	= 'app.stats.'+name+'.loc'
-			metadata.put(filesID, files)
-			metadata.put(locID,	loc)
-			
-			stats << [tokenSplit[1].trim(), tokenSplit[2].trim(), tokenSplit[3].trim()]
+	try {
+		def out = cmd.execute().text
+		out.split("\n").each { line ->
+			if (line =~ /^[\s]*\|[A-Za-z\s]*\|[0-9\s]*\|[0-9\s]*.*$/) {
+				def tokenSplit = line.split("\\|")
+				def files	= tokenSplit[2].trim()
+				def loc		= tokenSplit[3].trim()
+				def name	= tokenSplit[1].trim().replace(' ', '_')
+				
+				def filesID = 'app.stats.'+name+'.files'
+				def locID	= 'app.stats.'+name+'.loc'
+				metadata.put(filesID, files)
+				metadata.put(locID,	loc)
+				
+				stats << [tokenSplit[1].trim(), tokenSplit[2].trim(), tokenSplit[3].trim()]
+			}
 		}
+	} catch (Exception e) {
+		log.warn "WARN: problems executing or parsing the output of 'grails stats' [within scripts/_Events.groovy]"
+		println "| WARN: problems executing or parsing the output of 'grails stats' [within scripts/_Events.groovy]"
 	}
 	metadata.persist()
 	
 //	binding.variables.each { println it.key }
 }
 
-eventCompileEnd	= {}
+eventCompileStart	= {}
 
 /** 
  * called before "grails war"
@@ -135,6 +154,6 @@ eventWarStart 	= {
 	def appName			= metadata.'app.name'
 	def versionNumber	= metadata.'app.version'
 	def buildNumber		= metadata.'app.buildNumber'
-	println "WAR packaging started on ${appName} version ${versionNumber} build ${buildNumber}"
+	println "| WAR packaging started on ${appName} version ${versionNumber} build ${buildNumber}"
 }
 eventWarEnd 	= {}

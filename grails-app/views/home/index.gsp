@@ -31,7 +31,7 @@
 	    	<div class="span4">
 		    	<div class="center">
 					<img class="frontpageImage" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/frontpage',file: 'bs-docs-twitter-github.png')}" />
-					<h3>Bootstrap 2.1.1</h3>
+					<h3>Bootstrap 2.2.2</h3>
 				</div>
 				<p>Kickstart uses <a href ="http://twitter.github.com/bootstrap/">Bootstrap</a> to render the web pages. 
 				Bootstrap is made by Mark Otto (<a href="http://twitter.com/mdo">@mdo</a>) and Billy Gates (<a href="http://twitter.com/fat">@fat</a>).
