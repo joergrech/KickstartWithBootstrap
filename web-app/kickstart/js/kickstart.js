@@ -9,7 +9,7 @@ if (typeof jQuery !== 'undefined') {
 		 * Close Dropdown menus when user clicks outside a menu (on the body)
 		 */
 		$("body").bind("click", function (e) {
-			$('.dropdown-toggle, .menu').parent("li").removeClass("open");
+			$('.menu').parent("li").removeClass("open");
 		});
 		
 		/**
