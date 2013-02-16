@@ -2,7 +2,7 @@ __NOTOC__
 
 == Introduction ==
 
-<a class="button minibutton btn-pull-request" href="http://grails.org/plugin/kickstart-with-bootstrap">
+<a class&#61;"button minibutton btn-pull-request" href="http://grails.org/plugin/kickstart-with-bootstrap">
 	Home on Grails.org
 </a>
 
