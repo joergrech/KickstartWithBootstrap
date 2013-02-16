@@ -1,6 +1,10 @@
 <ul class="nav pull-right">
-	<li class="dropdown">
-		<a class="dropdown-toggle" href="#"><g:message code="default.info.label"/> <b class="caret"></b></a>
+	<li class="dropdown dropdown-btn">
+		
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			<g:message code="default.info.label"/> <b class="caret"></b>
+		</a>
+		
 		<ul class="dropdown-menu">
 		
 			<%-- Note: Links to pages without controller are redirected in conf/UrlMappings.groovy --%>
