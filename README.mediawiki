@@ -1,6 +1,11 @@
 __NOTOC__
 
 == Introduction ==
+
+<a class="button minibutton btn-pull-request" href="http://grails.org/plugin/kickstart-with-bootstrap">
+	Home on Grails.org
+</a>
+
 Kickstart is a plugin for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
 This plugin provides the following feature:
 * Adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
