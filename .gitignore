@@ -7,6 +7,8 @@
 # Grails specific
 #
 
+stacktrace.log
+target/stacktrace.log
 /.link_to_grails_plugins
 prodDb*
 
