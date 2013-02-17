@@ -159,7 +159,7 @@ section.first {
     margin: 1.0em 0 0.5em;
 }
 .big-message .actions {
-    margin: 2.0em 0;
+    margin: 5.0em 0 2.0em 0;
 }
 .big-message .actions a {
     margin: 0 1.0em;
@@ -179,3 +179,10 @@ section.first {
 .frontpageImage {
 	height: 100px;
 }
+
+
+.margin-top-none	{ margin-top: 0em; }
+.margin-top-small	{ margin-top: 1em; }
+.margin-top-medium	{ margin-top: 2em; }
+.margin-top-large	{ margin-top: 4em; }
+.margin-top-xlarge	{ margin-top: 8em; }

@@ -2,11 +2,11 @@
 <g:set var="currentURL" value="${request.forwardURI}"/>
 
 <ul class="nav secondary-nav language-dropdown pull-right">
-	<li class="dropdown js-language-dropdown">
-		<a href="javascript:;" class="dropdown-toggle">
+	<li class="dropdown dropdown-btn js-language-dropdown">
+		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="javascript:;">
 			<img class="" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/flags',file: lang.toString()+'.png')}" />
 		</a>
-		<ul class="dropdown-menu dropdown-menu-dark">
+		<ul class="dropdown-menu dropdown-menu-dark" role="menu">
 
 			<!-- assuming that the default locale is English -->
 			<li><a class="js-language-link" title="English" data-lang-code="en" href="${currentURL+'?lang=en'}">
