@@ -90,6 +90,7 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Changelog ==
+'''0.9.2''' Fixed problem with less file handling if resource plugin is disabled. <br/>
 '''0.9.1''' Added views for security (prepared for spring security: auth.gsp and denied.gsp). Integrated configuration settings for views. Updated several missing I18N codes.<br/>
 '''0.9.0''' Added config switches to calculate build numbers and metrics. Updated to Bootstrap 2.2.2 (2.3 has currently compilation errors with lesscss).<br/>
 '''0.8.9''' Fixed Bug with CloudFoundry and Tomcat which (now) need references to the plugin containing resources (e.g., images)<br/>

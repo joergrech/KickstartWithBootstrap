@@ -5,9 +5,9 @@ import org.codehaus.groovy.grails.web.context.ServletContextHolder
 
 class KickstartWithBootstrapGrailsPlugin {
     // the plugin version
-    def version = "0.9.1"
+    def version = "0.9.2"
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "2.0.0 > *"
+    def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
     def dependsOn = [:]
     // resources that are excluded from plugin packaging

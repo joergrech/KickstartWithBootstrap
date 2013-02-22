@@ -2,8 +2,14 @@
 
 grails.resources.modules = {
 
-	if (grails.util.Environment.current == grails.util.Environment.PRODUCTION) {
-		/* Skin Definitions without less (only necessary for PAAS deployment, eg., for CloudFoundry) */
+println "1 "+grails.resources?.processing?.enabled
+//println "2 "+grails.resources.processing.enabled.booleanValue()
+
+	if (   grails.util.Environment.current == grails.util.Environment.PRODUCTION
+		|| (grails.resources?.processing?.enabled != [:] && grails.resources.processing.enabled.booleanValue() == false) ) {
+		/* Skin Definitions without less (only necessary for PAAS deployment, eg., for CloudFoundry) 
+		 * TODO: insert a configuration setting or copy this file into project 
+		 */
 		'bootstrap' {
 			dependsOn 'jquery'
 			resource url: [dir: 'bootstrap/js',			file: 'bootstrap.min.js']
@@ -17,9 +23,9 @@ grails.resources.modules = {
 			resource url: [dir: 'bootstrap/css',		file: 'bootstrap.css']
 			resource url: [dir: 'bootstrap/css',		file: 'bootstrap-responsive.css']
 		}
-	}
-	else {
-		/* Skin Definitions with less */
+		println "| Using CSS files instead of generating from LESS files! (Use a copy of the latest dev run)"
+	} else {
+		/* Skin Definitions with less for use during dev or test (or when resource processing is switched off)*/
 		'bootstrap'     {
 			dependsOn   'jquery'
 			resource url: [dir: 'bootstrap/js',			file: 'bootstrap.min.js']
@@ -34,6 +40,7 @@ grails.resources.modules = {
 			resource url: [dir: 'less/bootstrap_skinA',	file: 'responsive.less']
 			resource url: "less/dummy.css" // empty css: see https://github.com/paulfairless/grails-lesscss-resources/issues/25
 		}
+		println "| Using LESS files to generating CSS files!"
 	}
 
 	// Utility resources (must be loaded after bootstrap skin resources)
