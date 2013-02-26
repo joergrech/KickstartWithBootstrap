@@ -2,9 +2,6 @@
 
 grails.resources.modules = {
 
-println "1 "+grails.resources?.processing?.enabled
-//println "2 "+grails.resources.processing.enabled.booleanValue()
-
 	if (   grails.util.Environment.current == grails.util.Environment.PRODUCTION
 		|| (grails.resources?.processing?.enabled != [:] && grails.resources.processing.enabled.booleanValue() == false) ) {
 		/* Skin Definitions without less (only necessary for PAAS deployment, eg., for CloudFoundry) 

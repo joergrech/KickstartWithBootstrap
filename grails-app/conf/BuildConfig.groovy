@@ -33,15 +33,12 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.13'
     }
 	plugins {
-        runtime	":hibernate:$grailsVersion"
-        build	":tomcat:$grailsVersion"
+        runtime	(":hibernate:$grailsVersion")	{ export = false }		// needed for testing
+        build	(":tomcat:$grailsVersion")		{ export = false }		// needed for testing
+		build	(":release:2.2.0")				{ export = false }		// needed for plugin deployment
 		
-        runtime	":resources:1.1.6"
-		compile	":lesscss-resources:1.3.0.3"
-		
-		build	":release:2.2.0"
-		
-		runtime	":jquery:1.8.3"
+        runtime	(":resources:1.2.RC2")			{ export = true }		// needed for bootstrap's less files
+		compile	(":lesscss-resources:1.3.1")	{ export = true }		// needed for bootstrap's less files
+		runtime	(":jquery:1.8.3")				{ export = true }		// needed for Bootstrap's javascript
   	}
-
 }
