@@ -37,8 +37,10 @@ grails.project.dependency.resolution = {
         build	(":tomcat:$grailsVersion")		{ export = false }		// needed for testing
 		build	(":release:2.2.0")				{ export = false }		// needed for plugin deployment
 		
-        runtime	(":resources:1.2.RC2")			{ export = true }		// needed for bootstrap's less files
-		compile	(":lesscss-resources:1.3.1")	{ export = true }		// needed for bootstrap's less files
+        runtime	(":resources:1.1.6")			{ export = true }		// needed for Bootstrap's less files
+		compile	(":lesscss-resources:1.3.1")	{ export = true }		// needed for Bootstrap's less files
+
 		runtime	(":jquery:1.8.3")				{ export = true }		// needed for Bootstrap's javascript
+		compile (":font-awesome-resources:3.0")	{ export = true }		// needed for Bootstrap's image replacement
   	}
 }

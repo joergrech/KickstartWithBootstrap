@@ -6,6 +6,7 @@ kickstart.metrics.calculate = true	// NOTE: this Config file needs to be compile
 // configuration for plugin testing - will not be included in the plugin zip
 grails.app.context	="/"
 //grails.serverURL	="http://localhost:8080"
+grails.resources.adhoc.patterns = ['/dbconsole/**']
 
 log4j = {
     // Example of changing the log pattern for the default console

@@ -1,7 +1,7 @@
 <ul class="nav pull-right">
 	<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			<i class="icon-cog icon-large icon-white"></i>
+    		<i class="icon-cog"></i>
 		</a>
 		<ul class="dropdown-menu">
 			<li class="controller">
@@ -9,7 +9,7 @@
 			</li>
 			<li class="dropdown-submenu">
 				<a href="#" class="dropdown-toggle">
-					<i class="${params.layout == 'fluid' ? 'icon-resize-full' : 'icon-resize-vertical'}"></i>
+					<i class="${session.layout == 'fluid' ? 'icon-resize-full' : 'icon-resize-vertical'}"></i>
 					<span class="js-current-language">${layout ? layout.toString().toUpperCase() : "${message(code: 'default.layout.label', default: 'Layout')}"}</span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-dark">
@@ -25,16 +25,19 @@
 			</li>
 			<li class="dropdown-submenu">
 				<a href="#" class="dropdown-toggle">
+					<i class="${session.skin == 'bootstrap_skinA' ? 'icon-circle' : 'icon-circle-blank'}"></i>
 					<span class="js-current-language">${message(code: 'default.skin.label', default: 'Skin')}</span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-dark">
 					<li>
 						<a title="Original" href="${request.forwardURI+'?skin=bootstrap'}">
+							<i class=icon-circle-blank></i>
 							<g:message code="default.skin.original.label" default="Bright (Original)"/>
 						</a>
 					</li>
 					<li>
 						<a title="Skin A"    href="${request.forwardURI+'?skin=bootstrap_skinA'}">
+							<i class="icon-circle"></i>
 							<g:message code="default.skin.skinA.label"    default="Dark (Cyborg)"/>
 						</a>
 					</li>

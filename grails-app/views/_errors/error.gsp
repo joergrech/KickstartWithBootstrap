@@ -10,10 +10,18 @@
   
 	<section id="overview" class="">
     	<div class="alert alert-error">
-			${request.'javax.servlet.error.message'?.indexOf(':') == null ? request.'javax.servlet.error.message'?.encodeAsHTML()	: request.'javax.servlet.error.message'?.substring(0, request.'javax.servlet.error.message'?.indexOf(':')).encodeAsHTML()}
+			${request.'javax.servlet.error.message'.indexOf(':') != -1 ? request.'javax.servlet.error.message'?.substring(0, request.'javax.servlet.error.message'?.indexOf(':')).encodeAsHTML() : request.'javax.servlet.error.message'?.encodeAsHTML()}
+			<g:if test="${request.'javax.servlet.error.message' == null}">
+			</g:if>
+			<g:elseif test="${request.'javax.servlet.error.message'.indexOf(':') != -1}">
+				${request.'javax.servlet.error.message'?.substring(0, request.'javax.servlet.error.message'?.indexOf(':')).encodeAsHTML()}
+			</g:elseif>
+			<g:else>
+				${request.'javax.servlet.error.message'?.encodeAsHTML()}
+			</g:else>
 			<g:if test="${exception}">
 				${exception.className}
-				at line ${exception.lineNumber}
+				has problem at line ${exception.lineNumber}
 			</g:if>
  	   </div>
 	</section>

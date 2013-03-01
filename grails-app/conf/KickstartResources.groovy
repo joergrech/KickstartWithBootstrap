@@ -28,7 +28,7 @@ grails.resources.modules = {
 			resource url: [dir: 'bootstrap/js',			file: 'bootstrap.min.js']
 			resource url: [dir: 'less/bootstrap',		file: 'bootstrap.less']
 			resource url: [dir: 'less/bootstrap',		file: 'responsive.less']
-			resource url: "less/dummy.css" // empty css: see https://github.com/paulfairless/grails-lesscss-resources/issues/25
+	  		resource url: "less/dummy.css" // empty css: see https://github.com/paulfairless/grails-lesscss-resources/issues/25
 		}
 		'bootstrap_skinA'   {
 			dependsOn   'jquery'
@@ -43,7 +43,8 @@ grails.resources.modules = {
 	// Utility resources (must be loaded after bootstrap skin resources)
 	// Duplication necessary as switching skins causes new skin to be loaded after utilities!
 	'bootstrap_utils' {
-		dependsOn 'jquery, bootstrap'
+		dependsOn 'jquery, bootstrap, font-awesome'
+//		resource url: [dir: 'css',					file: 'bootstrap-fixtaglib.css']	// Needed for Font Awesome plugin
 		// resource url: [dir: 'FontAwesome/css',			file: 'font-awesome.css'] // see http://fortawesome.github.com/Font-Awesome/#integration
 		resource url: [dir: 'datepicker/js',			file: 'bootstrap-datepicker.js']
 		resource url: [dir: 'kickstart/js',				file: 'kickstart.js']
@@ -54,7 +55,8 @@ grails.resources.modules = {
 		resource url: "less/dummy.css" // empty css: see https://github.com/paulfairless/grails-lesscss-resources/issues/25
 	}
 	'bootstrap_skinA_utils' {
-		dependsOn 'jquery, bootstrap_skinA'
+		dependsOn 'jquery, bootstrap_skinA, font-awesome'
+//		resource url: [dir: 'css',					file: 'bootstrap-fixtaglib.css']	// Needed for Font Awesome plugin
 		// resource url: [dir: 'FontAwesome/css',			file: 'font-awesome.css'] // see http://fortawesome.github.com/Font-Awesome/#integration
 		resource url: [dir: 'datepicker/js',			file: 'bootstrap-datepicker.js']
 		resource url: [dir: 'kickstart/js',				file: 'kickstart.js']

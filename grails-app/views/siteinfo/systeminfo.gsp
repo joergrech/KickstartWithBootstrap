@@ -24,6 +24,8 @@
 			<li>Web Layout: <a href ="http://twitter.github.com/bootstrap/">Bootstrap</a>, from Twitter 
 	        	Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
 	        	(@TwBootstrap , http://twitter.github.com/bootstrap/)</li>
+			<li>Icons: <a href ="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>, by Dave Gandy. 
+	        	Licensed under the <a href="http://fortawesome.github.com/Font-Awesome/#license">SIL Open Font License, MIT License, and CC BY 3.0 License.</a></li>
 	        <li>Datepicker: <a href ="https://github.com/eternicode/bootstrap-datepicker">Datepicker for Bootstrap</a>, 
 	        	Copyright 2012 Stefan Petre, Improvements by Andrew Rowls, Licensed under the Apache License v2.0</li>
 			<li>Flag Icons: <a href="http://www.famfamfam.com/lab/icons/flags/">FamFamFam Flag Icons</a> by Mark James. They are 
@@ -36,7 +38,7 @@
 	     <ul>
 			<li>App version: <g:meta name="app.version"/></li>
 			<li>Grails version: <g:meta name="app.grails.version"/></li>
-			<li>Groovy version: ${org.codehaus.groovy.runtime.InvokerHelper.getVersion()}</li>
+			<li>Groovy version: ${groovy.lang.GroovySystem.getVersion()}</li>
 			<li>JVM version: ${System.getProperty('java.version')}</li>
 			<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
 			<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
