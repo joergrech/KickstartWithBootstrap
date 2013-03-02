@@ -26,21 +26,30 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	targetDir = "${basedir}/web-app/less"
 	copy(sourceDir, targetDir, "less files in /web-app", "copy-less")
 
+	// copy scaffolding files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src/templates/"
 	targetDir = "${basedir}/src/templates/"
 	copy(sourceDir, targetDir, "scaffolding templates", code)
 
+	// copy view files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/views"
 	targetDir = "${basedir}/grails-app/views"
 	copy(sourceDir, targetDir, "layouts & base GSPs files", code)
 	delete(targetDir+'/index.gsp', "index.gsp in /views", code)
 	delete(targetDir+'/error.gsp', "error.gsp in /views", code)
 
+	// copy resource files into project
+	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/KickstartResources.groovy"
+	targetDir = "${basedir}/grails-app/conf/"
+	copy(sourceDir, targetDir, "resource files", code)
+	
 	// inject plugin specific configs into Config.groovy
 	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
-	configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
-	event "StatusUpdate", ["... appended include line at the end of Config.groovy!"]
-		
+	if (!configFile.text.contains("KickstartResources")) {
+		configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
+		event "StatusUpdate", ["... appended include line at the end of Config.groovy!"]
+	}
+
 	event "StatusUpdate", ["Kickstart install ended!"]
 
 }

@@ -30,4 +30,4 @@
 //def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
 //configFile.append("grails.config.defaults.locations = [KickstartPluginConfig]")
 //
-//event "StatusFinal", ["Kickstart installed successfully!"]
+event "StatusFinal", ["To install Kickstart run the script 'kickstart' (e.g., on command line 'grails kickstart')!"]
