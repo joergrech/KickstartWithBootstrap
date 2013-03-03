@@ -1,0 +1,116 @@
+__NOTOC__
+
+<a class="button minibutton btn-pull-request" href="http://grails.org/plugin/kickstart-with-bootstrap">
+	Home on Grails.org
+</a>
+
+== Introduction ==
+
+Kickstart is a plugin for Grails in order to start your project with a good looking frontend. It is intended to be used in rapid application scenarios such as a Startup Weekend or a prototyping session with a customer.
+This plugin provides the following feature:
+* Adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter.
+* Initial set of webpages to describe the website (e.g., about.gsp, contact.gsp, and systeminfo.gsp)
+* A language picker that adapts to the available property files in the i18n directory. Using the FamFamFam flag icons.
+* A minimal console logging filter (KickstartFilter.groovy) to help understand which actions are called and params are transmitted
+
+== Technologies ==
+{| style="border-width: 0px; text-align: center;" 
+! width="33%" |===Bootstrap===
+! width="33%" |===Browser Support===
+! width="33%" |===Tech Foundation===
+|- align="center"
+| [[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/bs-docs-twitter-github.png?raw=true|250px|Bootstrap]]
+| [[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/browser_logos.png?raw=true|x150px|Browser Support]]
+| [[File:https://github.com/joergrech/KickstartWithBootstrap/blob/master/web-app/images/frontpage/html5css3.png?raw=true|x50px|Technologies Used]]
+|- valign="top"
+| Kickstart uses Bootstrap to render web pages. Bootstrap is made by Mark Otto (@mdo) and Billy Gates (@fat). Bootstrap is designed to help people of all skill levels as a complete kit or to start something more complex.
+| Bootstrap is tested and supported in major modern browsers like Chrome 14, Safari 5+, Opera 11, Internet Explorer 7, and Firefox 5.
+| Bootstrap is based on elements of HTML 5, CSS 3, Javascript 1.8, and jQuery 1.7 with progressively enhanced components to enable a responsive design of the website. Kickstart is built using Groovy 2.0 and Java 7 integrated into the Grails 2.1 framework. 
+|}
+
+== Usage ==
+After installation you must call the kickstart script '''"grails kickstart"''', which will copy several files into your project. 
+
+<pre style="border: 1px solid #ccc; border-radius: 3px; background-color: #F8F8F8;">
+
+  grails kickstart
+
+</pre>
+
+Afterwards create your domain classes (or copy them into the project) and generate controllers and views - they will
+now use the Bootstrap framework!
+
+== Consequences! ==
+The Kickstart script will (after asking you) overwrite a few files in the conf, src, and views directories of your project - '''you should use it only on fresh new Grails projects'''. 
+
+Affected files and directories (as of version 0.8.0; see script/Kickstart.groovy for current procedure):
+* conf/UrlMappings.groovy
+* conf/Config.groovy (will only get one line appended)
+* src/templates
+* /views/_common (contains common GSP entries such as buttons or modals)
+* /views/_errors (contains error GSP for 404, 500, etc.)
+* /views/_menu   (contains menus or submenus)
+* /views/home    (contains the index.gsp)
+* /views/layouts (contains layout files)
+* /views/siteinfo (contains separated or static pages such as about.gsp)
+* /views/index.gsp will be '''deleted'''!
+* /views/error.gsp will be '''deleted'''!
+
+== Configuration ==
+Since version 0.9 two config variables are available and can be set in Config.groovy:
+* '''kickstart.build.calculate''' can be used to disable the calculation of build numbers and defaults to '''true''' 	
+* '''kickstart.metrics.calculate''' can be used to disable the calculation of metrics and defaults to '''true''' 
+
+Furthermore, the views can be configured using the following settings / variables, which have to be defined in the <head> section with the scope "request". An exemplary use of this can be found in the file login/auth.gsp.
+
+Currently, the following settings for the views are supported:
+* '''layout_nomainmenu''' to remove the main menu (e.g., containing "Home") in the file "_content_grid.gsp"
+* '''layout_nosecondarymenu''' to remove the secondary menu (e.g., containing "List") in the file "_content_grid.gsp"
+* '''layout_noflashmessage''' to hide the general presentation of the flash message in the file "_content_grid.gsp"
+
+Similarily, the footer and header can be overwritten (or removed) using sitemesh's pageProperties
+* '''page.header''' to define the header by inserting <content tag="page.header'>...</content> in the view (gsp)
+* '''page.footer''' to define the footer by inserting <content tag="page.footer'>...</content> in the view (gsp)
+
+== Developer Notes ==
+Please note that the '''datepicker''' can handle dates after the year 9999 while most databases (e.g., mysql) handle dates with 4-number years. This might result in date that cannot be stored (such as "01/02/20135") and in Exceptions such as "MysqlDataTruncation: Data truncation: Incorrect datetime value: '20135-02-01 00:00:00'" (@see issue #31). If you want to change this behaviour please have a look in the file "src/groovy/CustomDateEditorRegistrar.groovy" and set lenient to false (However, this will also invalidate years before 1000) 
+
+== Terms of Use ==
+
+* Web Layout: [http://twitter.github.com/bootstrap/ Bootstrap 2.1], from Twitter Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)
+* Datepicker: [https://github.com/eternicode/bootstrap-datepicker Datepicker for Bootstrap], Copyright 2012 Stefan Petre, Improvements by Andrew Rowls, Licensed under the Apache License v2.0
+* Flag Icons: [http://www.famfamfam.com/lab/icons/flags/ FamFamFam Flag Icons] by Mark James. They are <i>"available for free use for any purpose with no requirement for attribution"</i>.
+* Kickstart Plugins: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
+** Copyright 2011-2013 Joerg Rech 
+** see http://joerg-rech.com and follow @JoergRech
+
+== Changelog ==
+'''0.9.5''' Reduced to the max: removed skin/layout switching. Removed build and metrics calculation. Works on PAAS with less files. <br/>
+'''0.9.4''' Integrated Font Awesome using the Grails Font Awesome Resources Plugin by Eamonn O'Connell<br/>
+'''0.9.3''' Upgrade to patched Bootstrap 2.3.0 (had to partially downgrade mixins.less to 2.2.2). Fixed problem with hibernate plugin dependency when using Grails versions less than 2.2.0. <br/>
+'''0.9.2''' Fixed problem with less file handling if resource plugin is disabled. <br/>
+'''0.9.1''' Added views for security (prepared for spring security: auth.gsp and denied.gsp). Integrated configuration settings for views. Updated several missing I18N codes.<br/>
+'''0.9.0''' Added config switches to calculate build numbers and metrics. Updated to Bootstrap 2.2.2 (2.3 has currently compilation errors with lesscss).<br/>
+'''0.8.9''' Fixed Bug with CloudFoundry and Tomcat which (now) need references to the plugin containing resources (e.g., images)<br/>
+'''0.8.8''' Fixed Bug with i18n directory when deploying. Removed domain Object for demo page.<br/>
+'''0.8.7''' Improved the date binding to use default.date.datepicker.format or default.date.format (removing non-Date items).<br/>
+'''0.8.6''' Changed solution for Less compilation problem (Switch is now in KickstartResources.groovy only). Fixed problem of SkinA alternative in responsive mode. In production mode only one skin is used.<br/>
+'''0.8.5''' Fixed a problem with CloudFoundry & Less: running in production will not compile less anymore but switch to files directly. <br/>
+'''0.8.3''' Introduced a demo page with all fields used by the scaffolding mechanism. <br/>
+'''0.8.2''' Corrected missing copy of resources.groovy. <br/>
+'''0.8.1''' Fixed error when copying UrlMappings.groovy, which was not packaged into the plugin. <br/>
+'''0.8.0''' Integrated less templates of two Bootstrap based designs. Corrected links in language selector and config menus. <br/>
+'''0.7.2''' Integrated a Bootstrap-based checkbox in the taglib and scaffolding templates. <br/>
+'''0.7.1''' Corrected datepicker problem with Java representation with month. Corrected missing ID in links to edit-actions. <br/>
+'''0.7.0''' Updated to Bootstrap 2.1.1 and Grails 2.1. Included FamFamFam icons for flags in language selector. Reorganized file structure for views. <br/>
+'''0.6.1''' Minor bug fix in _Events.gsp script. <br/>
+'''0.6.0''' Integration of Bootstrap DatePicker. Uses Grails 2.0 files as base for scaffolding, etc. Cleanup of code and scripts. <br/>
+'''0.5.7''' Added script to calculate or retrieve build numbers.<br/>
+'''0.5.6''' Empty commit to test Grails plugin publish mechanism<br/>
+'''0.5.5''' Minor bugfix (missing import) and correction of KickstartWithBootstrapGrailsPlugin.groovy<br/>
+'''0.5.4''' Added measurement of time to simple console logging in KickstartFilters<br/>
+'''0.5.3''' Improvement of error.gsp<br/>
+'''0.5.2''' Cleanup of code and scripts. Improvement of I18N <br/>
+'''0.5.1''' Minor bugfixes in Bootstrap and layout files <br/>
+'''0.5.0''' Initial shared version (February 11, 2012)<br/>
+'''0.1.0''' Initial version (September 21, 2011)<br/>
