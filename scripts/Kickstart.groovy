@@ -39,9 +39,9 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	delete(targetDir+'/error.gsp', "error.gsp in /views", code)
 
 	// copy resource files into project
-	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/KickstartResources.groovy"
-	targetDir = "${basedir}/grails-app/conf/"
-	copy(sourceDir, targetDir, "resource files", code)
+//	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/KickstartResources.groovy"
+//	targetDir = "${basedir}/grails-app/conf/"
+//	copy(sourceDir, targetDir, "resource files", code)
 	
 	// inject plugin specific configs into Config.groovy
 	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
