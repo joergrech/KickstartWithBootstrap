@@ -64,7 +64,11 @@ Since version 0.9 two config variables are available and can be set in Config.gr
 Furthermore, the views can be configured using the following settings / variables, which have to be defined in the <head> section with the scope "request". An exemplary use of this can be found in the file login/auth.gsp:
 <pre style="border: 1px solid #ccc; border-radius: 3px; background-color: #F8F8F8;">
    <g:set var="layout_nomainmenu" value="${true}" scope="request"/>
+      &lt;g&#58;set var&#61;&quot;layout_nomainmenu&quot; value&#61;&quot;$&#123;true&#125;&quot; scope&#61;&quot;request&quot;/&gt;
 </pre>
+   <g:set var="layout_nomainmenu" value="${true}" scope="request"/>
+      &lt;g&#58;set var&#61;&quot;layout_nomainmenu&quot; value&#61;&quot;$&#123;true&#125;&quot; scope&#61;&quot;request&quot;/&gt;
+
 
 Currently, the following settings for the views are supported:
 * '''layout_nomainmenu''' to remove the main menu (e.g., containing "Home") in the file "_content_grid.gsp"
