@@ -18,8 +18,8 @@
 	
 	<%-- Manual switch for the skin can be found in /view/_menu/_config.gsp --%>
 	<r:require modules="jquery"/>
-	<r:require modules="${session.skin ? session.skin            : 'bootstrap'}"/>
-	<r:require modules="${session.skin ? session.skin + '_utils' : 'bootstrap_utils'}"/>
+	<r:require modules="bootstrap"/>
+	<r:require modules="bootstrap_utils"/>
 
 	<r:layoutResources />
 	<g:layoutHead />
@@ -43,13 +43,7 @@
 		<g:render template="/layouts/header"/>														
 	</g:else>
 
-	<!-- use different templates for HTML structure based on layout (e.g., grid or fluid; Default is grid) -->
-	<g:if test="${session.layout == 'fluid'}">
-		<g:render template="/layouts/content_${session.layout}"/>														
-	</g:if>
-	<g:else>
-		<g:render template="/layouts/content_grid"/>														
-	</g:else>
+	<g:render template="/layouts/content"/>														
 
 	<!-- Enable to overwrite Footer by individual page -->
 	<g:if test="${ pageProperty(name:'page.footer') }">

@@ -63,6 +63,10 @@ form p:last-child input {
 #Header .title		{ font-size: 72px; line-height: 72px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
 #Header .lead		{ font-size: 18px; line-height: 18px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
 
+footer {
+	margin-top: 70px;
+}
+
 @media (max-width: 980px) {
 	#Header {
 		margin: 0px -20px 0px -20px;
