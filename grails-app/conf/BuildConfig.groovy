@@ -19,14 +19,18 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+        runtime ('org.lesscss:lesscss:1.3.3')
     }
 	plugins {
-        runtime	(":hibernate:$grailsVersion")	{ export = false }		// needed for testing
-        build	(":tomcat:$grailsVersion")		{ export = false }		// needed for testing
+        runtime	(":hibernate:$grailsVersion")	{ export = false }		// needed for testing the plugin as an app
+        build	(":tomcat:$grailsVersion")		{ export = false }		// needed for testing the plugin as an app
 		build	(":release:2.2.0")				{ export = false }		// needed for plugin deployment
 		
         runtime	(":resources:1.1.6")			{ export = true }		// needed for Bootstrap's less files
-		compile	(":lesscss-resources:1.3.1")	{ export = true }		// needed for Bootstrap's less files
+		compile	(":lesscss-resources:1.3.1")	{ 						// needed for Bootstrap's less files
+			excludes "lesscss"											// needed for Bootstrap's 2.3 changes
+			export = true												// see: https://github.com/paulfairless/grails-lesscss-resources/issues/45
+		}		
 
 		runtime	(":jquery:1.8.3")				{ export = true }		// needed for Bootstrap's javascript
 		compile (":font-awesome-resources:3.0")	{ export = true }		// needed for Bootstrap's image replacement
