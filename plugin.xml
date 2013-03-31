@@ -1,4 +1,4 @@
-<plugin name='kickstart-with-bootstrap' version='0.9.5b' grailsVersion='2.0 &gt; *'>
+<plugin name='kickstart-with-bootstrap' version='0.9.6' grailsVersion='2.0 &gt; *'>
   <author>Joerg Rech</author>
   <authorEmail>joerg.rech@gmail.com</authorEmail>
   <title>Kickstart with Bootstrap - Good looking websites!</title>
@@ -20,7 +20,11 @@
     <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
     <repository name='http://grails.org/plugins' url='http://grails.org/plugins' />
   </repositories>
-  <dependencies />
+  <dependencies>
+    <runtime>
+      <dependency group='org.lesscss' name='lesscss' version='1.3.3' />
+    </runtime>
+  </dependencies>
   <plugins>
     <compile>
       <plugin group='org.grails.plugins' name='lesscss-resources' version='1.3.1' />
