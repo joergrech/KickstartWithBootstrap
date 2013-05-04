@@ -29,3 +29,5 @@ log4j = {
 	info	'grails.app.filters'
 }
 grails.config.defaults.locations = [KickstartResources]
+grails.views.default.codec="none" // none, html, base64
+grails.views.gsp.encoding="UTF-8"
