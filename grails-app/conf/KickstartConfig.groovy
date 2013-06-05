@@ -25,4 +25,3 @@ log4j = {
 
 	info	'grails.app.filters'
 }
-grails.config.defaults.locations = [KickstartResources]

@@ -1,6 +1,6 @@
 // Settings for the resources and less-css plugins to "compile" less files into css
 
-grails.resources.modules = {
+modules = {
 
 	if ( (grails.resources?.processing?.enabled != [:] && grails.resources.processing.enabled.booleanValue() == false) ) {
 		/* Bootstrap definitions without less (if resource processing is switched off) */

@@ -2,7 +2,7 @@ import com.joergrech.kickstartwithbootstrap.CustomDateEditorRegistrar
 
 class KickstartWithBootstrapGrailsPlugin {
     // the plugin version
-    def version = "0.9.7-csherstan"
+    def version = "0.9.7b-csherstan"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
