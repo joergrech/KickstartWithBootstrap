@@ -1,4 +1,4 @@
-package kickstart
+package com.joergrech.kickstartwithbootstrap
 
 import java.text.DateFormat
 import java.text.DateFormatSymbols
