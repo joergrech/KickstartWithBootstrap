@@ -73,7 +73,7 @@ Similarily, the footer and header can be overwritten (or removed) using sitemesh
 * '''page.footer''' to define the footer by inserting <content tag="page.footer'>...</content> in the view (gsp)
 
 == Developer Notes ==
-Please note that the '''datepicker''' can handle dates after the year 9999 while most databases (e.g., mysql) handle dates with 4-number years. This might result in date that cannot be stored (such as "01/02/20135") and in Exceptions such as "MysqlDataTruncation: Data truncation: Incorrect datetime value: '20135-02-01 00:00:00'" (@see issue #31). If you want to change this behaviour please have a look in the file "src/groovy/CustomDateEditorRegistrar.groovy" and set lenient to false (However, this will also invalidate years before 1000) 
+Please note that the '''datepicker''' can handle dates after the year 9999 while most databases (e.g., mysql) handle dates with 4-number years. This might result in date that cannot be stored (such as "01/02/20135") and in Exceptions such as "MysqlDataTruncation: Data truncation: Incorrect datetime value: '20135-02-01 00:00:00'" (@see issue #31). If you want to change this behaviour please have a look in the file "src/groovy/com/joergrech/kickstartwithbootstrap/CustomDateEditorRegistrar.groovy" and set lenient to false (However, this will also invalidate years before 1000) 
 
 == Terms of Use ==
 

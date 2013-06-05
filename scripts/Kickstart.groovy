@@ -19,7 +19,6 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src"
 	targetDir = "${basedir}/grails-app/conf/"
 	copy("${sourceDir}/UrlMappings.groovy",	targetDir,			"URLMappings.groovy",	code)
-	copy("${sourceDir}/resources.groovy",	targetDir+"spring/","resources.groovy",		code)
 	
 	// copy less files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/less"
