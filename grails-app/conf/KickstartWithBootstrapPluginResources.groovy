@@ -1,6 +1,6 @@
 // Settings for the resources and less-css plugins to "compile" less files into css
 
-grails.resources.modules = {
+modules = {
 
 	if ( (grails.resources?.processing?.enabled != [:] && grails.resources.processing.enabled.booleanValue() == false) ) {
 		/* Bootstrap definitions without less (if resource processing is switched off) */
@@ -20,7 +20,7 @@ grails.resources.modules = {
 			resource url: [dir: 'less/bootstrap',		file: 'responsive.less']
 	  		resource url: "less/dummy.css" // empty css: see https://github.com/paulfairless/grails-lesscss-resources/issues/25
 		}
-		println "| Using LESS files to generating CSS files!"
+		println "| Using LESS files to generate CSS files!"
 	}
 
 	// Utility resources (must be loaded after bootstrap skin resources)

@@ -1,11 +1,8 @@
-import org.codehaus.groovy.grails.commons.ApplicationHolder
-import org.codehaus.groovy.grails.plugins.GrailsPluginUtils
-import org.codehaus.groovy.grails.plugins.PluginManagerHolder
-import org.codehaus.groovy.grails.web.context.ServletContextHolder
+import com.joergrech.kickstartwithbootstrap.CustomDateEditorRegistrar
 
 class KickstartWithBootstrapGrailsPlugin {
     // the plugin version
-    def version = "0.9.6"
+    def version = "0.9.7b-csherstan"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
@@ -18,7 +15,7 @@ class KickstartWithBootstrapGrailsPlugin {
 	def license = "APACHE"
 //	def organization = [ name: "SpringSource", url: "http://www.springsource.org/" ]
 //	def developers = [
-//			[ name: "Jörg Rech", email: "joerg.rech@gmail.com" ]
+//			[ name: "Jï¿½rg Rech", email: "joerg.rech@gmail.com" ]
 //		]
 //	def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GRAILSPLUGINS" ]
 	def scm = [ url: "https://github.com/joergrech/KickstartWithBootstrap" ]
@@ -36,9 +33,11 @@ class KickstartWithBootstrapGrailsPlugin {
 //        // TODO Implement additions to web.xml (optional), this event occurs before 
 //    }
 //
-//    def doWithSpring = {
-//        // TODO Implement runtime spring config (optional)
-//    }
+	def doWithSpring = {
+		customPropertyEditorRegistrar(CustomDateEditorRegistrar) {
+			grailsApplication = ref("grailsApplication")
+		}
+    }
 //
 //    def doWithDynamicMethods = { ctx ->
 //        // TODO Implement registering dynamic methods to classes (optional)
@@ -53,9 +52,9 @@ class KickstartWithBootstrapGrailsPlugin {
 		def i18nDir 
 		
 		try {
-			if (ApplicationHolder.application.isWarDeployed()) {
+			if (application.isWarDeployed()) {
 				def filePath = "grails-app/i18n"
-				i18nDir = ApplicationHolder.application.parentContext.getResource("${File.separator}WEB-INF${File.separator}${filePath}")?.getFile()
+				i18nDir = application.parentContext.getResource("${File.separator}WEB-INF${File.separator}${filePath}")?.getFile()
 			} else {
 				i18nDir = new File(System.properties['base.dir'] + "/grails-app/i18n")
 			}

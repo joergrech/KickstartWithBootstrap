@@ -11,8 +11,8 @@
     <resource>kickstart.KickstartFilters</resource>
     <resource>spring.resources</resource>
     <resource>HomeController</resource>
-    <resource>kickstartwithbootstrapgrailsplugin._DemoPageController</resource>
-    <resource>kickstartwithbootstrapgrailsplugin._DemoPage</resource>
+    <resource>com.joergrech.kickstartwithbootstrap._DemoPageController</resource>
+    <resource>com.joergrech.kickstartwithbootstrap._DemoPage</resource>
     <resource>kickstart.BootstrapTagLib</resource>
   </resources>
   <repositories>
