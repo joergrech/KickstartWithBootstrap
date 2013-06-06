@@ -5,6 +5,8 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 
+grails.project.repos.default="spiekerPoint"
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
@@ -19,6 +21,9 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+		build("org.tmatesoft.svnkit:svnkit:1.3.5") {
+			excludes "jna", "trilead-ssh2", "sqljet"
+		}
     }
 	plugins {
         runtime	(":hibernate:$grailsVersion")	{ export = false }		// needed for testing the plugin as an app
@@ -29,8 +34,10 @@ grails.project.dependency.resolution = {
 		compile	(":lesscss-resources:1.3.3")	{ 						// needed for Bootstrap's less files
 			export = true												// see: https://github.com/paulfairless/grails-lesscss-resources/issues/45
 		}		
-
+		
 		runtime	(":jquery:1.8.3")				{ export = true }		// needed for Bootstrap's javascript
 		compile (":font-awesome-resources:3.0")	{ export = true }		// needed for Bootstrap's image replacement
+		
+		compile(":svn:1.0.2")
   	}
 }

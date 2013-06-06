@@ -37,6 +37,18 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	delete(targetDir+'/index.gsp', "index.gsp in /views", code)
 	delete(targetDir+'/error.gsp', "error.gsp in /views", code)
 
+	// copy resource files into project
+//	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/KickstartResources.groovy"
+//	targetDir = "${basedir}/grails-app/conf/"
+//	copy(sourceDir, targetDir, "resource files", code)
+	
+	// inject plugin specific configs into Config.groovy
+	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
+	if (!configFile.text.contains("KickstartResources")) {
+		configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
+		event "StatusUpdate", ["... appended include line at the end of Config.groovy!"]
+	}
+
 	event "StatusUpdate", ["Kickstart install ended!"]
 
 }
