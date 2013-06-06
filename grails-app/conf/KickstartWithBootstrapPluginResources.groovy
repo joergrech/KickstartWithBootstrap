@@ -20,7 +20,7 @@ modules = {
 			resource url: [dir: 'less/bootstrap',		file: 'responsive.less']
 	  		resource url: "less/dummy.css" // empty css: see https://github.com/paulfairless/grails-lesscss-resources/issues/25
 		}
-		println "| Using LESS files to generating CSS files!"
+		println "| Using LESS files to generate CSS files!"
 	}
 
 	// Utility resources (must be loaded after bootstrap skin resources)
