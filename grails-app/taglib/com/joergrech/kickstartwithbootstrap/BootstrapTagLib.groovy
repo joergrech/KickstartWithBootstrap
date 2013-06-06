@@ -1,9 +1,10 @@
-package kickstart
+package com.joergrech.kickstartwithbootstrap
 
-import org.springframework.web.servlet.support.RequestContextUtils as RCU;
+import java.text.DateFormat
 import java.text.DateFormatSymbols
-import org.codehaus.groovy.grails.commons.ApplicationHolder
+
 import org.springframework.context.i18n.LocaleContextHolder
+import org.springframework.web.servlet.support.RequestContextUtils as RCU
 
 class BootstrapTagLib {
 	static namespace = "bs"
@@ -241,7 +242,7 @@ class BootstrapTagLib {
 		booleanToAttribute(attrs, 'readonly')
 		
 		// get the localized format for dates. NOTE: datepicker only uses Lowercase syntax and does not understand hours, seconds, etc. (it uses: dd, d, mm, m, yyyy, yy)
-		def messageSource = ApplicationHolder.application.mainContext.getBean('messageSource')
+		def messageSource = grailsAttributes.messageSource
 		String dateFormat = messageSource.getMessage("default.date.datepicker.format",null,null,LocaleContextHolder.locale )
 		if (!dateFormat) { // if date.datepicker.format is not used use date.format but remove characters not used by datepicker
 			dateFormat = messageSource.getMessage("default.date.format",null,'mm/dd/yyyy',LocaleContextHolder.locale )\

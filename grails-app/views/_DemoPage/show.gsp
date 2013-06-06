@@ -1,5 +1,5 @@
 
-<%@ page import="kickstartwithbootstrapgrailsplugin._DemoPage" %>
+<%@ page import="com.joergrech.kickstartwithbootstrap._DemoPage" %>
 <!doctype html>
 <html>
 

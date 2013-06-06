@@ -1,4 +1,5 @@
-package kickstartwithbootstrapgrailsplugin
+package com.joergrech.kickstartwithbootstrap
+
 
 import org.springframework.dao.DataIntegrityViolationException
 

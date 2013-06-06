@@ -1,6 +1,6 @@
+package com.joergrech.kickstartwithbootstrap
 import java.text.SimpleDateFormat
 
-import org.codehaus.groovy.grails.commons.ApplicationHolder
 import org.springframework.beans.PropertyEditorRegistrar
 import org.springframework.beans.PropertyEditorRegistry
 import org.springframework.beans.propertyeditors.CustomDateEditor
@@ -9,8 +9,10 @@ import org.codehaus.groovy.grails.web.binding.StructuredDateEditor
 
 public class CustomDateEditorRegistrar implements PropertyEditorRegistrar {
 	
+	def grailsApplication
+	
 	public void registerCustomEditors(PropertyEditorRegistry registry) {
-		def messageSource = ApplicationHolder.application.mainContext.getBean('messageSource')
+		def messageSource = grailsApplication.mainContext.getBean('messageSource')
 		String dateFormat = messageSource.getMessage("default.date.datepicker.format",null,null,LocaleContextHolder.locale )
 		if (!dateFormat) { // if date.datepicker.format is not used use date.format but remove characters not used by datepicker
 			dateFormat = messageSource.getMessage("default.date.format",null,'mm/dd/yyyy',LocaleContextHolder.locale )\
