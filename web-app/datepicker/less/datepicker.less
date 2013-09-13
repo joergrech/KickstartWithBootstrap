@@ -2,12 +2,11 @@
  * Datepicker for Bootstrap
  *
  * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  */
-
+ 
 .datepicker {
 	top: 0;
 	left: 0;
@@ -38,16 +37,8 @@
 	>div {
 		display: none;
 	}
-	&.days div.datepicker-days {
-		display: block;
-	}
-	&.months div.datepicker-months {
-		display: block;
-	}
-	&.years div.datepicker-years {
-		display: block;
-	}
 	table{
+		width: 100%;
 		margin: 0;
 	}
 	td,
@@ -62,20 +53,15 @@
 			background: @grayLighter;
 			cursor: pointer;
 		}
+		&.day.disabled {
+			color: @grayLighter;
+		}
 		&.old,
 		&.new {
 			color: @grayLight;
 		}
-		&.disabled,
-		&.disabled:hover {
-			background: none;
-			color: @grayLight;
-			cursor: default;
-		}
 		&.active,
-		&.active:hover,
-		&.active.disabled,
-		&.active.disabled:hover {
+		&.active:hover {
 			.buttonBackground(@btnPrimaryBackground, spin(@btnPrimaryBackground, 20));
 			color: #fff;
 			text-shadow: 0 -1px 0 rgba(0,0,0,.25);
@@ -92,16 +78,7 @@
 			&:hover {
 				background: @grayLighter;
 			}
-			&.disabled,
-			&.disabled:hover {
-				background:none;
-				color: @grayLight;
-				cursor: default;
-			}
-			&.active,
-			&.active:hover,
-			&.active.disabled,
-			&.active.disabled:hover {
+			&.active {
 				.buttonBackground(@btnPrimaryBackground, spin(@btnPrimaryBackground, 20));
 				color: #fff;
 				text-shadow: 0 -1px 0 rgba(0,0,0,.25);
@@ -111,11 +88,17 @@
 			}
 		}
 	}
-
-	th.switch {
-		width: 145px;
+	
+	th {
+		&.switch {
+			width: 145px;
+		}
+		&.next,
+		&.prev {
+			font-size: @baseFontSize * 1.5;
+		}
 	}
-
+	
 	thead tr:first-child th {
 		cursor: pointer;
 		&:hover{

@@ -1,4 +1,6 @@
-package kickstartwithbootstrapgrailsplugin
+package kickstart
+
+import kickstart._DemoPage;
 
 import org.springframework.dao.DataIntegrityViolationException
 
@@ -40,8 +42,8 @@ class _DemoPageController {
 
     def edit() {
         def _DemoPageInstance = session.demopage
-		_DemoPageInstance.clearErrors()
-		_DemoPageInstance.validate()
+		_DemoPageInstance?.clearErrors()
+		_DemoPageInstance?.validate()
         [_DemoPageInstance: _DemoPageInstance]
     }
 

@@ -5,7 +5,6 @@ class UrlMappings {
 		/* 
 		 * Pages without controller 
 		 */
-//		"/"				(view:"/index")
 		"/about"		(view:"/siteinfo/about")
 		"/blog"			(view:"/siteinfo/blog")
 		"/systeminfo"	(view:"/siteinfo/systeminfo")
@@ -34,7 +33,7 @@ class UrlMappings {
 		 */
 		"403"	(view:'/_errors/403')
 		"404"	(view:'/_errors/404')
-		"500"	(view:'/_errors/error')
+		"500"	(view:'/_errors/500')
 		"503"	(view:'/_errors/503')
 	}
 }

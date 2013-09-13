@@ -19,7 +19,7 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src"
 	targetDir = "${basedir}/grails-app/conf/"
 	copy("${sourceDir}/UrlMappings.groovy",	targetDir,			"URLMappings.groovy",	code)
-	copy("${sourceDir}/resources.groovy",	targetDir+"spring/","resources.groovy",		code)
+//	copy("${sourceDir}/resources.groovy",	targetDir+"spring/","resources.groovy",		code)
 	
 	// copy less files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/less"
@@ -34,24 +34,23 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	// copy view files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/views"
 	targetDir = "${basedir}/grails-app/views"
+	ant.move(file: targetDir+'/index.gsp', tofile: targetDir+'/old_index.gsp')
+	ant.move(file: targetDir+'/error.gsp', tofile: targetDir+'/old_error.gsp')
 	copy(sourceDir, targetDir, "layouts & base GSPs files", code)
-	delete(targetDir+'/index.gsp', "index.gsp in /views", code)
-	delete(targetDir+'/error.gsp', "error.gsp in /views", code)
-
+	
 	// copy resource files into project
 //	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/KickstartResources.groovy"
 //	targetDir = "${basedir}/grails-app/conf/"
 //	copy(sourceDir, targetDir, "resource files", code)
 	
 	// inject plugin specific configs into Config.groovy
-	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
-	if (!configFile.text.contains("KickstartResources")) {
-		configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
-		event "StatusUpdate", ["... appended include line at the end of Config.groovy!"]
-	}
+//	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
+//	if (!configFile.text.contains("KickstartResources")) {
+//		configFile.append("\ngrails.config.defaults.locations = [KickstartResources]")
+//		event "StatusUpdate", ["... appended include line at the end of Config.groovy!"]
+//	}
 
 	event "StatusUpdate", ["Kickstart install ended!"]
-
 }
 setDefaultTarget kickstart
 
@@ -65,9 +64,8 @@ copy = {String source, String target, String confirmText, String confirmCode ->
 //	def newCode = confirmCode + confirmCount++
 	def input = ""
 	
-	// only if dir already exists in, ask to overwrite it
+	// only if directory already exists, ask to overwrite it
 	if (new File(target).exists()) {
-		// TODO: copy existing files / dirs into a "trash" directory
 		if (isInteractive && !overwrite) 						input = grailsConsole.userInput('Overwrite '+confirmText+'? ', ["y","n","a"] as String[])
 		if (!isInteractive || input == "y" || input == "a" )	overwrite = true
 		if (input == "a")										confirmAll = true
@@ -91,7 +89,6 @@ delete = {String file, String confirmText, String confirmCode ->
 		if (isInteractive && !deleteFile) 						input = grailsConsole.userInput('Delete '+confirmText+'? ', ["y","n","a"] as String[])
 		if (!isInteractive || input == "y" || input == "a" )	deleteFile = true
 		if (input == "a")										deleteAll = true
-		// TODO: copy existing files / dirs into a "trash" directory
 		if (deleteFile)											ant.delete(file: file)
 		event "StatusUpdate", ["... ${confirmText} was ${delete ? '' : 'not '}deleted!"]
 	}

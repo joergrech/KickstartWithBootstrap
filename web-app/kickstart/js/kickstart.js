@@ -3,7 +3,7 @@ if (typeof jQuery !== 'undefined') {
 		/**
 		 * Activate Datepicker for Bootstrap
 		 */
-		$(".date").datepicker();
+		$(".datepicker").datepicker();
 		
 		/**
 		 * Close Dropdown menus when user clicks outside a menu (on the body)

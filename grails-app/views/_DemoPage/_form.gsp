@@ -1,6 +1,4 @@
-<%@ page import="kickstartwithbootstrapgrailsplugin._DemoPage" %>
-
-
+<%@ page import="kickstart._DemoPage" %>
 
 			<div class="control-group fieldcontain ${hasErrors(bean: _DemoPageInstance, field: 'name', 'error')} ">
 				<label for="name" class="control-label"><g:message code="_DemoPage.name.label" default="Name" /></label>
@@ -133,7 +131,7 @@
 			<div class="control-group fieldcontain ${hasErrors(bean: _DemoPageInstance, field: 'myEnum', 'error')} required">
 				<label for="myEnum" class="control-label"><g:message code="_DemoPage.myEnum.label" default="My Enum" /><span class="required-indicator">*</span></label>
 				<div class="controls">
-					<g:select name="myEnum" from="${kickstartwithbootstrapgrailsplugin._DemoPage$Suit?.values()}" keys="${kickstartwithbootstrapgrailsplugin._DemoPage$Suit.values()*.name()}" required="" value="${_DemoPageInstance?.myEnum?.name()}"/>
+					<g:select name="myEnum" from="${kickstart._DemoPage$Suit?.values()}" keys="${kickstart._DemoPage$Suit.values()*.name()}" required="" value="${_DemoPageInstance?.myEnum?.name()}"/>
 					<span class="help-inline">${hasErrors(bean: _DemoPageInstance, field: 'myEnum', 'error')}</span>
 				</div>
 			</div>

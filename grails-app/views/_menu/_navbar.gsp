@@ -29,6 +29,9 @@
 									<g:elseif test="${c.fullName.contains('DemoPageController')}">
 						    		<i class="icon-beaker"></i>
 									</g:elseif>
+									<g:elseif test="${c.fullName.contains('DbdocController')}">
+						    		<i class="icon-sitemap"></i>
+									</g:elseif>
 		                    		${c.fullName.substring(c.fullName.lastIndexOf('.')+1)}
 		                    	</g:link>
 		                    </li>

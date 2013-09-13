@@ -1,49 +1,46 @@
-import org.codehaus.groovy.grails.commons.ApplicationHolder
-import org.codehaus.groovy.grails.plugins.GrailsPluginUtils
-import org.codehaus.groovy.grails.plugins.PluginManagerHolder
-import org.codehaus.groovy.grails.web.context.ServletContextHolder
+import kickstart.CustomDateEditorRegistrar
 
 class KickstartWithBootstrapGrailsPlugin {
-    // the plugin version
-    def version = "0.9.6"
-    // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "2.0 > *"
-    // the other plugins this plugin depends on
-    def dependsOn = [:]
-    // resources that are excluded from plugin packaging
-    def pluginExcludes = [
-//            "grails-app/views/error.gsp"
-    ]
+    
+    def title			= "Kickstart with Bootstrap - Good looking websites!"
+    def version			= "0.9.8"																					// the plugin version
+	def license			= "APACHE"																					// License: one of 'APACHE', 'GPL2', 'GPL3'
+	def description		= """\
+Kickstart is a plugin for Grails to start your project with a good looking frontend. \
+It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap \
+frontend framework initiated by Twitter."""
 	
-	def license = "APACHE"
-//	def organization = [ name: "SpringSource", url: "http://www.springsource.org/" ]
-//	def developers = [
+    def grailsVersion	= "2.0 > * > 2.3"																			// the version or versions of Grails the plugin is designed for
+    def dependsOn		= [:]																						// the other plugins this plugin depends on
+	def pluginExcludes	= [																							// resources that are excluded from plugin packaging
+//            "grails-app/views/error.gsp"
+	]
+	
+//	def organization	= [ name: "SpringSource", url: "http://www.springsource.org/" ]								// Details of company behind the plugin (if there is one)
+    def author			= "Joerg Rech"
+    def authorEmail		= "joerg.rech@gmail.com"
+	def developers		= [																							// Any additional developers beyond the author specified above.
 //			[ name: "Jörg Rech", email: "joerg.rech@gmail.com" ]
-//		]
-//	def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GRAILSPLUGINS" ]
-	def scm = [ url: "https://github.com/joergrech/KickstartWithBootstrap" ]
+	]
+    def documentation	= "http://grails.org/plugin/kickstart-with-bootstrap"										// URL to the plugin's documentation
+	def scm				= [ url: "https://github.com/joergrech/KickstartWithBootstrap" ]							// Online location of the plugin's browseable source code.
+	def issueManagement	= [ url: "https://github.com/joergrech/KickstartWithBootstrap/issues", system: "GitHub" ]	// Location of the plugin's issue tracker.
 
-	// TODO Fill in these fields
-    def author = "Joerg Rech"
-    def authorEmail = "joerg.rech@gmail.com"
-    def title = "Kickstart with Bootstrap - Good looking websites!"
+	
+	
+    def doWithWebDescriptor = { xml ->
+        // TODO Implement additions to web.xml (optional), this event occurs before 
+    }
 
-    def description = "Kickstart is a plugin for Grails to start your project with a good looking frontend. It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap web page template by Twitter."
-    // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/kickstart-with-bootstrap"
+	def doWithSpring = {
+		customPropertyEditorRegistrar(CustomDateEditorRegistrar) {
+			grailsApplication = ref("grailsApplication")
+		}
+	} 
 
-//    def doWithWebDescriptor = { xml ->
-//        // TODO Implement additions to web.xml (optional), this event occurs before 
-//    }
-//
-//    def doWithSpring = {
-//        // TODO Implement runtime spring config (optional)
-//    }
-//
-//    def doWithDynamicMethods = { ctx ->
-//        // TODO Implement registering dynamic methods to classes (optional)
-//    }
-//
+    def doWithDynamicMethods = { ctx ->
+        // TODO Implement registering dynamic methods to classes (optional)
+    }
 
     def doWithApplicationContext = { applicationContext ->
         // TODO Implement post initialization spring config (optional)
@@ -51,11 +48,11 @@ class KickstartWithBootstrapGrailsPlugin {
 		// Collect all *.properties files in the I18N directory and build list of "available" locales 
 		def locales = []
 		def i18nDir 
-		
+
 		try {
-			if (ApplicationHolder.application.isWarDeployed()) {
+			if (application.isWarDeployed()) {
 				def filePath = "grails-app/i18n"
-				i18nDir = ApplicationHolder.application.parentContext.getResource("${File.separator}WEB-INF${File.separator}${filePath}")?.getFile()
+				i18nDir = application.parentContext.getResource("${File.separator}WEB-INF${File.separator}${filePath}")?.getFile()
 			} else {
 				i18nDir = new File(System.properties['base.dir'] + "/grails-app/i18n")
 			}
@@ -79,7 +76,7 @@ class KickstartWithBootstrapGrailsPlugin {
 				locales << "en"
 				locales << "de"
 			}
-			println "| Kickstart found ${locales.size()} locales usable in the language selector (excluding the default \"locale\" messages.properties)."			
+			log.info "| Kickstart found ${locales.size()} locales usable in the language selector (excluding the default \"locale\" messages.properties)."			
 		} catch (Exception e) {
 			log.warn "WARNING: could not find the directory to the project's I18N files! The Language Switcher might not work correctly!"
 			log.warn e.getMessage()
@@ -87,19 +84,21 @@ class KickstartWithBootstrapGrailsPlugin {
 			locales << "en"
 			locales << "de"
 		}
-		// Note: The GrailsApplication instance is available in all of the lifecycle closures as the "application" variable.
 		application.config.grails.i18n.locales = locales
 		System.setProperty('grails.i18n.locales', locales.toString())
     }
-//
-//    def onChange = { event ->
-//        // TODO Implement code that is executed when any artefact that this plugin is
-//        // watching is modified and reloaded. The event contains: event.source,
-//        // event.application, event.manager, event.ctx, and event.plugin.
-//    }
-//
-//    def onConfigChange = { event ->
-//        // TODO Implement code that is executed when the project configuration changes.
-//        // The event is the same as for 'onChange'.
-//    }
+
+    def onChange = { event ->
+        // TODO Implement code that is executed when any artefact that this plugin is
+        // watching is modified and reloaded. The event contains: event.source,
+        // event.application, event.manager, event.ctx, and event.plugin.
+    }
+
+    def onConfigChange = { event ->
+        // TODO Implement code that is executed when the project configuration changes.
+        // The event is the same as for 'onChange'.
+    }
+    def onShutdown = { event ->
+        // TODO Implement code that is executed when the application shuts down (optional)
+    }
 }

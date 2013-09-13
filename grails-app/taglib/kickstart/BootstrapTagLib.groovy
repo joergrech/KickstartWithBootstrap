@@ -2,7 +2,6 @@ package kickstart
 
 import org.springframework.web.servlet.support.RequestContextUtils as RCU;
 import java.text.DateFormatSymbols
-import org.codehaus.groovy.grails.commons.ApplicationHolder
 import org.springframework.context.i18n.LocaleContextHolder
 
 class BootstrapTagLib {
@@ -241,8 +240,8 @@ class BootstrapTagLib {
 		booleanToAttribute(attrs, 'readonly')
 		
 		// get the localized format for dates. NOTE: datepicker only uses Lowercase syntax and does not understand hours, seconds, etc. (it uses: dd, d, mm, m, yyyy, yy)
-		def messageSource = ApplicationHolder.application.mainContext.getBean('messageSource')
-		String dateFormat = messageSource.getMessage("default.date.datepicker.format",null,null,LocaleContextHolder.locale )
+		def messageSource = grailsAttributes.messageSource 
+ 		String dateFormat = messageSource.getMessage("default.date.datepicker.format",null,null,LocaleContextHolder.locale )
 		if (!dateFormat) { // if date.datepicker.format is not used use date.format but remove characters not used by datepicker
 			dateFormat = messageSource.getMessage("default.date.format",null,'mm/dd/yyyy',LocaleContextHolder.locale )\
 				.replace('z', '').replace('Z', '')\
@@ -256,7 +255,7 @@ class BootstrapTagLib {
 				.toLowerCase()
 		}
 		String formattedDate = g.formatDate(format: dateFormat.replace('m', 'M'), date: c?.getTime())
-		out.println "	<input id=\"${id}\" name=\"${name}\" class=\"date\" size=\"16\" type=\"text\" value=\"${formattedDate}\" data-date-format=\"${dateFormat}\"/>"
+		out.println "	<input id=\"${id}\" name=\"${name}\" class=\"datepicker\" size=\"16\" type=\"text\" value=\"${formattedDate}\" data-date-format=\"${dateFormat}\"/>"
 	}
 	
 	/**

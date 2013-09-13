@@ -85,6 +85,8 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Changelog ==
+'''0.9.8''' Upgraded to Grails 2.2.4. Updated several plugin dependencies. Added Flag for China (zh.png). Updated Datepicker plugin. <br/>
+'''0.9.7''' Integrated fixes by Craig Sherstan (csherstan) <br/>
 '''0.9.6''' Updated to Bootstrap 2.3.1 with lesscss 1.3.3 <br/>
 '''0.9.5''' Reduced to the max: removed skin/layout switching. Removed build and metrics calculation. Works on PAAS with less files. <br/>
 '''0.9.4''' Integrated Font Awesome using the Grails Font Awesome Resources Plugin by Eamonn O'Connell<br/>

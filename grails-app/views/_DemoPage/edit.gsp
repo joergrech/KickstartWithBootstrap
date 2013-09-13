@@ -1,4 +1,4 @@
-<%@ page import="kickstartwithbootstrapgrailsplugin._DemoPage" %>
+<%@ page import="kickstart._DemoPage" %>
 <!doctype html>
 <html>
 

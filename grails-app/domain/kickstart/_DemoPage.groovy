@@ -1,4 +1,4 @@
-package kickstartwithbootstrapgrailsplugin
+package kickstart
 
 /**
  * _DemoPage
