@@ -84,6 +84,9 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 ** Copyright 2011-2013 Joerg Rech 
 ** see http://joerg-rech.com and follow @JoergRech
 
+== Backlog ==
+'''0.9.9''' Integrated Bootstrap 3.0 <br/>
+
 == Changelog ==
 '''0.9.8''' Upgraded to Grails 2.2.4. Updated several plugin dependencies. Added Flag for China (zh.png). Updated Datepicker plugin. <br/>
 '''0.9.7''' Integrated fixes by Craig Sherstan (csherstan) <br/>
