@@ -13,6 +13,10 @@ class UrlMappings {
 		"/imprint"		(view:"/siteinfo/imprint")
 		"/nextSteps"	(view:"/home/nextSteps")
 		
+		// Just for testing purposes:
+		"/auth"			(view:"/login/auth")
+		"/denied"		(view:"/login/denied")
+		
 		/* 
 		 * Pages with controller
 		 * WARN: No domain/controller should be named "api" or "mobile" or "web"!

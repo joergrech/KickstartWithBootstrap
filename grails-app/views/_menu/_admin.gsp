@@ -1,4 +1,4 @@
-<ul class="nav pull-right">
+<%--<ul class="nav pull-right">--%>
 	<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
     		<i class="icon-wrench"></i>
@@ -39,4 +39,4 @@
 			</li>
 		</ul>
 	</li>
-</ul>
+<%--</ul>--%>

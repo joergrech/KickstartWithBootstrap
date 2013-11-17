@@ -1,7 +1,7 @@
 <g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE' ?: org.springframework.web.servlet.support.RequestContextUtils.getLocale(request).toString().substring(0,2)}"/>
 <g:set var="currentURL" value="${request.forwardURI}"/>
 
-<ul class="nav secondary-nav language-dropdown pull-right">
+<%--<ul class="nav secondary-nav language-dropdown pull-right">--%>
 	<li class="dropdown dropdown-btn js-language-dropdown">
 		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="javascript:;">
 			<img class="" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/flags',file: lang.toString()+'.png')}" />
@@ -27,4 +27,4 @@
 
 		</ul>
 	</li>
-</ul>
+<%--</ul>--%>

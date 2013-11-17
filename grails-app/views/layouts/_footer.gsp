@@ -1,7 +1,7 @@
 <footer class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="span2">
+			<div class="col-lg-2">
 				<h4>Product</h4>
 				<ul class="unstyled">
 					<li>
@@ -22,7 +22,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="span2">
+			<div class="col-lg-2">
 				<h4>Company</h4>
 				<ul class="unstyled">
 					<li>
@@ -39,7 +39,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="span8">
+			<div class="col-lg-8">
 				<h4> Information </h4>
 				<p>Designed and built with Twitter's <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>. 
 				Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. 

@@ -30,28 +30,28 @@
 	</section>
 
 	<section id="info">
-		<div class="row-fluid">
-	    	<div class="span4">
+		<div class="row">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<img class="frontpageImage" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/frontpage',file: 'bs-docs-twitter-github.png')}" />
-					<h3>Bootstrap 2.3.0</h3>
+					<h3>Bootstrap 3.0.2</h3>
 				</div>
 				<p>Kickstart uses <a href ="http://twitter.github.com/bootstrap/">Bootstrap</a> to render the web pages. 
 				Bootstrap is made by Mark Otto (<a href="http://twitter.com/mdo">@mdo</a>) and Billy Gates (<a href="http://twitter.com/fat">@fat</a>).
 				Bootstrap is designed to help people of all skill levels as a complete kit or to start something more complex.
 				</p>
 			</div>
-	    	<div class="span4">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<i class="icon-flag icon-7x" style="font-size: 7em;"></i>
-					<h3>Font Awesome 3.0.2</h3>
+					<h3>Font Awesome 3.2.1</h3>
 				</div>
 				<p>Kickstart uses <a href ="http://fortawesome.github.com/Font-Awesome">Font Awesome</a> to render scalable icons using a vector font. 
 				Font Awesome is a pictographic language of web-related actions by Dave Gandy.
 				Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.  
 				</p>
 			</div>
-	    	<div class="span4">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<img class="frontpageImage" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/frontpage',file: 'html5css3js8.png')}"/>
 					<h3>Tech Foundation</h3>
@@ -66,15 +66,15 @@
 	</section>
 
 	<section id="info2">
-		<div class="row-fluid">
-	    	<div class="span4">
+		<div class="row">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<img class="" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/frontpage',file: 'Datepicker.png')}" />
 					<h3>Datepicker</h3>
 				</div>
 				<p>Kickstart uses the <a href ="https://github.com/eternicode/bootstrap-datepicker">Datepicker for Bootstrap</a> by Stefan Petre and Andrew Rowls</p>
 			</div>
-	    	<div class="span4">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<img class="" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/frontpage',file: 'flags_preview_large.png')}" />
 					<h3>Language Selector</h3>
@@ -82,7 +82,7 @@
 				<p>Kickstart contains a language selector that uses the <a href="http://www.famfamfam.com/lab/icons/flags/">FamFamFam flag icons</a> by Mark James.
 				It automatically detects which languages are available and offers them in a dropdown menu.</p>
 			</div>
-	    	<div class="span4">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<img class="frontpageImage" src="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images/frontpage',file: 'browser_logos.png')}" />
 					<h3>Browser support</h3>
@@ -94,13 +94,13 @@
 
 	<section id="info3">
 		<div class="row">
-	    	<div class="span4">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<h3>Other Features</h3>
 				</div>
 				<p>Kickstart contains several pages as starting points for the average website such as an About Page, Contact Page, 404, etc.</p>
 			</div>
-	    	<div class="span4">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<h3>Usage</h3>
 				</div>
@@ -110,7 +110,7 @@
 					views) - <b>you should use it only on fresh new Grails projects</b>.
 				</p>
 			</div>
-	    	<div class="span4">
+	    	<div class="col-md-4">
 		    	<div class="center">
 					<h3>Notes</h3>
 				</div>
@@ -121,7 +121,7 @@
 					<li>I18N is only available for English and German!</li>
 				</ul>
 			</div>
-<%--	    	<div class="span4">--%>
+<%--	    	<div class="col-md-4">--%>
 <%--		    	<div class="center">--%>
 <%--					<h3>Terms of Use</h3>--%>
 <%--				</div>--%>

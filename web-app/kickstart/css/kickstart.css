@@ -2,12 +2,29 @@
  * CSS fix for the logo & brand in the topbar/navbar section
  */
 
-.navbar img.logo	{ max-height: 20px; margin-top: -3px;}
+body { padding-top: 50px; }
+.navbar img.logo	{ 
+/*	max-height: 20px;  */
+	margin-top: -3px;
+}
 .navbar .brand		{ padding: 10px 20px 10px 20px; }
 .navbar .version	{ font-size: 60%; line-height: 60%; }
 .navbar-inverse .navbar-inner {
     background-image: -moz-linear-gradient(center top , #444444, #111111);
 }
+/* Bootstrap 3 fixes */
+.navbar-brand {
+/* 	margin-left: 0px; */
+	line-height: 18px;
+}
+
+.navbar-form {
+    margin:	0;
+    padding-left:	0px;
+    padding-bottom:	0px;
+    padding-top:	8px;
+}
+
 .dropdown-menu .form-container {
 	padding: 15px 15px 10px 15px; 
 }
@@ -40,17 +57,21 @@ form p:last-child input {
  * CSS for the Header section (blue background, etc.)
  */
 
+.jumbotron {
+    margin-bottom: 0px;
+}
+
 #Header {
-	background-color: #049cd9;
-	background-repeat: no-repeat;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
-	background-image: -webkit-linear-gradient(#004D9F, #049cd9);
-	background-image: -moz-linear-gradient(#004D9F, #049cd9);
-	background-image: -o-linear-gradient(top, #004D9F, #049cd9);
-	background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); /* IE8 and down */
+/* 	background-color: #049cd9; */
+/* 	background-repeat: no-repeat; */
+/* 	background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9)); */
+/* 	background-image: -webkit-linear-gradient(#004D9F, #049cd9); */
+/* 	background-image: -moz-linear-gradient(#004D9F, #049cd9); */
+/* 	background-image: -o-linear-gradient(top, #004D9F, #049cd9); */
+/* 	background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9)); */
+/* 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); IE8 and down */
 	
-	margin: 40px 0 0 0;
+/* 	margin: 40px 0 0 0; */
 }
 
 #Header .inner {
@@ -60,11 +81,23 @@ form p:last-child input {
 	   -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
 			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
 }
-#Header .title		{ font-size: 72px; line-height: 72px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
+#Header .title		{ 
+/* 	font-size: 72px;  */
+/* 	line-height: 72px;  */
+/* 	font-weight: normal;  */
+/* 	text-decoration: none;  */
+	text-align: center; 
+/* 	color: #fff;  */
+}
 #Header .lead		{ font-size: 18px; line-height: 18px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
+
 
 footer {
 	margin-top: 70px;
+}
+.unstyled {
+	list-style-type: none;
+	padding-left: 0;
 }
 
 @media (max-width: 980px) {
@@ -73,6 +106,9 @@ footer {
 	}
 	#Header .inner {
 		padding: 80px 20px;
+	}
+	footer {
+		min-width: 0;
 	}
 	.navbar-fixed-top {
 		position: static;
@@ -185,8 +221,44 @@ section.first {
 }
 
 
-.margin-top-none	{ margin-top: 0em; }
-.margin-top-small	{ margin-top: 1em; }
-.margin-top-medium	{ margin-top: 2em; }
-.margin-top-large	{ margin-top: 4em; }
-.margin-top-xlarge	{ margin-top: 8em; }
+/* .margin-top-none		{ margin-top: 0em; } */
+/* .margin-top-mini		{ margin-top: 0.5em; } */
+/* .margin-top-small		{ margin-top: 1em; } */
+/* .margin-top-medium		{ margin-top: 2em; } */
+/* .margin-top-large		{ margin-top: 4em; } */
+/* .margin-top-xlarge		{ margin-top: 8em; } */
+
+/* .margin-bottom-none		{ margin-bottom: 0em; } */
+/* .margin-bottom-mini		{ margin-bottom: 0.5em; } */
+/* .margin-bottom-small	{ margin-bottom: 1em; } */
+/* .margin-bottom-medium	{ margin-bottom: 2em; } */
+/* .margin-bottom-large	{ margin-bottom: 4em; } */
+/* .margin-bottom-xlarge	{ margin-bottom: 8em; } */
+
+.margin-top-none		{ margin-top:  0px; }
+.margin-top-mini		{ margin-top:  2px; }
+.margin-top-small		{ margin-top:  5px; }
+.margin-top-medium		{ margin-top: 10px; }
+.margin-top-large		{ margin-top: 15px; }
+.margin-top-xlarge		{ margin-top: 20px; }
+
+.margin-bottom-none		{ margin-bottom:  0px; }
+.margin-bottom-mini		{ margin-bottom:  2px; }
+.margin-bottom-small	{ margin-bottom:  5px; }
+.margin-bottom-medium	{ margin-bottom: 10px; }
+.margin-bottom-large	{ margin-bottom: 15px; }
+.margin-bottom-xlarge	{ margin-bottom: 20px; }
+
+.padding-left-none		{ padding-left:  0px; }
+.padding-left-mini		{ padding-left:  2px; }
+.padding-left-small		{ padding-left:  5px; }
+.padding-left-medium	{ padding-left: 10px; }
+.padding-left-large		{ padding-left: 15px; }
+.padding-left-xlarge	{ padding-left: 20px; }
+
+.padding-right-none		{ padding-right:  0px; }
+.padding-right-mini		{ padding-right:  2px; }
+.padding-right-small	{ padding-right:  5px; }
+.padding-right-medium	{ padding-right: 10px; }
+.padding-right-large	{ padding-right: 15px; }
+.padding-right-xlarge	{ padding-right: 20px; }

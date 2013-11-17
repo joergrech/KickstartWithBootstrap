@@ -18,15 +18,15 @@ class BootstrapTagLib {
 
 		def messageSource	= grailsAttributes.messageSource
 		def locale			= RCU.getLocale(request)
-
-		def total			= attrs.int('total') ?: 0
+		
+		def total			= attrs.int('total')		?: 0
 		def action			= (attrs.action ? attrs.action : (params.action ? params.action : "list"))
-		def offset			= params.int('offset') ?: 0
+		def offset			= params.int('offset')		?: 0
 		def max				= params.int('max')
-		def maxsteps		= (attrs.int('maxsteps') ?: 10)
+		def maxsteps		= (attrs.int('maxsteps')	?: 10)
 
-		if (!offset)offset	= (attrs.int('offset') ?: 0)
-		if (!max)	max		= (attrs.int('max') ?: 10)
+		if (!offset)offset	= (attrs.int('offset')		?: 0)
+		if (!max)	max		= (attrs.int('max')			?: 10)
 
 		def linkParams = [:]
 		if (attrs.params)	linkParams.putAll(attrs.params)
@@ -49,9 +49,9 @@ class BootstrapTagLib {
 
 		// display previous link when not on firststep
 		def disabledPrev = (currentstep > firststep) ? "" : "disabled"
-		//		linkTagAttrs.class = 'prevLink'
-		//		linkParams.offset = offset - max
-		writer << "<ul>"
+//		linkTagAttrs.class = 'prevLink'
+//		linkParams.offset = offset - max
+		writer << "<ul class='pagination'>"
 		writer << "<li class='prev ${disabledPrev}'>"
 		writer << link(linkTagAttrs.clone()) {
 			(attrs.prev ?: messageSource.getMessage('paginate.prev', null, messageSource.getMessage('default.paginate.prev', null, 'Previous', locale), locale))
@@ -140,19 +140,17 @@ class BootstrapTagLib {
 	*/
 	Closure datePicker = { attrs ->
 		def out = out // let x = x ?
+		def inputClasses = attrs['class']
 		def xdefault = attrs['default']
 		if (xdefault == null) {
-			xdefault = new Date()
-		}
-		else if (xdefault.toString() != 'none') {
+			xdefault =  new Date()
+		} else if (xdefault.toString() != 'none') {
 			if (xdefault instanceof String) {
 				xdefault = DateFormat.getInstance().parse(xdefault)
-			}
-			else if (!(xdefault instanceof Date)) {
+			} else if (!(xdefault instanceof Date)) {
 				throwTagError("Tag [datePicker] requires the default date to be a parseable String or a Date")
 			}
-		}
-		else {
+		} else {
 			xdefault = null
 		}
 		def years = attrs.years
@@ -160,7 +158,7 @@ class BootstrapTagLib {
 		if (years != null && relativeYears != null) {
 			throwTagError 'Tag [datePicker] does not allow both the years and relativeYears attributes to be used together.'
 		}
-	
+
 		if (relativeYears != null) {
 			if (!(relativeYears instanceof IntRange)) {
 				// allow for a syntax like relativeYears="[-2..5]". The value there is a List containing an IntRage.
@@ -200,8 +198,7 @@ class BootstrapTagLib {
 		def c = null
 		if (value instanceof Calendar) {
 			c = value
-		}
-		else if (value != null) {
+		} else if (value != null) {
 			c = new GregorianCalendar()
 			c.setTime(value)
 		}
@@ -216,15 +213,16 @@ class BootstrapTagLib {
 	
 		if (years == null) {
 			def tempyear
+			
 			if (year == null) {
 				// If no year, we need to get current year to setup a default range... ugly
 				def tempc = new GregorianCalendar()
 				tempc.setTime(new Date())
 				tempyear = tempc.get(GregorianCalendar.YEAR)
-			}
-			else {
+			} else {
 				tempyear = year
 			}
+			
 			if (relativeYears) {
 				if (relativeYears.reverse) {
 					years = (tempyear + relativeYears.toInt)..(tempyear + relativeYears.fromInt)
@@ -255,8 +253,22 @@ class BootstrapTagLib {
 				.toLowerCase()
 		}
 		String formattedDate = g.formatDate(format: dateFormat.replace('m', 'M'), date: c?.getTime())
-		out.println "	<input id=\"${id}\" name=\"${name}\" class=\"datepicker\" size=\"16\" type=\"text\" value=\"${formattedDate}\" data-date-format=\"${dateFormat}\"/>"
+		out.println "	<input id=\"${id}\" name=\"${name}\" class=\"datepicker ${inputClasses}\" size=\"16\" type=\"text\" value=\"${formattedDate}\" data-date-format=\"${dateFormat}\"/>"
 	}
+	
+	/**
+	 * A fix for Grails's datePicker to use class styling
+	 * based on http://grails.1312388.n4.nabble.com/How-to-set-css-classes-for-lt-g-datePicker-gt-td4242497.html
+	 */
+	def customDatePicker = {attrs, body ->
+		def selectClass	= attrs['class']
+		def unstyled	= g.datePicker(attrs, body)
+		def styled		= unstyled.replaceAll('name="\\S+_(day|month|year|hour|minute)"') { match, index ->
+			"${match} class=\"${selectClass}\""
+		}
+		out << styled
+	}
+	
 	
 	/**
 	* A helper tag for creating checkboxes.
@@ -340,9 +352,9 @@ class BootstrapTagLib {
 		out << ' />'
 		
 		out << """
-				<div id="btngroup" class="btn-group radiocheckbox" data-toggle="buttons-radio">
-					<div class="btn btn-small on   ${value ? 'active btn-primary' : ''}">${messageSource.getMessage(onLabel, null, onLabel, locale)}</div>
-					<div class="btn btn-small off ${!value ? 'active btn-primary' : ''}">${messageSource.getMessage(offLabel, null, offLabel, locale)}</div>
+				<div id="btn-group" class="btn-group radiocheckbox" data-toggle="buttons-radio">
+					<button class="btn btn-sm on   ${value ? 'active btn-primary' : ''}">${messageSource.getMessage(onLabel, null, onLabel, locale)}</button>
+					<button class="btn btn-sm off ${!value ? 'active btn-primary' : ''}">${messageSource.getMessage(offLabel, null, offLabel, locale)}</button>
 				</div>
 		"""
 	}

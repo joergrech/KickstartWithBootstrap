@@ -77,7 +77,7 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 
 == Terms of Use ==
 
-* Web Layout: [http://twitter.github.com/bootstrap/ Bootstrap 2.1], from Twitter Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)
+* Web Layout: [http://twitter.github.com/bootstrap/ Bootstrap 3.0.2], from Twitter Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. (@TwBootstrap , http://twitter.github.com/bootstrap/)
 * Datepicker: [https://github.com/eternicode/bootstrap-datepicker Datepicker for Bootstrap], Copyright 2012 Stefan Petre, Improvements by Andrew Rowls, Licensed under the Apache License v2.0
 * Flag Icons: [http://www.famfamfam.com/lab/icons/flags/ FamFamFam Flag Icons] by Mark James. They are <i>"available for free use for any purpose with no requirement for attribution"</i>.
 * Kickstart Plugins: Code licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
@@ -85,9 +85,10 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Backlog ==
-'''0.9.9''' Integrated Bootstrap 3.0 <br/>
+'''1.0.0''' Upgrade to Grail 2.3 <br/>
 
 == Changelog ==
+'''0.9.9''' Upgraded to Bootstrap 3.0.2. <br/>
 '''0.9.8''' Upgraded to Grails 2.2.4. Updated several plugin dependencies. Added Flag for China (zh.png). Updated Datepicker plugin. <br/>
 '''0.9.7''' Integrated fixes by Craig Sherstan (csherstan) <br/>
 '''0.9.6''' Updated to Bootstrap 2.3.1 with lesscss 1.3.3 <br/>

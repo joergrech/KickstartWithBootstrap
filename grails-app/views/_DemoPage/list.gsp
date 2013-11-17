@@ -13,7 +13,7 @@
 	
 <section id="list-_DemoPage" class="first">
 
-	<table class="table table-bordered">
+	<table class="table table-bordered margin-top-medium">
 		<thead>
 			<tr>
 			
@@ -51,7 +51,7 @@
 		</g:each>
 		</tbody>
 	</table>
-	<div class="pagination">
+	<div class="container">
 		<bs:paginate total="${_DemoPageInstanceTotal}" />
 	</div>
 </section>

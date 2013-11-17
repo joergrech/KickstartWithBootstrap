@@ -1,20 +1,12 @@
 <div id="Content" class="container">
 	<!-- Main menu in one row (e.g., controller entry points -->
 	<g:if test="${!layout_nomainmenu}">
-	<div class="row">
-		<div class="span12">
-			<g:render template="/_menu/menubar"/>
-		</div>
-	</div>
+		<g:render template="/_menu/menubar"/>
 	</g:if>
 	
 	<!-- Secondary menu in one row (e.g., actions for current controller) -->
 	<g:if test="${!layout_nosecondarymenu}">
-	<div class="row">
-		<div class="span12">
-			<g:render template="/_menu/submenubar"/>														
-		</div>
-	</div>
+		<g:render template="/_menu/submenubar"/>														
 	</g:if>
 
 	<!-- print system messages (infos, warnings, etc) - not validation errors -->

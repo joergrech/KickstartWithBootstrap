@@ -13,7 +13,7 @@
 	
 <section id="list-${domainClass.propertyName}" class="first">
 
-	<table class="table table-bordered">
+	<table class="table table-bordered margin-top-medium">
 		<thead>
 			<tr>
 			<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
@@ -47,7 +47,7 @@
 		</g:each>
 		</tbody>
 	</table>
-	<div class="pagination">
+	<div class="container">
 		<bs:paginate total="\${${propertyName}Total}" />
 	</div>
 </section>

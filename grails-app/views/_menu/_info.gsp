@@ -1,4 +1,4 @@
-<ul class="nav pull-right">
+<%--<ul class="nav pull-right">--%>
 	<li class="dropdown dropdown-btn">
 		
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -33,4 +33,4 @@
 <%--			<li class=""><a href="${createLink(uri: '/terms')}"><i>Terms of Use</i></a></li>--%>
 		</ul>
 	</li>
-</ul>
+<%--</ul>--%>
