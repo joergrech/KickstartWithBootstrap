@@ -3,11 +3,11 @@
 *.zip
 */.svn/*
 
-#
 # Grails specific
-#
-
 stacktrace.log
 target/stacktrace.log
 /.link_to_grails_plugins
 prodDb*
+
+# Windows specific
+Thumbs.db
