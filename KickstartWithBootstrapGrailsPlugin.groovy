@@ -10,7 +10,7 @@ Kickstart is a plugin for Grails to start your project with a good looking front
 It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap \
 frontend framework initiated by Twitter."""
 	
-    def grailsVersion	= "2.0 > * > 2.3"																			// the version or versions of Grails the plugin is designed for
+    def grailsVersion	= "2.0 > * "																			// the version or versions of Grails the plugin is designed for
     def dependsOn		= [:]																						// the other plugins this plugin depends on
 	def pluginExcludes	= [																							// resources that are excluded from plugin packaging
 //            "grails-app/views/error.gsp"
