@@ -2,16 +2,14 @@ package kickstart
 
 class KickstartFilters {
 
-    def filters = {
-        all() {
-            before = {
+	def filters = {
+		kickstartLogger() {
+			before = {
 				// Small "logging" filter for controller & actions
-				log.info(!params.controller ? '/: ' + params : params.controller +"."+(params.action ?: "index")+": "+params)
+				if (log.infoEnabled) {
+					log.info(!params.controller ? '/: ' + params : params.controller +"."+(params.action ?: "index")+": "+params)
+				}
 			}
-			after = {
-            }
-            afterView = {
-            }
-        }
-    }
+		}
+	}
 }

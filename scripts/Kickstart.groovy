@@ -15,12 +15,11 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	depends(checkVersion, parseArguments)
 
 	event "StatusUpdate", ['\nNOTE: execution in eclipse (STS, GGTS) might result in the erroneous messages "Invalid input. Must be one of" --> Just ignore them!\n']
-	
+
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src"
 	targetDir = "${basedir}/grails-app/conf/"
 	copy("${sourceDir}/UrlMappings.groovy",	targetDir,			"URLMappings.groovy",	code)
-//	copy("${sourceDir}/resources.groovy",	targetDir+"spring/","resources.groovy",		code)
-	
+
 	// copy less files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/less"
 	targetDir = "${basedir}/web-app/less"
@@ -37,12 +36,12 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	ant.move(file: targetDir+'/index.gsp', tofile: targetDir+'/old_index.gsp')
 	ant.move(file: targetDir+'/error.gsp', tofile: targetDir+'/old_error.gsp')
 	copy(sourceDir, targetDir, "layouts & base GSPs files", code)
-	
+
 	// copy resource files into project
 //	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/conf/KickstartResources.groovy"
 //	targetDir = "${basedir}/grails-app/conf/"
 //	copy(sourceDir, targetDir, "resource files", code)
-	
+
 	// inject plugin specific configs into Config.groovy
 //	def configFile = new File("${basedir}/grails-app/conf/Config.groovy")
 //	if (!configFile.text.contains("KickstartResources")) {
@@ -63,7 +62,7 @@ copy = {String source, String target, String confirmText, String confirmCode ->
 	def overwrite = confirmAll ? true : false
 //	def newCode = confirmCode + confirmCount++
 	def input = ""
-	
+
 	// only if directory already exists, ask to overwrite it
 	if (new File(target).exists()) {
 		if (isInteractive && !overwrite) 						input = grailsConsole.userInput('Overwrite '+confirmText+'? ', ["y","n","a"] as String[])
@@ -73,9 +72,9 @@ copy = {String source, String target, String confirmText, String confirmCode ->
 		ant.mkdir(dir: target)
 		overwrite = true	// nothing to overwrite but will be copied (state this in the event message)
 	}
-	
+
 	if (new File(source).isDirectory()) ant.copy(todir: "$target", overwrite: overwrite) { fileset dir:  "$source" }
-	else 								ant.copy(todir: "$target", overwrite: overwrite) { fileset file: "$source" }  
+	else 								ant.copy(todir: "$target", overwrite: overwrite) { fileset file: "$source" }
 
 	event "StatusUpdate", ["... ${confirmText} ${overwrite ? '' : 'not '}installed!"]
 }

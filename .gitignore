@@ -1,13 +1,12 @@
 /target
 /target-eclipse
 *.zip
+plugin.xml
 */.svn/*
 
 # Grails specific
-stacktrace.log
-target/stacktrace.log
+*.log
 /.link_to_grails_plugins
-prodDb*
 
 # Windows specific
 Thumbs.db
