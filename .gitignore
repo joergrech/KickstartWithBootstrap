@@ -26,10 +26,12 @@
 
 # eclipse specific
 plugin.xml
-.classpath
-.project
+/.classpath
+/.project
 .settings
 /target-eclipse
+org.eclipse.core.resources.prefs
+org.eclipse.jdt.groovy.core.prefs
 
 # IDEA specific
 .idea
