@@ -26,7 +26,7 @@
 		<link>
 			<name>.link_to_grails_plugins</name>
 			<type>2</type>
-			<location>G:/Users/Rech/.grails/2.2.4/projects/kickstartWithBootstrapGrailsPlugin/plugins</location>
+			<location>C:/Users/Rech/repos/KickstartWithBootstrap/target/plugins</location>
 		</link>
 	</linkedResources>
 </projectDescription>

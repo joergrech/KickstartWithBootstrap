@@ -88,6 +88,7 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 '''1.0.0''' Upgrade to Grail 2.3 <br/>
 
 == Changelog ==
+'''0.9.9.1''' Fixed missing search view. Integrated cleanup by Burt Beckwith. <br/>
 '''0.9.9''' Upgraded to Bootstrap 3.0.2. <br/>
 '''0.9.8''' Upgraded to Grails 2.2.4. Updated several plugin dependencies. Added Flag for China (zh.png). Updated Datepicker plugin. <br/>
 '''0.9.7''' Integrated fixes by Craig Sherstan (csherstan) <br/>

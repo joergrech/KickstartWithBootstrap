@@ -3,10 +3,6 @@ import org.apache.log4j.Level
 // configuration for plugin testing - will not be included in the plugin zip
 grails.app.context ="/"
 
-// Settings for Kickstart plugin (if the plugin is run as an App)
-kickstart.build.calculate     = true   // NOTE: this Config file needs to be compiled before the changes are recognized in the compileStart event!
-kickstart.metrics.calculate   = true   // NOTE: this Config file needs to be compiled before changes are recognized!
-
 // hide dbconsole resource files (css, js, etc.) from the resource plugin
 grails.resources.adhoc.patterns = ['/dbconsole/**']
 
@@ -21,9 +17,9 @@ grails.resources.adhoc.patterns = ['/dbconsole/**']
  */
 log4j = {
 	appenders {
-		console  name:          'stdout',
-               threshold:     Level.INFO,
-               layout:        pattern(conversionPattern: '%m%n')
+		console	name:          'stdout',
+				threshold:     Level.INFO,
+				layout:        pattern(conversionPattern: '%m%n')
 	}
 
 	info 'grails.app.filters'

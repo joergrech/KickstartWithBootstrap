@@ -8,12 +8,9 @@
 <body>
 
 	<content tag="header">
-		<header id="Header" class="jumbotron masthead">
-			<div class="inner">
-				<div class="container">
-					<h1 class="title">Technical Info about ${meta(name:'app.name')}</h1>
-					<p class="lead">This page presents some information about the ${meta(name:'app.name')} system.</p>
-				</div>
+		<header class="jumbotron masthead" id="Header">
+			<div class="container">
+				<h1 class="title">Technical Info about ${meta(name:'app.name')}</h1>
 			</div>
 		</header>
 	</content>
