@@ -85,9 +85,12 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 ** see http://joerg-rech.com and follow @JoergRech
 
 == Backlog ==
-'''1.0.0''' Upgrade to Grail 2.3 <br/>
+'''1.0.3''' Fix for Date binding (currently, the date binding does not work)<br/>
+'''1.0.2''' Fix for DatePicker (currently, the datepicker requires jQuery 1.8.3)<br/>
+'''1.0.1''' Fix for index vs list actions (currently, both are supported) <br/>
 
 == Changelog ==
+'''1.0.0''' Upgrade to Grail 2.3.4 <br/>
 '''0.9.9.1''' Fixed missing search view. Integrated cleanup by Burt Beckwith. <br/>
 '''0.9.9''' Upgraded to Bootstrap 3.0.2. <br/>
 '''0.9.8''' Upgraded to Grails 2.2.4. Updated several plugin dependencies. Added Flag for China (zh.png). Updated Datepicker plugin. <br/>

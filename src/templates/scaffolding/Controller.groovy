@@ -1,105 +1,110 @@
-<%=packageName ? "package ${packageName}\n\n" : ''%>import org.springframework.dao.DataIntegrityViolationException
+<%=packageName ? "package ${packageName}\n\n" : ''%>
+import static org.springframework.http.HttpStatus.*
+import grails.transaction.Transactional
 
 /**
  * ${className}Controller
  * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
  */
+@Transactional(readOnly = true)
 class ${className}Controller {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index() {
-        redirect(action: "list", params: params)
+	def index(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond ${className}.list(params), model:[${propertyName}Count: ${className}.count()]
     }
 
-    def list() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [${propertyName}List: ${className}.list(params), ${propertyName}Total: ${className}.count()]
+	def list(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond ${className}.list(params), model:[${propertyName}Count: ${className}.count()]
+    }
+
+    def show(${className} ${propertyName}) {
+        respond ${propertyName}
     }
 
     def create() {
-        [${propertyName}: new ${className}(params)]
+        respond new ${className}(params)
     }
 
-    def save() {
-        def ${propertyName} = new ${className}(params)
-        if (!${propertyName}.save(flush: true)) {
-            render(view: "create", model: [${propertyName}: ${propertyName}])
+    @Transactional
+    def save(${className} ${propertyName}) {
+        if (${propertyName} == null) {
+            notFound()
             return
         }
 
-		flash.message = message(code: 'default.created.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: "show", id: ${propertyName}.id)
-    }
-
-    def show() {
-        def ${propertyName} = ${className}.get(params.id)
-        if (!${propertyName}) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), params.id])
-            redirect(action: "list")
+        if (${propertyName}.hasErrors()) {
+            respond ${propertyName}.errors, view:'create'
             return
         }
 
-        [${propertyName}: ${propertyName}]
-    }
+        ${propertyName}.save flush:true
 
-    def edit() {
-        def ${propertyName} = ${className}.get(params.id)
-        if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), params.id])
-            redirect(action: "list")
-            return
-        }
-
-        [${propertyName}: ${propertyName}]
-    }
-
-    def update() {
-        def ${propertyName} = ${className}.get(params.id)
-        if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), params.id])
-            redirect(action: "list")
-            return
-        }
-
-        if (params.version) {
-            def version = params.version.toLong()
-            if (${propertyName}.version > version) {<% def lowerCaseName = grails.util.GrailsNameUtils.getPropertyName(className) %>
-                ${propertyName}.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: '${domainClass.propertyName}.label', default: '${className}')] as Object[],
-                          "Another user has updated this ${className} while you were editing")
-                render(view: "edit", model: [${propertyName}: ${propertyName}])
-                return
+        request.withFormat {
+            form {
+                flash.message = message(code: 'default.created.message', args: [message(code: '${propertyName}.label', default: '${className}'), ${propertyName}.id])
+                redirect ${propertyName}
             }
+            '*' { respond ${propertyName}, [status: CREATED] }
         }
-
-        ${propertyName}.properties = params
-
-        if (!${propertyName}.save(flush: true)) {
-            render(view: "edit", model: [${propertyName}: ${propertyName}])
-            return
-        }
-
-		flash.message = message(code: 'default.updated.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: "show", id: ${propertyName}.id)
     }
 
-    def delete() {
-        def ${propertyName} = ${className}.get(params.id)
-        if (!${propertyName}) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), params.id])
-            redirect(action: "list")
+    def edit(${className} ${propertyName}) {
+        respond ${propertyName}
+    }
+
+    @Transactional
+    def update(${className} ${propertyName}) {
+        if (${propertyName} == null) {
+            notFound()
             return
         }
 
-        try {
-            ${propertyName}.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), params.id])
-            redirect(action: "list")
+        if (${propertyName}.hasErrors()) {
+            respond ${propertyName}.errors, view:'edit'
+            return
         }
-        catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), params.id])
-            redirect(action: "show", id: params.id)
+
+        ${propertyName}.save flush:true
+
+        request.withFormat {
+            form {
+                flash.message = message(code: 'default.updated.message', args: [message(code: '${className}.label', default: '${className}'), ${propertyName}.id])
+                redirect ${propertyName}
+            }
+            '*'{ respond ${propertyName}, [status: OK] }
+        }
+    }
+
+    @Transactional
+    def delete(${className} ${propertyName}) {
+
+        if (${propertyName} == null) {
+            notFound()
+            return
+        }
+
+        ${propertyName}.delete flush:true
+
+        request.withFormat {
+            form {
+                flash.message = message(code: 'default.deleted.message', args: [message(code: '${className}.label', default: '${className}'), ${propertyName}.id])
+                redirect action:"index", method:"GET"
+            }
+            '*'{ render status: NO_CONTENT }
+        }
+    }
+
+    protected void notFound() {
+        request.withFormat {
+            form {
+                flash.message = message(code: 'default.not.found.message', args: [message(code: '${propertyName}.label', default: '${className}'), params.id])
+                redirect action: "index", method: "GET"
+            }
+            '*'{ render status: NOT_FOUND }
         }
     }
 }

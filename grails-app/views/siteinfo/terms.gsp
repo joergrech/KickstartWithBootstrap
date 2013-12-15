@@ -7,16 +7,19 @@
 
 <body>
 
-	<section id="intro">
-		<h1><g:message code="default.terms.title" args="[meta(name:'app.name')]"/></h1>
+	<section id="additional">
+		<h1><g:message code="default.terms.basic.title" args="['Kickstart']"/></h1>
+		<p>...</p>
 	</section>
 
 	<section id="additional">
-		<h1><g:message code="default.welcome.title" args="['Kickstart']"/></h1>
-		<p>Kickstart is an extension for Grails in order to start with a
-			good looking template for your project. It uses the Bootstrap web
-			page template by Twitter and provides adapted scaffolding templates
-			for standard web pages.</p>
+		<h1><g:message code="default.terms.privacy.title" args="['Kickstart']"/></h1>
+		<p>...</p>
+	</section>
+
+	<section id="additional">
+		<h1><g:message code="default.terms.copyright.title" args="['Kickstart']"/></h1>
+		<p>...</p>
 	</section>
 
 </body>

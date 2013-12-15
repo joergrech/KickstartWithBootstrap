@@ -6,12 +6,12 @@
 <head>
 	<meta name="layout" content="kickstart" />
 	<g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}" />
-	<title><g:message code="default.list.label" args="[entityName]" /></title>
+	<title><g:message code="default.index.label" args="[entityName]" /></title>
 </head>
 
 <body>
 
-<section id="list-${domainClass.propertyName}" class="first">
+<section id="index-${domainClass.propertyName}" class="first">
 
 	<table class="table table-bordered margin-top-medium">
 		<thead>

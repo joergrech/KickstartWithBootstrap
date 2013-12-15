@@ -22,7 +22,7 @@
 		</li>
 		<li class="">
 			<a href="${createLink(uri: '/terms')}">
-				<i class="icon-envelope"></i>
+				<i class="icon-legal"></i>
 				<g:message code="default.terms.label"/>
 			</a>
 		</li>

@@ -1,10 +1,9 @@
 <% import grails.persistence.Event %>
 <%=packageName%>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="layout" content="kickstart" />
 	<g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}" />
 	<title><g:message code="default.show.label" args="[entityName]" /></title>
@@ -35,9 +34,9 @@
 				</td>
 				<%  } else if (p.manyToOne || p.oneToOne) { %>
 				<td valign="top" class="value"><g:link controller="${p.referencedDomainClass?.propertyName}" action="show" id="\${${propertyName}?.${p.name}?.id}">\${${propertyName}?.${p.name}?.encodeAsHTML()}</g:link></td>
-				<%  } else if (p.type == Boolean.class || p.type == boolean.class) { %>
+				<%  } else if (p.type == Boolean || p.type == boolean) { %>
 				<td valign="top" class="value"><g:formatBoolean boolean="\${${propertyName}?.${p.name}}" /></td>
-				<%  } else if (p.type == Date.class || p.type == java.sql.Date.class || p.type == java.sql.Time.class || p.type == Calendar.class) { %>
+				<%  } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
 				<td valign="top" class="value"><g:formatDate date="\${${propertyName}?.${p.name}}" /></td>
 				<%  } else if(!p.type.isArray()) { %>
 				<td valign="top" class="value">\${fieldValue(bean: ${propertyName}, field: "${p.name}")}</td>
