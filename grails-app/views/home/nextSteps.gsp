@@ -10,6 +10,16 @@
 	<h1>Next Steps</h1>
 	
 	<section id="intro" class="first">
+		<h3>Customization</h3>
+		<p>
+			
+			<ol>
+				<li><b>Search: </b> If you want to have a search on your site you need to integrate/implement a search mechanism (e.g., using Hibernate, elasticsearch, etc.). Currently the search form points to the controller "search" and action "viaNavBar" that you need to implement. The form can be edited in the file <pre>/grails-app/views/_menu/_search.gsp</pre></li>
+				<li><b>Login & Registration: </b> If you want users to authenticate themselves you need to integrate/implement a security / authentication  mechanism (e.g., using Spring Security or Shiro). Currently the login and registration form points the controller "login" and action "register" that you need to implement. The forms can be edited in the file <pre>/grails-app/views/_menu/_user.gsp</pre> and  <pre>/grails-app/views/_common/modals/_registerDialog.gsp</pre></li>
+				<li><b>NavBar/Menu: </b> To change the navbar (dark menu on top of page) edit the file <pre>/grails-app/views/_menu/_navbar.gsp</pre></li>
+				<li><b>Company Info: </b> To change the pages "about", "terms", or "contact" edit them in the directory <pre>/grails-app/views/siteinfo/</pre></li>
+			</ol>
+		</p>
 		<h3>Authentication via Spring Security</h3>
 		<p>
 			If you want to provide an authentication system I recommend 

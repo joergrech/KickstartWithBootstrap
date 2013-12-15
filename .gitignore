@@ -27,6 +27,7 @@
 # eclipse specific
 plugin.xml
 /.classpath
+.classpath
 /.project
 .settings
 /target-eclipse
