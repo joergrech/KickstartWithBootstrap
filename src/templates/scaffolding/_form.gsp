@@ -10,7 +10,7 @@
 			persistentPropNames << domainClass.identifier.name
 		}
 	}
-	props = domainClass.properties.findAll { persistentPropNames.contains(it.name) && !excludedProps.contains(it.name) }
+	props = domainClass.properties.findAll { persistentPropNames.contains(it.name) && !excludedProps.contains(it.name) && (domainClass.constrainedProperties[it.name] ? domainClass.constrainedProperties[it.name].display : true) }
 	Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
 	for (p in props) {
 		if (p.embedded) {
