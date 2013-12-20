@@ -21,12 +21,12 @@
 		<g:form method="post" class="form-horizontal" role="form" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
 			<g:hiddenField name="id" value="\${${propertyName}?.id}" />
 			<g:hiddenField name="version" value="\${${propertyName}?.version}" />
+			<g:hiddenField name="_method" value="PUT" />
 			
 			<g:render template="form"/>
 			
 			<div class="form-actions margin-top-medium">
 				<g:actionSubmit class="btn btn-primary" action="update" value="\${message(code: 'default.button.update.label', default: 'Update')}" />
-				<g:actionSubmit class="btn btn-danger" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 	            <button class="btn" type="reset"><g:message code="default.button.reset.label" default="Reset" /></button>
 			</div>
 		</g:form>

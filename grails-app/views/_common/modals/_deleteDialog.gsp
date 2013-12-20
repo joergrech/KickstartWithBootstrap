@@ -17,6 +17,7 @@ This is the standard dialog that initiates the delete action.
 				<g:form>
 					<button class="btn" data-dismiss="modal" aria-hidden="true"><g:message code="default.button.cancel.label" default="Cancel"/></button>
 					<g:hiddenField name="id" value="${item ? item.id : params.id}" />
+					<g:hiddenField name="_method" value="DELETE" />
 					<span class="button"><g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}"/></span>
 				</g:form>
 			</div>
