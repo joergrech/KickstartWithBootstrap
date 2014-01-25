@@ -17,7 +17,7 @@
 		<tbody>
 		<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
 			allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
-			props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) }
+			props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) && (domainClass.constrainedProperties[it.name] ? domainClass.constrainedProperties[it.name].display : true) }
 			Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
 			props.each { p -> %>
 			<tr class="prop">
