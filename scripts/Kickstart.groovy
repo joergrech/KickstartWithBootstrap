@@ -33,8 +33,8 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	// copy view files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/grails-app/views"
 	targetDir = "${basedir}/grails-app/views"
-	ant.move(file: targetDir+'/index.gsp', tofile: targetDir+'/old_index.gsp')
-	ant.move(file: targetDir+'/error.gsp', tofile: targetDir+'/old_error.gsp')
+	ant.move(file: targetDir+'/index.gsp', tofile: targetDir+'/old_index.gsp', quiet: true, failonerror: false)
+	ant.move(file: targetDir+'/error.gsp', tofile: targetDir+'/old_error.gsp', quiet: true, failonerror: false)
 //	ant.move(file: targetDir+'/layouts/main.gsp', tofile: targetDir+'/old_main.gsp')
 	copy(sourceDir, targetDir, "layouts & base GSPs files", code)
 
