@@ -29,7 +29,7 @@ As component:
 
 Attached to non-field element, using events to work with the date values.
 
-    <div class="alert alert-error" id="alert">
+    <div class="alert alert-danger" id="alert">
         <strong>Oh snap!</strong>
     </div>
     <table class="table">

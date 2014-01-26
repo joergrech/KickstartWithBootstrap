@@ -1,4 +1,6 @@
-grails.project.work.dir = 'target'
+grails.project.class.dir		= "target/classes"
+grails.project.test.class.dir	= "target/test-classes"
+grails.project.test.reports.dir	= "target/test-reports"
 
 grails.project.dependency.resolution = {
 
@@ -15,14 +17,13 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-		build	":release:2.2.1",					{ export = false }
-		build	":rest-client-builder:1.0.3",		{ export = false }
+        build(	":release:3.0.1",
+              	":rest-client-builder:1.0.3") {
+            export = false
+        }
+		compile ":scaffolding:2.0.1"									// Needed since Grails 2.3
 
-		runtime	":jquery:1.8.3"											// needed for the Bootstrap datepicker
-//		runtime	":jquery:1.10.2.2"										// WARN: does not work with Bootstrap Datepicker !
-		runtime	":resources:1.2"										// needed for Bootstrap's less files
-
-		compile	":lesscss-resources:1.3.3"								// needed for Bootstrap's less files
-		compile ":font-awesome-resources:3.2.1.2"						// needed for Bootstrap's image replacement
+		runtime	":resources:1.2.1"										// Needed for Bootstrap's less files
+		compile	":lesscss-resources:1.3.3"								// Needed for Bootstrap's less files
 	}
 }

@@ -2,7 +2,10 @@
  * CSS fix for the logo & brand in the topbar/navbar section
  */
 
-body { padding-top: 50px; }
+body {
+	padding-top: 50px;
+}
+
 .navbar img.logo	{ 
 /*	max-height: 20px;  */
 	margin-top: -3px;
@@ -23,6 +26,11 @@ body { padding-top: 50px; }
     padding-left:	0px;
     padding-bottom:	0px;
     padding-top:	8px;
+}
+
+.navbar-form .nav-search {
+    margin-top:	4px;
+	height: 26px;
 }
 
 .dropdown-menu .form-container {
@@ -101,6 +109,9 @@ footer {
 }
 
 @media (max-width: 980px) {
+	body {
+		padding-top: 0px;
+	}
 	#Header {
 		margin: 0px -20px 0px -20px;
 	}

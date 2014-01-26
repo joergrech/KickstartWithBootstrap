@@ -18,7 +18,7 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 
 	sourceDir = "${kickstartWithBootstrapPluginDir}/src"
 	targetDir = "${basedir}/grails-app/conf/"
-	copy("${sourceDir}/UrlMappings.groovy",	targetDir,			"URLMappings.groovy",	code)
+	copy("${sourceDir}/UrlMappings.groovy",	targetDir, "URLMappings.groovy",	code)
 
 	// copy less files into project
 	sourceDir = "${kickstartWithBootstrapPluginDir}/web-app/less"
@@ -35,6 +35,7 @@ target(kickstart: "Installs the Kickstart scaffolding templates and other files"
 	targetDir = "${basedir}/grails-app/views"
 	ant.move(file: targetDir+'/index.gsp', tofile: targetDir+'/old_index.gsp')
 	ant.move(file: targetDir+'/error.gsp', tofile: targetDir+'/old_error.gsp')
+//	ant.move(file: targetDir+'/layouts/main.gsp', tofile: targetDir+'/old_main.gsp')
 	copy(sourceDir, targetDir, "layouts & base GSPs files", code)
 
 	// copy resource files into project

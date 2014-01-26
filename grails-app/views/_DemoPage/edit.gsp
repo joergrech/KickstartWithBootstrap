@@ -14,7 +14,7 @@
 <section id="edit-_DemoPage" class="first">
 
 	<g:hasErrors bean="${_DemoPageInstance}">
-	<div class="alert alert-error">
+	<div class="alert alert-danger">
 		<g:renderErrors bean="${_DemoPageInstance}" as="list" />
 	</div>
 	</g:hasErrors>

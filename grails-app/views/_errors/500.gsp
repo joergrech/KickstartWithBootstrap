@@ -9,7 +9,7 @@
   <body>
   
 	<section id="overview" class="">
-    	<div class="alert alert-error">
+    	<div class="alert alert-danger">
 			${request.'javax.servlet.error.message'.indexOf(':') != -1 ? request.'javax.servlet.error.message'?.substring(0, request.'javax.servlet.error.message'?.indexOf(':')).encodeAsHTML() : request.'javax.servlet.error.message'?.encodeAsHTML()}
 			<g:if test="${request.'javax.servlet.error.message' == null}">
 			</g:if>

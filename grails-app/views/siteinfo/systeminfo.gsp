@@ -21,8 +21,6 @@
 			<li>Web Layout: <a href ="http://twitter.github.com/bootstrap/">Bootstrap</a>, from Twitter 
 	        	Licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0. 
 	        	(@TwBootstrap , http://twitter.github.com/bootstrap/)</li>
-			<li>Icons: <a href ="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>, by Dave Gandy. 
-	        	Licensed under the <a href="http://fortawesome.github.com/Font-Awesome/#license">SIL Open Font License, MIT License, and CC BY 3.0 License.</a></li>
 	        <li>Datepicker: <a href ="https://github.com/eternicode/bootstrap-datepicker">Datepicker for Bootstrap</a>, 
 	        	Copyright 2012 Stefan Petre, Improvements by Andrew Rowls, Licensed under the Apache License v2.0</li>
 			<li>Flag Icons: <a href="http://www.famfamfam.com/lab/icons/flags/">FamFamFam Flag Icons</a> by Mark James. They are 
@@ -54,7 +52,6 @@
 	         <g:each var="plugin" in="${pluginManager.allPlugins.sort { it.name }}">
 	             <li>${plugin.name} - ${plugin.version}</li>
 	         </g:each>
-	
 	     </ul>
 	</section>
 

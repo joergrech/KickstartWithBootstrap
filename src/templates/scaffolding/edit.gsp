@@ -13,7 +13,7 @@
 	<section id="edit-${domainClass.propertyName}" class="first">
 
 		<g:hasErrors bean="\${${propertyName}}">
-		<div class="alert alert-error">
+		<div class="alert alert-danger">
 			<g:renderErrors bean="\${${propertyName}}" as="list" />
 		</div>
 		</g:hasErrors>

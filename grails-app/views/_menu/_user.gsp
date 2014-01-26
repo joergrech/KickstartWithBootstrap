@@ -5,7 +5,7 @@
 
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			<!-- TODO: integrate Springsource Security etc. and show User's name ... -->
-    		<i class="icon-user"></i>
+    		<i class="glyphicon glyphicon-user"></i>
     		<g:message code="security.signin.label"/><b class="caret"></b>
 		</a>
 
@@ -32,24 +32,24 @@
 <%----%>
 <%--		<a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">--%>
 <%--			<!-- TODO: Only show menu items based on permissions (e.g., Guest has no account page) -->--%>
-<%--			<i class="icon-user icon-white"></i>--%>
+<%--			<i class="glyphicon glyphicon-user icon-white"></i>--%>
 <%--			${user.name}--%>
 <%--			<g:message code="default.user.unknown.label" default="Guest"/> <b class="caret"></b>--%>
 <%--		</a>--%>
 <%--		<ul class="dropdown-menu" role="menu">--%>
 <%--			<!-- TODO: Only show menu items based on permissions -->--%>
 <%--			<li class=""><a href="${createLink(uri: '/')}">--%>
-<%--				<i class="icon-user"></i>--%>
+<%--				<i class="glyphicon glyphicon-user"></i>--%>
 <%--				<g:message code="user.show.label"/>--%>
 <%--			</a></li>--%>
 <%--			<li class=""><a href="${createLink(uri: '/')}">--%>
-<%--				<i class="icon-cogs"></i>--%>
+<%--				<i class="glyphicon glyphicon-cogs"></i>--%>
 <%--				<g:message code="user.settings.change.label"/>--%>
 <%--			</a></li>--%>
 <%--			--%>
 <%--			<li class="divider"></li>--%>
 <%--			<li class=""><a href="${createLink(uri: '/')}">--%>
-<%--				<i class="icon-off"></i>--%>
+<%--				<i class="glyphicon glyphicon-off"></i>--%>
 <%--				<g:message code="security.signoff.label"/>--%>
 <%--			</a></li>--%>
 <%--		</ul>--%>

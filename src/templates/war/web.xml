@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.0"
+<web-app version="2.5"
          metadata-complete="true"
          xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     <display-name>/@grails.project.key@</display-name>
 
@@ -45,7 +45,6 @@
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>ERROR</dispatcher>
-
     </filter-mapping>
 
     <listener>
@@ -61,7 +60,6 @@
             <param-value>true</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
-        <async-supported>true</async-supported>
     </servlet>
 
     <!-- The Groovy Server Pages servlet -->

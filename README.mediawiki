@@ -84,12 +84,16 @@ Please note that the '''datepicker''' can handle dates after the year 9999 while
 ** Copyright 2011-2013 Joerg Rech 
 ** see http://joerg-rech.com and follow @JoergRech
 
-== Backlog ==
-'''1.0.3''' Fix for Date binding (currently, the date binding does not work)<br/>
-'''1.0.2''' Fix for DatePicker (currently, the datepicker requires jQuery 1.8.3)<br/>
-'''1.0.1''' Fix for index vs list actions (currently, both are supported) <br/>
+== Backlog: Work required / Problems ==
+'''1.x.1''' Fix for Date binding (currently, the date binding does not work)<br/>
+'''1.x.2''' Fix for DatePicker (currently, the datepicker requires jQuery 1.8.3)<br/>
+'''1.x.3''' Fix for index vs list actions (currently, both are supported) <br/>
 
 == Changelog ==
+'''1.1.0''' Fresh setup on a newly created Grail 2.3.5 plugin project. Update to Grails 2.3.5.<br/>
+'''1.0.5''' Removed dependency for Font-Awesome (Bootstrap uses Glyphicon's Icon-Font now)<br/>
+'''1.0.4''' Correction of "alert-error" into "alert-danger" - changed in Bootstrap 3 (Tip by Leo Bartoloni)<br/>
+'''1.0.3''' Fix for display:none in scaffolding (Merged by "stlhrt") <br/>
 '''1.0.0''' Upgrade to Grail 2.3.4 <br/>
 '''0.9.9.1''' Fixed missing search view. Integrated cleanup by Burt Beckwith. <br/>
 '''0.9.9''' Upgraded to Bootstrap 3.0.2. <br/>
