@@ -4,7 +4,6 @@ modules = {
 
 	/* Bootstrap definitions without less (if resource processing is switched off) */
 	'bootstrap' {
-		resource url: [dir: 'bootstrap/js/tests/vendor',file: 'jquery.js']
 		resource url: [dir: 'bootstrap/dist/js',		file: 'bootstrap.js']
 		resource url: [dir: 'bootstrap/dist/css',		file: 'bootstrap.css']
 	}
