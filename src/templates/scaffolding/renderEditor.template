@@ -92,7 +92,7 @@
     private renderManyToOne(domainClass,property) {
         if (property.association) {
 			def sb = new StringBuilder()
-            sb << '<g:select class="form-control"'
+            sb << '<g:select class="form-control many-to-one"'
 			// id is "x" and name is "x.id" as the label will have for="x" and "." in an id will confuse CSS
  			sb << ' id="' << property.name << '"'
  			sb << ' name="' << property.name << '.id"'
@@ -100,7 +100,6 @@
  			sb << ' optionKey="id"'
 			if (isRequired()) sb << ' required=""'
  			sb << ' value="${' << "${domainInstance}?.${property.name}" << '?.id}"'
- 			sb << ' class="many-to-one"'
  			sb << renderNoSelection(property)
  			sb << '/>'
 			sb as String
@@ -117,14 +116,13 @@
 
         if(cls != null) {
             def sb = new StringBuilder()
-            sb << '<g:select class="form-control" name="' << property.name << '"'
+            sb << '<g:select class="form-control many-to-many" name="' << property.name << '"'
             sb << ' from="${' << cls.name << '.list()}"'
             sb << ' multiple="multiple"'
             sb << ' optionKey="id"'
             sb << ' size="5"'
             if (isRequired()) sb << ' required=""'
             sb << ' value="${' << "${domainInstance}?.${property.name}" << '*.id}"'
-            sb << ' class="many-to-many"'
             sb << '/>'
             sb as String
 
@@ -150,16 +148,15 @@
     private renderNumberEditor(domainClass, property) {
         if (!cp) {
             if (property.type == Byte) {
-                return "<g:select class='form-control' name=\"${property.name}\" from=\"\${-128..127}\" class=\"range\" value=\"\${fieldValue(bean: ${domainInstance}, field: '${property.name}')}\" />"
+                return "<g:select class='form-control range' name=\"${property.name}\" from=\"\${-128..127}\" value=\"\${fieldValue(bean: ${domainInstance}, field: '${property.name}')}\" />"
             } else {
                 return "<g:field class='form-control' type=\"number\" name=\"${property.name}\" value=\"\${${domainInstance}.${property.name}}\" />"
             }
         } else {
 	        def sb = new StringBuilder()
             if (cp.range) {
-                sb << '<g:select class="form-control" name="' << property.name << '"'
+                sb << '<g:select class="form-control range" name="' << property.name << '"'
  				sb << ' from="${' << "${cp.range.from}..${cp.range.to}" << '}"'
- 				sb << ' class="range"'
 				if (isRequired()) sb << ' required=""'
 				sb << ' value="${' << "fieldValue(bean: ${domainInstance}, field: '${property.name}')" << '}"'
 				sb << renderNoSelection(property)
