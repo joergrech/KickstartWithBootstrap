@@ -1,7 +1,5 @@
-@artifact.package@/**
- * @artifact.name@
- * A service class encapsulates the core business logic of a Grails application
- */
+@artifact.package@import grails.transaction.Transactional
+
 @Transactional
 class @artifact.name@ {
 

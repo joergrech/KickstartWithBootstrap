@@ -1,5 +1,3 @@
 @artifact.package@class @artifact.name@ {
-
-    static constraints = {
-    }
+    static scaffold = true
 }
