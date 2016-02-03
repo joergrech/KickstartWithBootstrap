@@ -21,9 +21,9 @@ grails.project.dependency.resolution = {
               	":rest-client-builder:1.0.3") {
             export = false
         }
-		compile ":scaffolding:2.0.1"									// Needed since Grails 2.3
+		compile ":scaffolding:2.1.1"									// Needed since Grails 2.3
 
-		runtime	":resources:1.2.1"										// Needed for Bootstrap's less files
+		runtime ":resources:1.2.9" 								// Needed for Bootstrap's less files
 		compile	":lesscss-resources:1.3.3"								// Needed for Bootstrap's less files
 	}
 }

@@ -32,13 +32,14 @@ private renderFieldForProperty(p, owningClass, prefix = "") {
 	boolean required = false
 	if (hasHibernate) {
 		cp = owningClass.constrainedProperties[p.name]
-		required = (cp ? !(cp.propertyType in [boolean, Boolean]) && !cp.nullable && (cp.propertyType != String || !cp.blank) : false)
-	} %>
-			<div class="\${hasErrors(bean: ${propertyName}, field: '${prefix}${p.name}', 'error')} ${required ? 'required' : ''}">
-				<label for="${prefix}${p.name}" class="control-label"><g:message code="${domainClass.propertyName}.${prefix}${p.name}.label" default="${p.naturalName}" /><% if (required) { %><span class="required-indicator">*</span><% } %></label>
-				<div>
-					${renderEditor(p)}
-					<span class="help-inline">\${hasErrors(bean: ${propertyName}, field: '${p.name}', 'error')}</span>
-				</div>
-			</div>
-<% } %>
+		required = (cp ? !(cp.propertyType in [boolean, Boolean]) && !cp.nullable : false)
+	}
+	%>
+<div class="fieldcontain \${hasErrors(bean: ${propertyName}, field: '${prefix}${p.name}', 'error')} ${required ? 'required' : ''}">
+	<label for="${prefix}${p.name}">
+		<g:message code="${domainClass.propertyName}.${prefix}${p.name}.label" default="${p.naturalName}" />
+		<% if (required) { %><span class="required-indicator">*</span><% } %>
+	</label>
+	${renderEditor(p)}
+</div>
+<%  } %>
